@@ -32,7 +32,50 @@
     <title>Hotel Eko {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top"></header>
+    <header class="container-fluid fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light navbar-bg">
+            <a class="logo-design" href="{% url 'home' %}">Hotel Eko</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse menu-font" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mr-2">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a class="nav-link" href="">About</a>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a class="nav-link" href="">Stay</a>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a class="nav-link" href="">Relax</a>
+                        </li>
+                        <li class="nav-item mr-2">
+                            <a class="nav-link" href="">Eat</a>
+                        </li>
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                <a class="nav-link" href="">My Profile</a>
+                                <a class="nav-link" href="">My Retreat</a>
+                                {% if request.user.is_superuser %}
+                                    <a class="nav-link" href="">Product Management</a>
+                                {% endif %}
+                                    <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
+                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                            {% endif %}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    </header>
 
     {% if messages %}
         <div class="message-container"></div>
