@@ -14,6 +14,8 @@
     {% block corecss %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Poiret+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -32,9 +34,10 @@
     <title>Hotel Eko {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
+    <div id="container">
     <header class="container-fluid fixed-top">
         <nav class="navbar navbar-expand-md navbar-light navbar-bg">
-            <a class="logo-design" href="{% url 'home' %}">Hotel Eko</a>
+            <a class="standard-title" id="logo-design" href="{% url 'home' %}">Hotel Eko</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,6 +85,12 @@
     {% endif %}
 
     {% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div>
     {% endblock %}
 
     {% block content %}
@@ -90,5 +99,6 @@
     {% block postloadjs %}
     {% endblock %}
 
+    </div>
   </body>
 </html>

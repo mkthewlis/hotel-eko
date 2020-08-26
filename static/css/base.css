@@ -1,0 +1,24 @@
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+.header-container {
+        padding-top: 90px;
+    }
+
+/*-------------------------------------------------------- Font & font styles*/
+
+.standard-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 40px;
+    color: #251D1D;
+}
+
+
+/*-------------------------------------------------------- Menu styles*/
+
+#logo-design {
+    font-size: 45px;
+    text-decoration: none;
+}

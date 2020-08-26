@@ -1,0 +1,11 @@
+.index-hero-image {
+    background: url('/media/index_hero_image.jpg') no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: 900px;
+}
+
+.index-title {
+    color: #F8ECED !important;
+    padding-top: 400px;
+}

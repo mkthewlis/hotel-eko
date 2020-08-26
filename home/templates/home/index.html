@@ -1,22 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
-        </div>
-    </div>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="container index-hero-image">
+    <div class="container-fluid index-hero-image">
         <div class="row">
             <div class="col">
-                <h1 class="standard-title home-title">A mountain retreat like no other</h1>
+                <h1 class="standard-title index-title float-right">A mountain retreat like no other</h1>
             </div>
         </div>
     </div>
-
 {% endblock %}
