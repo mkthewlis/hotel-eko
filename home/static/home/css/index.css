@@ -1,4 +1,6 @@
-.index-hero-image {
+/*-------------------------------------------------------- Hero image section */
+
+.index-hero-img {
     background: url('/media/index_hero_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
@@ -8,4 +10,24 @@
 .index-title {
     color: #F8ECED !important;
     padding-top: 400px;
+}
+
+/*-------------------------------------------------------- More information section */
+
+.forest-img {
+    background: url('/media/index_forest_image.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 500px;
+}
+
+/*-------------------------------------------------------- Carousel section */
+
+.carousel-item>img{
+    max-height: 600px;
+}
+
+
+.index-eat-img {
+    overflow: hidden;
 }

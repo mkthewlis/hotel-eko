@@ -9,7 +9,7 @@
     }
     */
 
-/*-------------------------------------------------------- Font & font styles*/
+/*-------------------------------------------------------- Standard font styles*/
 
 .standard-title {
     font-family: 'Poiret One', cursive;
@@ -17,6 +17,34 @@
     color: #251D1D;
 }
 
+.standard-text {
+    font-family: 'Cardo', serif;
+    font-size: 25px;
+    padding: 5%;
+}
+
+.box-title {
+    line-height: 120px;
+}
+
+/*-------------------------------------------------------- Standard box styles*/
+
+.standard-header-box {
+    min-height: 120px;
+    background-color: #F2F4F9;
+}
+
+/*-------------------------------------------------------- Standard btn styles*/
+
+.standard-btn {
+    min-width: 50px;
+    min-height: 30px;
+    color: #F2F4F9;
+    background-color: #76A1B1;
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+    cursor: pointer;
+}
 
 /*-------------------------------------------------------- Menu styles*/
 
