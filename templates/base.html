@@ -36,7 +36,7 @@
   <body>
     <div id="container">
     <header class="container-fluid fixed-top">
-        <nav class="navbar navbar-expand-md navbar-light navbar-bg">
+        <nav class="navbar navbar-expand-md navbar-light navbar-bg menu-style">
             <a class="standard-title" id="logo-design" href="{% url 'home' %}">Hotel Eko</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -63,7 +63,7 @@
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
-                                <a class="nav-link" href="">My Profile</a>
+                                <a class="nav-link" href="">My Details</a>
                                 <a class="nav-link" href="">My Retreat</a>
                                 {% if request.user.is_superuser %}
                                     <a class="nav-link" href="">Product Management</a>

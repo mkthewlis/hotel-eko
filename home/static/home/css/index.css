@@ -1,5 +1,5 @@
 .index-hero-image {
-    background: url('/media/index_hero_image.jpg') no-repeat center fixed;
+    background: url('/media/index_hero_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
     min-height: 900px;
