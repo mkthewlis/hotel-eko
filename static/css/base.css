@@ -20,10 +20,24 @@
 
 /*-------------------------------------------------------- Menu styles*/
 
+.sticky-top {
+    padding: 0px;
+}
+
 .menu-style {
-    padding-top: 0px;
     opacity: 100%;
-    min-height: 60px;
+    min-height: 50px;
+    background-color: #F2F4F9;
+}
+
+.navbar-nav .dropdown-menu {
+    background-color: #F2F4F9;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #251D1D;
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
 }
 
 #logo-design {
