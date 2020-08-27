@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!--Hero image section-->
+    <div class="container-fluid about-hero-img">
+        <div class="row">
+            <div class="col">
+                <h1 class="standard-title top-title">About</h1>
+            </div>
+        </div>
+    </div> 
+    <!--Hero image section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">Your stay, your way.</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p class="standard-text">We believe that the best experiences are those that 
+                we create ourselves. We’ve therefore built our whole hotel concept with you 
+                in mind. From the freedom to let you design your own retreat, to the organic 
+                ingredients used in our kitchen and to our careful choice of organic products 
+                used in our spa. Our attention to detail means that you can focus on what 
+                matters most to you: creating a retreat to meet your specific needs.</p>
+            </div>
+        </div>
+    </div>
+    <!--Booking steps section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">Three steps to design your own retreat.</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-1">
+                <h2 class="standard-title step-title">Step One:</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p class="standard-text">Get inspired by browsing through our collection of hotel rooms, spa treatments and dinner options. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-1">
+                <h2 class="standard-title step-title">Step Two:</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p class="standard-text">Create an account, login and select your choices by adding them to your own retreat itinerary. You can return to view these at any time 
+                by signing in again later.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-1">
+                <h2 class="standard-title step-title">Step Three:</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p class="standard-text">Complete your purchase with a secure payment through Stripe. Once booked, our friendly reception team will get in touch with you to select your arrival date.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
