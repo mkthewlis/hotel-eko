@@ -12,3 +12,20 @@
 .step-title {
     font-size: 35px;
 }
+
+/*-------------------------------------------------------- Reviews section */
+
+/*-------------------------------------------------------- Links section */
+
+.links-img {
+    background: url('/media/index_forest_image.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 400px;
+}
+
+.links-btn {
+    text-align: center;
+    padding-top: 120px;
+    margin: 0 auto;
+}

@@ -103,27 +103,13 @@
     <!--To stick the footer to the bottom of all pages-->
     <footer class="container-fluid" id="footer-position">
         <div class="row">
-            <div class="col-12 col-sm-4">
+            <div class="col-12 col-sm-6">
                 <h4 class="footer-title">Hotel Eko</h4>
                 <p class="footer-text">Fjällvägen 4</p>
                 <p class="footer-text">Sweden</p>
                 <p class="footer-text">+46 424 4242</p>
             </div>
-            <div class="col-12 col-sm-4">
-                <h4 class="footer-title">Reservations</h4>
-                {% if request.user.is_authenticated %}
-                    <p class="footer-link"><a href="">My Details</a></p>
-                    <p class="footer-link"><a href="">My Retreat</a></p>
-                        {% if request.user.is_superuser %}
-                            <p class="footer-link"><a href="">Product Management</a></p>
-                        {% endif %}
-                    <p class="footer-link"><a href="{% url 'account_logout' %}">Sign Out</a></p>
-                    {% else %}
-                    <p class="footer-link"><a href="{% url 'account_login' %}">Sign In</a></p>
-                    <p class="footer-link"><a href="{% url 'account_signup' %}">Register</a></p>
-                {% endif %}
-            </div>
-            <div class="col-12 col-sm-4 text-right">
+            <div class="col-12 col-sm-6 text-right">
                 <h4 class="footer-title">Learn More</h4>
                 <p class="footer-link"><a href="">Stay</a></p>
                 <p class="footer-link"><a href="">Relax</a></p>
