@@ -59,7 +59,7 @@
                                 <a class="nav-link" href="">Eat</a>
                             </li>
                             <li class="list-inline-item dropdown">
-                                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations
+                                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
@@ -94,6 +94,32 @@
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+    <!--To prevent the footer from covering page content above it-->
+    <div class="footer-padding">
+    </div>
+    <!--To stick the footer to the bottom of all pages-->
+    <footer class="container-fluid" id="footer-position">
+        <div class="row">
+            <div class="col-4">
+                <h4 class="footer-title">Hotel Eko<h4>
+                <p class="footer-text">Fjällvägen 4</p>
+                <p class="footer-text">Sweden</p>
+                <p class="footer-text">+46 424 4242</p>
+            </div>
+            <div class="col-4">
+                <h4 class="footer-title">My Account<h4>
+            </div>
+            <div class="col-4">
+                <h4 class="footer-title">Learn More<h4>
+                <a class="footer-link" href="">Stay</a>
+                <a class="footer-link" href="">Relax</a>
+                <a class="footer-link" href="">Eat</a>
+            </div>
+        </div>
+    </footer>
     {% endblock %}
 
     {% block postloadjs %}

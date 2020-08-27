@@ -72,3 +72,32 @@
     font-size: 40px;
     text-decoration: none;
 }
+
+/*-------------------------------------------------------- Footer styles*/
+
+/* To make sure the footer does not cover any page content */
+.footer-padding {
+    min-height: 150px;
+}
+
+/* To stick footer to the bottom */
+#footer-position{
+    position:absolute;
+    bottom: 0;
+    width:100%;
+    min-height: 150px;
+    background-color: #76A1B1;
+}
+
+.footer-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+    color: #F2F4F9;
+}
+
+.footer-text, .footer-link {
+    font-family: 'Cardo', serif;
+    font-size: 15px;
+    color: #F2F4F9;
+    text-decoration: none;
+}

@@ -24,9 +24,8 @@
 /*-------------------------------------------------------- Carousel section */
 
 .carousel-item>img{
-    max-height: 600px;
+    max-height: 700px;
 }
-
 
 .index-eat-img {
     overflow: hidden;
