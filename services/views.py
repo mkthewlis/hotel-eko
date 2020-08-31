@@ -39,8 +39,7 @@ def all_eat_services(request):
 
 
 def stay_detail(request, stay_id):
-    """ A view to return individual services, regardless of their
-    Class category"""
+    """ A view to return individual services"""
 
     stay = get_object_or_404(Stay, pk=stay_id)
 

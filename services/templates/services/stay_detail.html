@@ -9,12 +9,43 @@
     <!--Hero image section-->
     <div class="container-fluid">
         <div class="row">
-            <img class="img-fluid feature-img" src="{{ stay.image.url }}" alt="{{ stay.name }}">
-            <div class="col d-flex justify-content-end pr-0">
-                <div class="top-title">
-                    <h1 class="standard-title">Stay</h1>
-                </div>
+            <div class="col-12">
+                <img class="img-fluid feature-img" src="{{ stay.image.url }}" alt="{{ stay.name }}">
             </div>
         </div>
     </div> 
+    <!--Title section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-left">{{ stay.name }}</h1>
+            </div>
+        </div>
+    </div>
+    <!--Detail section-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <ul>
+                    <li class="standard-text">Maximim number of guests: {{ stay.no_of_guests }}</li>
+                    <li class="standard-text">Shower or bath: {{ stay.shower_bath }}</li>
+                    <li class="standard-text">View from the balcony: {{ stay.view }}</li>
+                    <li class="standard-text">Breakfast included: {{ stay.has_breakfast|yesno:"Yes,No" }}</li>
+                    <br>
+                    <li class="standard-text">Price per person per night: {{ stay.price|floatformat }}kr</li>
+                </ul>
+            </div>
+            {% if request.user.is_authenticated %}
+                <div class="col-12 col-md-6">
+                    <h3>Ready to book your retreat?</h3>
+                </div>
+            {% else %}
+                <div class="col-12 col-md-6">
+                    <h3 class="standard-text">Ready to book your retreat?</h3>
+                    <h3 class="standard-text"><a href="{% url 'account_login' %}">Sign in</a> or <a href="{% url 'account_signup' %}">register</a> to start creating your retreat.</h3>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
 {% endblock %}
