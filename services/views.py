@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Stay, Relax, Eat
 
 
@@ -36,3 +36,16 @@ def all_eat_services(request):
     }
 
     return render(request, 'services/eat.html', context)
+
+
+def stay_detail(request, stay_id):
+    """ A view to return individual services, regardless of their
+    Class category"""
+
+    stay = get_object_or_404(Stay, pk=stay_id)
+
+    context = {
+        'stay': stay,
+    }
+
+    return render(request, 'services/stay_detail.html', context)

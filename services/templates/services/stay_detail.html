@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!--Hero image section-->
+    <div class="container-fluid">
+        <div class="row">
+            <img class="img-fluid feature-img" src="{{ stay.image.url }}" alt="{{ stay.name }}">
+            <div class="col d-flex justify-content-end pr-0">
+                <div class="top-title">
+                    <h1 class="standard-title">Stay</h1>
+                </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}
