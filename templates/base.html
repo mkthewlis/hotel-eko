@@ -50,13 +50,13 @@
                                 <a class="nav-link" href="{% url 'about' %}">About</a>
                             </li>
                             <li class="nav-item mr-2">
-                                <a class="nav-link" href="">Stay</a>
+                                <a class="nav-link" href="{% url 'all_stay_services' %}">Stay</a>
                             </li>
                             <li class="nav-item mr-2">
-                                <a class="nav-link" href="">Relax</a>
+                                <a class="nav-link" href="{% url 'all_relax_services' %}">Relax</a>
                             </li>
                             <li class="nav-item mr-2">
-                                <a class="nav-link" href="">Eat</a>
+                                <a class="nav-link" href="{% url 'all_eat_services' %}">Eat</a>
                             </li>
                             <li class="list-inline-item dropdown">
                                 <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations
@@ -111,9 +111,9 @@
             </div>
             <div class="col-12 col-sm-6 text-right">
                 <h4 class="footer-title">Learn More</h4>
-                <p class="footer-link"><a href="">Stay</a></p>
-                <p class="footer-link"><a href="">Relax</a></p>
-                <p class="footer-link"><a href="">Eat</a></p>
+                <p class="footer-link"><a href="{% url 'all_stay_services' %}">Stay</a></p>
+                <p class="footer-link"><a href="{% url 'all_relax_services' %}">Relax</a></p>
+                <p class="footer-link"><a href="{% url 'all_eat_services' %}">Eat</a></p>
             </div>
         </div>
     </footer>
