@@ -1,3 +1,40 @@
-.test {
-    color: red !important;
+/*-------------------------------------------------------- All services pages */
+
+.learn-more-link {
+    padding: 0;
 }
+
+.feature-img {
+    max-height: 500px;
+    background-size: cover;
+    width: 100%;
+    padding: 0px;
+}
+
+/*-------------------------------------------------------- stay.html */
+
+.stay-hero-img {
+    background: url('/media/index_stay.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 600px;
+}
+
+/*-------------------------------------------------------- relax.html */
+
+.relax-hero-img {
+    background: url('/media/index_relax.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 600px;
+}
+
+/*-------------------------------------------------------- eat.html */
+
+.eat-hero-img {
+    background: url('/media/index_eat.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 600px;
+}
+
