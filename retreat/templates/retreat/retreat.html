@@ -14,14 +14,34 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row">
-            {% if retreat_items %}
-            <div class="col-12 col-md-3">
-                <h2 class="standard-title">Stay</h2>
+        {% if retreat_items %}
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <h2 class="standard-title">Stay</h2>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p>Stay details</p>
+                </div>
             </div>
-            <div class="col-12 col-md-6">
-                <p>Stay details</p>
-            <div>
-        </div>
+        {% else %}
+            <div class="row">
+                <div class="col-12 text-center standard-padding">
+                    <h2 class="standard-title">You haven't added anything to your retreat yet!</h2>
+                    <p class="standard-text">Unsure of what to add? Begin by having a look through our Stay, Relax and Eat options
+                    to decide what you would like your retreat to include.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 links-btn">
+                    <a class="btn standard-btn" href="{% url 'all_stay_services' %}">Stay</a>
+                </div>
+                <div class="col-12 col-md-4 links-btn">
+                    <a class="btn standard-btn" href="{% url 'all_relax_services' %}">Relax</a>
+                </div>
+                <div class="col-12 col-md-4 links-btn">
+                    <a class="btn standard-btn" href="{% url 'all_eat_services' %}">Eat</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
