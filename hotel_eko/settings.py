@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', # do not remove, required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'retreat.contexts.retreat_contents',
             ],
         },
     },
