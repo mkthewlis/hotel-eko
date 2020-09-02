@@ -1,5 +1,9 @@
 /*-------------------------------------------------------- All services pages */
 
+ul {
+    list-style-type: none;
+}
+
 .learn-more-link {
     padding: 0;
 }
