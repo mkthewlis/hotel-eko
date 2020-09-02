@@ -40,7 +40,7 @@ class Eat(models.Model):
 
     class Meta:
         verbose_name_plural = 'Menu types'
-    
+
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     protein = models.CharField(max_length=254, null=True, blank=True)

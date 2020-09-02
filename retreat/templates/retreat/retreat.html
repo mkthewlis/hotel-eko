@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+    <!--Title section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">My Retreat</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            {% if retreat_items %}
+            <div class="col-12 col-md-3">
+                <h2 class="standard-title">Stay</h2>
+            </div>
+            <div class="col-12 col-md-6">
+                <p>Stay details</p>
+            <div>
+        </div>
+    </div>
+{% endblock %}
