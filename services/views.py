@@ -38,8 +38,8 @@ def all_eat_services(request):
     return render(request, 'services/eat.html', context)
 
 
-def stay_detail(request, stay_id):
-    """ A view to return individual services"""
+def stay_details(request, stay_id):
+    """ A view to return individual Stay options to users"""
 
     stay = get_object_or_404(Stay, pk=stay_id)
 
@@ -47,4 +47,28 @@ def stay_detail(request, stay_id):
         'stay': stay,
     }
 
-    return render(request, 'services/stay_detail.html', context)
+    return render(request, 'services/stay_details.html', context)
+
+
+def relax_details(request, relax_id):
+    """ A view to return individual Relax options to users"""
+
+    relax = get_object_or_404(Relax, pk=relax_id)
+
+    context = {
+        'relax': relax,
+    }
+
+    return render(request, 'services/relax_details.html', context)
+
+
+def eat_details(request, eat_id):
+    """ A view to return individual Eat options to users"""
+
+    eat = get_object_or_404(Eat, pk=eat_id)
+
+    context = {
+        'eat': eat,
+    }
+
+    return render(request, 'services/eat_details.html', context)
