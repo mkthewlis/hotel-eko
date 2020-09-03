@@ -7,7 +7,7 @@ class Stay(models.Model):
         verbose_name_plural = 'Room types'
 
     sku = models.CharField(max_length=254, null=True, blank=True)
-    item_type = models.CharField(max_length=254)
+    item_type = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     no_of_guests = models.IntegerField(null=True, blank=True)
     shower_bath = models.CharField(max_length=254, null=True, blank=True)
@@ -26,7 +26,7 @@ class Relax(models.Model):
         verbose_name_plural = 'Spa treatments'
 
     sku = models.CharField(max_length=254, null=True, blank=True)
-    item_type = models.CharField(max_length=254)
+    item_type = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     length = models.IntegerField(null=True, blank=True)
     scents = models.CharField(max_length=254, null=True, blank=True)
@@ -44,7 +44,7 @@ class Eat(models.Model):
         verbose_name_plural = 'Menu types'
 
     sku = models.CharField(max_length=254, null=True, blank=True)
-    item_type = models.CharField(max_length=254)
+    item_type = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     protein = models.CharField(max_length=254, null=True, blank=True)
     no_of_courses = models.IntegerField(null=True, blank=True)
