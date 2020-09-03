@@ -26,7 +26,8 @@
     </div>
     <!--Feature section-->
     <div class="container-fluid">
-        {% for stay in stay|dictsort:"no_of_guests" %}
+    <!--|dictsort:"no_of_guests" -->
+        {% for stay in stay %}
             <div class="row">
                 <div class="col-12 col-md-6">
                     <img class="img-fluid feature-img" src="{{ stay.image.url }}" alt="{{ stay.name }}">
