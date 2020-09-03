@@ -35,9 +35,23 @@
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
-                <div class="col-12 col-md-6 standard-padding">
-                    <h3>Ready to book your retreat?</h3>
-                </div>
+                <form class="form" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="standard-text">Number of treatments:</p>
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="10" data-item_id="{{ relax.id }}" id="id_qty_{{ relax.id }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" class="btn" value="Add to My Retreat">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
             {% else %}
                 <div class="col-12 col-md-6 standard-padding">
                     <h3 class="standard-text">Ready to book your retreat?</h3>
