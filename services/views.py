@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Stay, Relax, Eat
+from .models import Category, Service
 
 
 def all_stay_services(request):
