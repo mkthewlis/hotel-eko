@@ -13,10 +13,12 @@ def retreat_contents(request):
         service = get_object_or_404(Service, pk=item_id)
         total += quantity * service.price
         service_count += quantity
+        service_category = service.category
         retreat_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'service': service,
+            'service_category': service_category,
         })
 
     context = {

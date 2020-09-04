@@ -14,34 +14,30 @@
         </div>
     </div>
     <div class="container-fluid">
-        {% if retreat_items %}
-            <div class="row">
-                <div class="table-responsive rounded">
-                    {{ retreat_items }}
-                </div>
-            </div>
-        {% else %}
-            <div class="row">
-                <div class="col-12 text-center standard-padding">
-                    <h2 class="standard-title">You haven't added anything to your retreat yet!</h2>
-                    <p class="standard-text">Unsure of what to add? Begin by having a look through our 
-                    <a class="" href="{% url 'all_stay_services' %}">Stay</a>, 
-                    <a class="" href="{% url 'all_relax_services' %}">Relax</a> and 
-                    <a class="" href="{% url 'all_eat_services' %}">Eat</a> options
-                    to decide what you would like your retreat to include.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-4 links-btn">
-                    <a class="btn standard-btn" href="{% url 'all_stay_services' %}">Stay</a>
-                </div>
-                <div class="col-12 col-md-4 links-btn">
-                    <a class="btn standard-btn" href="{% url 'all_relax_services' %}">Relax</a>
-                </div>
-                <div class="col-12 col-md-4 links-btn">
-                    <a class="btn standard-btn" href="{% url 'all_eat_services' %}">Eat</a>
-                </div>
-            </div>
-        {% endif %}
+        <div class="row">
+            {% if retreat_items %}
+                {% for item in retreat_items %}
+                    <div class="col-12 text-left standard-padding standard-title">
+                        {% if item.service.is_stay == True %}
+                            <h2>Stay</h2> 
+                        {% elif item.service.is_relax == True %}
+                            <h2>Relax</h2> 
+                        {% elif item.service.is_eat == True %}
+                            <h2>Eat</h2> 
+                        {% endif %}
+                    </div>
+                    <div class="col-12 text-center standard-text">
+                        <p>{{ item.service.name }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h2 class="standard-title">You haven't added anything to your retreat yet!</h2>
+                <p class="standard-text">Unsure of what to add? Begin by having a look through our 
+                <a class="" href="{% url 'all_stay_services' %}">Stay</a>, 
+                <a class="" href="{% url 'all_relax_services' %}">Relax</a> and 
+                <a class="" href="{% url 'all_eat_services' %}">Eat</a> options
+                to decide what you would like your retreat to include.</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
