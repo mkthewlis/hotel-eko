@@ -23,5 +23,4 @@ def add_to_retreat(request, item_id):
             retreat[item_id] = quantity
 
         request.session['retreat'] = retreat
-        print(request.session['retreat'])
         return redirect(redirect_url)
