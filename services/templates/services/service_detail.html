@@ -37,7 +37,7 @@
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
-                <form class="form" action="" method="POST">
+                <form class="form" action="{% url 'add_to_retreat' service.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
@@ -70,7 +70,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center standard-padding standard-text">
-                <a href="{% url 'all_stay_services' %}">Return to all Stay options</a>
+                {% if service.is_stay %}
+                    <a href="{% url 'all_stay_services' %}">Return to all Stay options</a>
+                {% elif service.is_relax %}
+                    <a href="{% url 'all_relax_services' %}">Return to all Relax options</a>
+                {% elif service.is_eat %}
+                    <a href="{% url 'all_eat_services' %}">Return to all Eat options</a>
+                {% endif %}
             </div>
         </div>
     </div>

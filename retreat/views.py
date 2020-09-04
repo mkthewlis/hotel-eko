@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 
 
 def view_retreat(request):
@@ -8,11 +8,9 @@ def view_retreat(request):
     return render(request, 'retreat/retreat.html')
 
 
-def add_to_retreat(request, item_id, item_type):
+def add_to_retreat(request, item_id):
     """ A view that allows users to add items to their retreat,
     regardless of which class they belong to """
-
-    item = get_object_or_404(item_type.capitalize(), pk=item_id)
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -26,4 +24,4 @@ def add_to_retreat(request, item_id, item_type):
 
         request.session['retreat'] = retreat
         print(request.session['retreat'])
-        return redirect(redirect_url, {'item': item})
+        return redirect(redirect_url)
