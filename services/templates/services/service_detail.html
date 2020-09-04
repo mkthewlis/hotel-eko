@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!--Hero image section-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <img class="img-fluid feature-img" src="{{ service.image.url }}" alt="{{ service.name }}">
+            </div>
+        </div>
+    </div> 
+<!--Title section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-left">{{ service.name }}</h1>
+            </div>
+        </div>
+    </div>
+    <!--Detail section-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 standard-padding">
+                <ul>
+                    {% if service.is_stay %}
+                        {% include 'services/includes/stay_details.html' %}
+                    {% elif service.is_relax %}
+                        {% include 'services/includes/relax_details.html' %}
+                    {% elif service.is_eat %}
+                        {% include 'services/includes/eat_details.html' %}
+                    {% endif %}
+                </ul>
+                    <li class="standard-text">Length of treatment:</li>
+                    <li class="standard-text">Signature scents used: </li>
+                    <li class="standard-text">Aims:</li>
+                    <br>
+                    <li class="standard-text">Price per person: </li>
+            </div>
+        </div>
+    </div>
+{% endblock %}
