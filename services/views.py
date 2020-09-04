@@ -39,7 +39,8 @@ def all_eat_services(request):
 
 
 def service_detail(request, service_id):
-    """ A view to display individual servicec details """
+    """ A view to display individual servicec details, regardless
+    of which category they belong to """
     service = get_object_or_404(Service, pk=service_id)
 
     context = {

@@ -1,0 +1,5 @@
+<li class="standard-text">Maximim number of guests: {{ service.no_of_guests }}</li>
+<li class="standard-text">Breakfast included: {{ stay.has_breakfast|yesno:"Yes,No" }}</li>
+<li class="standard-text">Description: {{ service.description }}</li>
+<br>
+<li class="standard-text">Price per person: {{ service.price|floatformat }}kr</li>
