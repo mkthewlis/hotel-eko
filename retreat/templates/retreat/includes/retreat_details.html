@@ -1,0 +1,28 @@
+<div class="col-12">
+    {% for item in retreat_items %}
+        <h2 class="standard-title text-left ml-4">{{ item.service.name }}</h2>
+        {% if item.service.is_stay == True %}
+            <p class="standard-text text-center">Room type: {{ item.service.name }}</p>
+            <p class="standard-text text-center">Maximim number of guests: {{ item.service.no_of_guests }}</p>
+            <p class="standard-text text-center">Breakfast included: {{ item.service.has_breakfast|yesno:"Yes,No" }}</p>
+            <p class="standard-text text-center">Number of nights booked: {{ item.quantity }}</p>
+            <p class="standard-text text-center">Price per night:{{ item.service.price|floatformat }}kr</p>
+            <p class="standard-text text-center">Total: </p>
+        {% elif item.service.is_relax == True %}
+            <p class="standard-text text-center">Treatment type: {{ item.service.name }}</p>
+            <p class="standard-text text-center">Length of treatment: {{ item.service.length }}</p>
+            <p class="standard-text text-center">Signature scents used: {{ item.service.scents }}</p>
+            <p class="standard-text text-center">Number of treatments booked: {{ item.quantity }}</p>
+            <p class="standard-text text-center">Price per treatment:{{ item.service.price|floatformat }}kr</p>
+        {% elif item.service.is_eat == True %}
+            <p class="standard-text text-center">Menu type: {{ item.service.name }}</p>
+            <p class="standard-text text-center">Source of protein: {{ item.service.protein }}</p>
+            <p class="standard-text text-center">Number of courses: {{ item.service.no_of_courses }}</p>
+            <p class="standard-text text-center">Number of menus booked: {{ item.quantity }}</p>
+            <p class="standard-text text-center">Price per menu:{{ item.service.price|floatformat }}kr</p>
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="col-12 text-center standard-padding">
+    <h2 class="standard-title">Total price: {{ total|floatformat }}kr</h2>
+</div>
