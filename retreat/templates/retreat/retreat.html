@@ -18,8 +18,14 @@
             {% if retreat_items %}
                     {% include 'retreat/includes/retreat_details.html' %}
             {% else %}
+        </div>
+    </div>
+        <div class="container">
+            <div class="row">
                 <div class="col-12">
-                    <h2 class="standard-title">You haven't added anything to your retreat yet!</h2>
+                    <h2 class="standard-title text-center standard-padding">You haven't added anything to your retreat yet!</h2>
+                </div>
+                <div class="col-12 col-lg-6 offset-lg-3">
                     <p class="standard-text">Unsure of what to add? Begin by having a look through our 
                     <a class="" href="{% url 'all_stay_services' %}">Stay</a>, 
                     <a class="" href="{% url 'all_relax_services' %}">Relax</a> and 

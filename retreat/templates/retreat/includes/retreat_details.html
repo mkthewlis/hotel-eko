@@ -1,13 +1,57 @@
 <div class="col-12">
     {% for item in retreat_items %}
-        <h2 class="standard-title text-left ml-4">{{ item.service.name }}</h2>
+        <h2 class="standard-title text-left ml-md-5">{{ item.service.name }}</h2>
+        <a class="btn standard-text text-left ml-md-5" data-toggle="modal" data-target="#editModal">Edit</a>
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title standard-title" id="editModalLabel">Edit quantity</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="standard-text">Current quantity: {{ item.quantity }}</p>
+                        <div class="input-group w-70">
+                            <label for="newQuantity" class="standard-text">Updated quantity: </label>
+                            <input name="standard-text" id="newQuantity" type="number" min="1" max="10" class="form-control"
+                            value="{{ item.quantity }}"  required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn standard-text text-left ml-md-5" data-toggle="modal" data-target="#deleteModal">Delete</a>
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title standard-title" id="deleteModalLabel">Delete item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% if item.service.is_stay == True %}
             <p class="standard-text text-center">Room type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Maximim number of guests: {{ item.service.no_of_guests }}</p>
             <p class="standard-text text-center">Breakfast included: {{ item.service.has_breakfast|yesno:"Yes,No" }}</p>
             <p class="standard-text text-center">Number of nights booked: {{ item.quantity }}</p>
             <p class="standard-text text-center">Price per night:{{ item.service.price|floatformat }}kr</p>
-            <p class="standard-text text-center">Total: </p>
         {% elif item.service.is_relax == True %}
             <p class="standard-text text-center">Treatment type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Length of treatment: {{ item.service.length }}</p>
@@ -21,6 +65,13 @@
             <p class="standard-text text-center">Number of menus booked: {{ item.quantity }}</p>
             <p class="standard-text text-center">Price per menu:{{ item.service.price|floatformat }}kr</p>
         {% endif %}
+            <br>
+            <p class="standard-text text-center">Total: </p>
+            <p class="standard-text text-center">View details:
+                <a href="{% url 'service_detail' item.service.id %}" aria-label="{{ item.service.name }}">
+                    {{ item.service.name }}
+                </a>
+            </p>
     {% endfor %}
 </div>
 <div class="col-12 text-center standard-padding">
