@@ -36,3 +36,30 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+
+
+
+<!--Javascript curtesy of CI Boutique Ado module-->
+<script type="text/javascript">
+    // Update retreat item quantity
+    $('.updated-quantity').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload page
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/retreat/remove/${itemId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
+{% endblock %}

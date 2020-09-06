@@ -1,6 +1,8 @@
 <div class="col-12">
     {% for item in retreat_items %}
         <h2 class="standard-title text-left ml-md-5">{{ item.service.name }}</h2>
+
+        <!--Edit quantity modal-->
         <a class="btn standard-text text-left ml-md-5" data-toggle="modal" data-target="#editModal">Edit</a>
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -13,39 +15,52 @@
                     </div>
                     <div class="modal-body">
                         <p class="standard-text">Current quantity: {{ item.quantity }}</p>
-                        <div class="input-group w-70">
-                            <label for="newQuantity" class="standard-text">Updated quantity: </label>
-                            <input name="standard-text" id="newQuantity" type="number" min="1" max="10" class="form-control"
-                            value="{{ item.quantity }}"  required>
-                        </div>
+                        <form class="form update-form" action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="input-group w-100">
+                                            <label for="newQuantity" class="standard-text">Updated quantity: </label>
+                                            <input name="standard-text" id="newQuantity" type="number" min="1" max="10" class="form-control"
+                                            value="{{ item.quantity }}"  required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <a type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                        <a type="button" class="btn btn-primary updated-quantity">Save changes</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--Delete item modal-->
         <a class="btn standard-text text-left ml-md-5" data-toggle="modal" data-target="#deleteModal">Delete</a>
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title standard-title" id="deleteModalLabel">Delete item</h5>
+                        <h5 class="modal-title standard-title" id="deleteModalLabel">Delete {{ item.service.name }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+                        <p class="standard-text text-center">Are you sure you want to delete this item from your Retreat?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
+                        <a type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                        <a type="button" class="btn btn-primary remove-item" id="remove_{{ item.item_id }}">Delete</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--Shows contents of retreat-->
         {% if item.service.is_stay == True %}
             <p class="standard-text text-center">Room type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Maximim number of guests: {{ item.service.no_of_guests }}</p>
@@ -74,6 +89,11 @@
             </p>
     {% endfor %}
 </div>
+
+<!--Total price and checkout button-->
 <div class="col-12 text-center standard-padding">
     <h2 class="standard-title">Total price: {{ total|floatformat }}kr</h2>
+</div>
+<div class="col-12 text-center standard-padding">
+    <a href="" class="btn">Checkout</a>
 </div>
