@@ -3,8 +3,8 @@
         <h2 class="standard-title text-left ml-md-5">{{ item.service.name }}</h2>
 
         <!--Edit quantity modal-->
-        <a class="btn standard-text text-left ml-md-5" data-toggle="modal" data-target="#editModal">Edit</a>
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <a class="btn standard-text text-left ml-md-5" data-toggle="modal" data-target="#editModal{{ item.item_id }}">Edit</a>
+        <div class="modal fade" id="editModal{{ item.item_id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -15,14 +15,15 @@
                     </div>
                     <div class="modal-body">
                         <p class="standard-text">Current quantity: {{ item.quantity }}</p>
-                        <form class="form update-form" action="" method="POST">
+                        <form class="form update-form" action="{% url 'update_retreat' item.item_id %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <div class="input-group w-100">
-                                            <label for="newQuantity" class="standard-text">Updated quantity: </label>
-                                            <input name="standard-text" id="newQuantity" type="number" min="1" max="10" class="form-control"
+                                            <label for="id_qty_{{ item.item_id }}" class="standard-text">Updated quantity: </label>
+                                            <input name="quantity" id="id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}" 
+                                            type="number" min="1" max="10" class="form-control"
                                             value="{{ item.quantity }}"  required>
                                         </div>
                                     </div>
@@ -31,8 +32,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
+                        <a type="button" class="btn btn-primary update-quantity" data-item_id="{{ item.item_id }}">Save changes</a>
                         <a type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                        <a type="button" class="btn btn-primary updated-quantity">Save changes</a>
                     </div>
                 </div>
             </div>

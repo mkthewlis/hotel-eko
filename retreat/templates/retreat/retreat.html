@@ -38,13 +38,12 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
 
-
-
-<!--Javascript curtesy of CI Boutique Ado module-->
+<!--Javascript courtesy of CI Boutique Ado module-->
 <script type="text/javascript">
     // Update retreat item quantity
-    $('.updated-quantity').click(function(e) {
+    $('.update-quantity').click(function(e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })

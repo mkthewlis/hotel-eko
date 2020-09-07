@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
 
 def view_retreat(request):
@@ -24,3 +24,20 @@ def add_to_retreat(request, item_id):
 
         request.session['retreat'] = retreat
         return redirect(redirect_url)
+
+
+def update_retreat(request, item_id):
+    """ A view that adjusts the retreat after a user has
+     changed the quantity """
+
+    quantity = int(request.POST.get('quantity'))
+    retreat = request.session.get('retreat', {})
+
+    if request.user.is_authenticated:
+        if quantity > 0:
+            retreat[item_id] = quantity
+        else:
+            retreat.pop(item_id)
+
+        request.session['retreat'] = retreat
+        return redirect(reverse('view_retreat'))
