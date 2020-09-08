@@ -15,19 +15,19 @@ def view_retreat(request):
 
 def add_to_retreat(request, item_id):
     """ A view that allows users to add items to their retreat,
-    regardless of which category they belong to """
+    regardless of which category they belong to. However, users
+    are limited to adding 10 of each item. """
 
     service = get_object_or_404(Service, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     retreat = request.session.get('retreat', {})
-    print(f"This is the retreat: {retreat}, the item_id is {item_id}")
-    print(f"retreat for the id: {retreat[item_id]}")
+
     if request.user.is_authenticated:
         if item_id in list(retreat.keys()):
             current_quantity = retreat[item_id]
             total_quantity = quantity + current_quantity
-            if quantity > 0 and total_quantity < 10:
+            if quantity > 0 and total_quantity < 11:
                 retreat[item_id] += quantity
                 messages.success(
                     request,
@@ -41,7 +41,6 @@ def add_to_retreat(request, item_id):
             retreat[item_id] = quantity
             messages.success(request, mark_safe(f"Added {service.name} to your retreat. <a href='/retreat/'>View My Retreat</a>"))
 
-        print(item_id)
         request.session['retreat'] = retreat
         return redirect(redirect_url)
 
