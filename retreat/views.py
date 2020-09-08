@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+
+from services.models import Service
 
 
 def view_retreat(request):
@@ -12,6 +15,7 @@ def add_to_retreat(request, item_id):
     """ A view that allows users to add items to their retreat,
     regardless of which class they belong to """
 
+    service = Service.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     retreat = request.session.get('retreat', {})
@@ -21,6 +25,7 @@ def add_to_retreat(request, item_id):
             retreat[item_id] += quantity
         else:
             retreat[item_id] = quantity
+            messages.success(request, f'Added {service.name} to your retreat')
 
         request.session['retreat'] = retreat
         return redirect(redirect_url)
