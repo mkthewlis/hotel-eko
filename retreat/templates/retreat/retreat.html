@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load retreat_tools %}
 
 {% block extra_css %}
 {% endblock %}
@@ -40,7 +41,8 @@
 {% block postloadjs %}
 {{ block.super }}
 
-<!--Javascript courtesy of CI Boutique Ado module-->
+<!--Javascript inspired by CI Boutique Ado module-->
+
 <script type="text/javascript">
     // Update retreat item quantity
     $('.update-quantity').click(function(e) {
@@ -52,7 +54,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/retreat/remove/${itemId}`;
+        var url = `/retreat/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
