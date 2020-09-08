@@ -1,3 +1,5 @@
+{% load retreat_tools %}
+
 <div class="col-12">
     {% for item in retreat_items %}
         <h2 class="standard-title text-left ml-md-5">{{ item.service.name }}</h2>
@@ -82,7 +84,7 @@
             <p class="standard-text text-center">Price per menu:{{ item.service.price|floatformat }}kr</p>
         {% endif %}
             <br>
-            <p class="standard-text text-center">Total: {{ item.service.price | calc_subtotal:item.quantity }} </p>
+            <p class="standard-text text-center">Subotal: {{ item.service.price | calc_subtotal:item.quantity | floatformat }}kr </p>
             <p class="standard-text text-center">View details:
                 <a href="{% url 'service_detail' item.service.id %}" aria-label="{{ item.service.name }}">
                     {{ item.service.name }}
