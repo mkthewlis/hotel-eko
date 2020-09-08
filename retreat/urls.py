@@ -5,4 +5,6 @@ urlpatterns = [
     path('', views.view_retreat, name='view_retreat'),
     path('add/<item_id>/', views.add_to_retreat, name='add_to_retreat'),
     path('update/<item_id>/', views.update_retreat, name='update_retreat'),
+    path('remove/<item_id>/', views.remove_from_retreat,
+         name='remove_from_retreat'),
 ]

@@ -44,7 +44,7 @@
 <script type="text/javascript">
     // Update retreat item quantity
     $('.update-quantity').click(function(e) {
-        var form = $(this).prev('.update-form');
+        const form = $(this).parent().prev().children("form.update-form");
         form.submit();
     })
 

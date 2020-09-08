@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def view_retreat(request):
@@ -41,3 +41,19 @@ def update_retreat(request, item_id):
 
         request.session['retreat'] = retreat
         return redirect(reverse('view_retreat'))
+
+
+def remove_from_retreat(request, item_id):
+    """Remove an item from the user's retreat """
+
+    try:
+        retreat = request.session.get('retreat', {})
+
+        if request.user.is_authenticated:
+            retreat.pop(item_id)
+
+            request.session['retreat'] = retreat
+            return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
