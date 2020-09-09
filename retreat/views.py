@@ -34,12 +34,10 @@ def add_to_retreat(request, item_id):
                     f'Updated {service.name} quantity to {retreat[item_id]}'
                 )
             elif total_quantity >= 10:
-                messages.error(
-                    request,
-                    f'A maximum of ten {service.name} bookings are allowed per retreat.')
+                messages.error(request, mark_safe(f"A maximum of ten {service.name} bookings are allowed per retreat. <a href='/retreat/'>View My Retreat</a>"))
         else:
             retreat[item_id] = quantity
-            messages.success(request, mark_safe(f"Added {service.name} to your retreat. <a href='/retreat/'>View My Retreat</a>"))
+            messages.success(request, f'Added {service.name} to your retreat.')
 
         request.session['retreat'] = retreat
         return redirect(redirect_url)
