@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'about',
     'services',
     'retreat',
+    'checkout',
 ]
 
 MIDDLEWARE = [
