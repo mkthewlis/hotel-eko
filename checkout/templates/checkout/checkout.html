@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% load retreat_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!--Title section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">My Retreat</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-12">
+                <h2 class="standard-title text-center standard-padding">Retreat Summary: {{ service_count }} item{% if service_count > 1 %}s{% endif %}</h2>
+            </div>
+            {% for item in retreat_items %}
+                <div class="col-12 ">
+                    <p class="standard-text"><strong>{{ item.service.name }}</strong></p>
+                        {% if item.service.is_stay %}
+                            <p class="standard-text">Number of nights: {{ item.quantity }}</p>
+                        {% elif item.service.is_relax or item.service.is_eat %}
+                            <p class="standard-text">Number of guests: {{ item.quantity }}</p>
+                        {% endif %}
+                    <p class="standard-text">Item total:{{ item.service.price | calc_subtotal:item.quantity | floatformat }}kr</p>
+                    <br>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <p class="standard-text">Order Total:</p>
+                <p class="standard-text"><strong>{{ total | floatformat:0 }}kr</strong></p>
+            </div>
+        </div>
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h2 class="standard-title text-center standard-padding">Submit the form below to complete your reservation.</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-3">
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label standard-text">Details:</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label standard-text">Address:</legend>
+                        {{ order_form.phone_number | as_crispy_field }}
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline">
+							<label class="form-check-label standard-text" for="id-save-info">Save this delivery information to my profile</label>
+                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+						</div>
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label standard-text">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+                    <div class="submit-button text-right mt-5 mb-2">                    
+						<a href="{% url 'view_retreat' %}" class="btn btn-outline-black rounded-0">
+							<span class="font-weight-bold">Adjust Retreat</span>
+						</a>
+						<button id="submit-button" class="btn btn-black rounded-0">
+							<span class="font-weight-bold">Complete Order</span>
+						</button>
+						<p class="standard-text standard-padding">
+							<span>Your card will be charged <strong>{{ total|floatformat:0}}kr</strong></span>
+						</p>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
