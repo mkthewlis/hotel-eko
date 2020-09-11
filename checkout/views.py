@@ -30,18 +30,12 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            print(f"This is the order form: {order_form}")
             order = order_form.save()
-            print(f"The retreat is: {retreat}")
-            print("Saved. Now starts the loop")
 
             for item_id, quantity in retreat.items():
-                print(f"item id and quantity are {item_id} and {quantity}")
                 try:
                     if isinstance(quantity, int):
                         service = Service.objects.get(id=item_id)
-                        print(f"Service is {service}")
-                        print(f"order is {order}")
                         order_line_item = OrderLineItem(
                             order=order,
                             service=service,
@@ -102,10 +96,7 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    messages.success(request, f'Success! Your reservation has been made. \
-        Your booking reference number is {order_number} and a confirmation \
-        email will be sent to {order.email} and our booking office will \
-        get in touch with you shortly to discuss your arrival dates.')
+    messages.success(request, 'Success! Your reservation has been made.')
 
     if 'retreat' in request.session:
         del request.session['retreat']

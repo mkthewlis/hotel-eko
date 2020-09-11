@@ -16,9 +16,34 @@
     </div>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12 text-center standard-padding">
+                <h2 class="standard-title">Success {{ order.full_name }}!</h2>
+                <p class="standard-text">Your retreat is now confirmed.</p>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
+                <p>Our booking office will be in touch with you soon to confirm your arrival dates and answer
+                any questions that you may have.</p>
+                <p>We look forward to welcoming you soon!</p>
+                <p>Best wishes,</p>
+                <p>The Team at Hotel Eko</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12 text-center">
-                <h2>Success {{ order.full_name }}! Your retreat is now confirmed.</h2>
-                <p class="standard-text">Our booking office will be in touch with you soon to confirm your arrival dates.</p>
+                <h2 class="standard-title standard-padding">While you wait...</h2>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
+                <p>We've sent an email to {{ order.email }} to confirm the details of your reservation. If you would like
+                to get in touch with us right away, please use the reservation number below as a reference.</p>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 text-center standard-text standard-padding">
+                <p>Reservation number:</p>
+                <p>{{ order.order_number }}</p>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
+                <p>You can view your account and reservations at any time by visiting your personalised account page with the 
+                button below.</p>
+                <button class="btn" href="">My Account</button>
             </div>
         </div>
     </div>
