@@ -31,16 +31,17 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id, item_data in retreat.items():
+            for item_id, quantity in retreat.items():
                 try:
-                    if isinstance(item_data, int):
+                    if isinstance(quantity, int):
                         service = Service.objects.get(id=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             service=service,
-                            quantity=item_data,
+                            quantity=quantity,
                         )
                         order_line_item.save()
+                        print(quantity)
                 except Service.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your retreat wasn't found in \
