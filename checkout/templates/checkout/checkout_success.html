@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!--Title section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">Booking Complete</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Success {{ order.full_name }}! Your retreat is now confirmed.</h2>
+                <p class="standard-text">Our booking office will be in touch with you soon to confirm your arrival dates.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

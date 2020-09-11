@@ -33,8 +33,8 @@ def checkout(request):
             order = order_form.save()
             for item_id, item_data in retreat.items():
                 try:
-                    service = Service.objects.get(id=item_id)
                     if isinstance(item_data, int):
+                        service = Service.objects.get(id=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             service=service,
