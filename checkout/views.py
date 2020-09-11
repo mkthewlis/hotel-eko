@@ -30,18 +30,24 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            print(f"This is the order form: {order_form}")
             order = order_form.save()
+            print(f"The retreat is: {retreat}")
+            print("Saved. Now starts the loop")
+
             for item_id, quantity in retreat.items():
+                print(f"item id and quantity are {item_id} and {quantity}")
                 try:
                     if isinstance(quantity, int):
                         service = Service.objects.get(id=item_id)
+                        print(f"Service is {service}")
+                        print(f"order is {order}")
                         order_line_item = OrderLineItem(
                             order=order,
                             service=service,
                             quantity=quantity,
                         )
                         order_line_item.save()
-                        print(quantity)
                 except Service.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your retreat wasn't found in \

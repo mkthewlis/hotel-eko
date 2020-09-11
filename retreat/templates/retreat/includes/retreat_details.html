@@ -69,22 +69,22 @@
             <p class="standard-text text-center">Maximim number of guests: {{ item.service.no_of_guests }}</p>
             <p class="standard-text text-center">Breakfast included: {{ item.service.has_breakfast|yesno:"Yes,No" }}</p>
             <p class="standard-text text-center">Number of nights booked: {{ item.quantity }}</p>
-            <p class="standard-text text-center">Price per night: {{ item.service.price|floatformat }}kr</p>
+            <p class="standard-text text-center">Price per night: {{ item.service.price|floatformat:2 }}kr</p>
         {% elif item.service.is_relax == True %}
             <p class="standard-text text-center">Treatment type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Length of treatment: {{ item.service.length }}</p>
             <p class="standard-text text-center">Signature scents used: {{ item.service.scents }}</p>
             <p class="standard-text text-center">Number of treatments booked: {{ item.quantity }}</p>
-            <p class="standard-text text-center">Price per treatment: {{ item.service.price|floatformat }}kr</p>
+            <p class="standard-text text-center">Price per treatment: {{ item.service.price|floatformat:2 }}kr</p>
         {% elif item.service.is_eat == True %}
             <p class="standard-text text-center">Menu type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Source of protein: {{ item.service.protein }}</p>
             <p class="standard-text text-center">Number of courses: {{ item.service.no_of_courses }}</p>
             <p class="standard-text text-center">Number of menus booked: {{ item.quantity }}</p>
-            <p class="standard-text text-center">Price per menu: {{ item.service.price|floatformat }}kr</p>
+            <p class="standard-text text-center">Price per menu: {{ item.service.price|floatformat:2 }}kr</p>
         {% endif %}
             <br>
-            <p class="standard-text text-center">Subotal: {{ item.service.price | calc_subtotal:item.quantity | floatformat }}kr </p>
+            <p class="standard-text text-center">Subotal: {{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr </p>
             <p class="standard-text text-center">View details:
                 <a href="{% url 'service_detail' item.service.id %}" aria-label="{{ item.service.name }}">
                     {{ item.service.name }}
@@ -95,7 +95,7 @@
 
 <!--Total price and checkout button-->
 <div class="col-12 text-center standard-padding">
-    <h2 class="standard-title">Total price: {{ total|floatformat }}kr</h2>
+    <h2 class="standard-title">Total price: {{ total|floatformat:2 }}kr</h2>
 </div>
 <div class="col-12 text-center standard-padding">
     <a href="{% url 'checkout' %}" class="btn">Checkout</a>

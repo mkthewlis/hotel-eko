@@ -2,4 +2,4 @@
 <li class="standard-text">Breakfast included: {{ service.has_breakfast|yesno:"Yes,No" }}</li>
 <li class="standard-text">Description: {{ service.description }}</li>
 <br>
-<li class="standard-text">Price per night: {{ service.price|floatformat }}kr</li>
+<li class="standard-text">Price per night: {{ service.price|floatformat:2 }}kr</li>

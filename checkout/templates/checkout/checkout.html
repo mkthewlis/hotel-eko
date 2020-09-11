@@ -28,7 +28,7 @@
                         {% elif item.service.is_relax or item.service.is_eat %}
                             <p class="standard-text">Number of guests: {{ item.quantity }}</p>
                         {% endif %}
-                    <p class="standard-text">Item total:{{ item.service.price | calc_subtotal:item.quantity | floatformat }}kr</p>
+                    <p class="standard-text">Item total:{{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr</p>
                     <br>
                 </div>
             {% endfor %}
@@ -36,7 +36,7 @@
         <div class="row text-center">
             <div class="col-12">
                 <p class="standard-text">Order Total:</p>
-                <p class="standard-text"><strong>{{ total | floatformat:0 }}kr</strong></p>
+                <p class="standard-text"><strong>{{ total | floatformat:2 }}kr</strong></p>
             </div>
         </div>
         <div class="row standard-header-box">
@@ -82,7 +82,7 @@
 							<span class="font-weight-bold">Complete Order</span>
 						</button>
 						<p class="standard-text standard-padding">
-							<span>Your card will be charged <strong>{{ total|floatformat:0}}kr</strong></span>
+							<span>Your card will be charged <strong>{{ total|floatformat:2 }}kr</strong></span>
 						</p>
 					</div>
                 </form>

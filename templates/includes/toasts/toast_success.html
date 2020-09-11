@@ -16,7 +16,7 @@
                 {% for item in retreat_items %}
                     <p class=""><strong>{{ item.service.name }}</strong> x {{ item.quantity }}</p>
                 {% endfor %}
-                <p class=""><strong>Total Price:</strong> {{ total|floatformat:0 }}kr </p>
+                <p class=""><strong>Total Price:</strong> {{ total|floatformat:2 }}kr </p>
                 <a href="{% url 'view_retreat' %}" class="btn">View my Retreat</a>
             </div>
         {% endif %}
