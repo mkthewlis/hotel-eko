@@ -1,0 +1,7 @@
+<p class="standard-text standard-padding">Here's a quick overview of what you have added to your retreat:</p>
+{% for item in retreat_items %}
+    <p class="standard-text standard-padding">{{ item.service.name }}</p>
+    <p class="standard-text standard-padding">{{ item.quantity }}</p>
+{% endfor %}
+<p class="standard-text standard-padding">See the full contents of your retreat here:</p>
+<a class="" href="{% url 'view_retreat' %}">My Retreat</a>
