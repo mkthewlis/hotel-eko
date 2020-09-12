@@ -121,3 +121,21 @@
 .toast-capper {
     height: 2px;
 }
+
+/* ------------------------------- Allauth styling */
+
+.auth-hero-img {
+    background: url('/media/auth_hero_image.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 900px;
+}
+
+.auth-form-container {
+    background-color: #F2F4F9;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    opacity: 90%;
+}

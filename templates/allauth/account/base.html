@@ -1,1 +1,16 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid auth-hero-img">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-sm-7 col-lg-5">
+                <div class="allauth-form-inner-content">
+                    {% block inner_content %}
+                        <div class="auth-form-container">
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
