@@ -1,0 +1,22 @@
+<div class="order-history table-responsive">
+    <table class="table table-sm table-borderless standard-text">
+        <thead>
+            <tr>
+                <th>Booking Number</th>
+                 <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>
+                        <a href="{% url 'order_history' order.order_number %}">
+                            {{ order.order_number }}
+                        </a>
+                    </td>
+                    <td>{{ order.total_price }}kr</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -40,11 +40,17 @@
                 <p>Reservation number:</p>
                 <p>{{ order.order_number }}</p>
             </div>
-            <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
-                <p>You can view your account and reservations at any time by visiting your personalised account page with the 
-                button below.</p>
-                <button class="btn standard-padding" href="">My Account</button>
-            </div>
+            {% if from_profile %}
+                <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
+                    <a class="" href="{% url 'profile' %}">Return to My Details</a>
+                </div>
+            {% else %}
+                <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
+                    <p>You can view your account and reservations at any time by visiting your personalised account page with the 
+                    button below.</p>
+                    <a class="" href="{% url 'profile' %}">My Details</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

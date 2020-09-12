@@ -42,10 +42,10 @@
             <div class="col-12 col-lg-6">
                 <h2 class="standard-title">Order History:</h2>
                 {% if orders %}
-                    <!--Introduction for users without any items in their retreat-->
+                    <!--Include if user already has booking history-->
                     {% include 'profiles/includes/order_history.html' %}
                 {% elif not orders %}
-                    <!--Introduction for users with items already in their retreat-->
+                    <!--Include if users don't have any bookings-->
                     {% include 'profiles/includes/no_order_history.html' %}
                 {% endif %}
             </div>
