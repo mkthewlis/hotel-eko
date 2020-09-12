@@ -33,11 +33,23 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                <h2>Account details:</h2>
+                <h2 class="standard-title">Account details:</h2>
+                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn">Update Information</button>
+                </form>
             </div>
             <div class="col-12 col-lg-6">
-                <h2>Order History:</h2>
+                <h2 class="standard-title">Order History:</h2>
+                {{ orders }}
             </div>
         </div>
     </div>
+{% endblock %}
+
+<!--Courtesty of CI Boutique Ado project-->
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

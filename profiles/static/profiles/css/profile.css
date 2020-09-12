@@ -6,3 +6,27 @@
     width: 100%;
     min-height: 400px;
 }
+
+/*-------------------------------------------------------- My Details section */
+
+.order-history {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
+
+#profile-update-form .form-control {
+    color: #251D1D;
+}
+
+#profile-update-form input::placeholder {
+    color: #B39F99;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #251D1D;
+}
+
+#id_default_country option:first-child {
+    color: #B39F99;
+}
