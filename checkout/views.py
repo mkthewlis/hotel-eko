@@ -135,18 +135,19 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handles successful checkouts and saves user's
+    address to their profile
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
+        # Attach the user's profile to the booking
         order.user_profile = profile
         order.save()
 
-        # Save the user's info
+        # Saves the user's information to their profile
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
