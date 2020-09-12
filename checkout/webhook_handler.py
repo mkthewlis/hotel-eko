@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
 from services.models import Service
+from profiles.models import UserProfile
 
 import json
 import time
@@ -29,9 +30,22 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         retreat = intent.metadata.retreat
+        save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
         total_price = round(intent.charges.data[0].amount / 100, 2)
+
+        username = intent.metadata.username
+        profile = UserProfile.objects.get(user__username=username)
+        if save_info:
+            profile.default_phone_number = billing_details.phone
+            profile.default_country = billing_details.address.country
+            profile.default_postcode = billing_details.address.postal_code
+            profile.default_town_or_city = billing_details.address.city
+            profile.default_street_address1 = billing_details.address.line1
+            profile.default_street_address2 = billing_details.address.line2
+            profile.default_county = billing_details.address.state
+            profile.save()
 
         order_exists = False
         attempt = 1
@@ -64,6 +78,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                         full_name=billing_details.name,
+                        user_profiel=profile,
                         email=billing_details.email,
                         phone_number=billing_details.phone,
                         country=billing_details.address.country,
