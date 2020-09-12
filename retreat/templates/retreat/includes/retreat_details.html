@@ -74,13 +74,13 @@
             <p class="standard-text text-center">Treatment type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Length of treatment: {{ item.service.length }}</p>
             <p class="standard-text text-center">Signature scents used: {{ item.service.scents }}</p>
-            <p class="standard-text text-center">Number of treatments booked: {{ item.quantity }}</p>
+            <p class="standard-text text-center">Number of guests: {{ item.quantity }}</p>
             <p class="standard-text text-center">Price per treatment: {{ item.service.price|floatformat:2 }}kr</p>
         {% elif item.service.is_eat == True %}
             <p class="standard-text text-center">Menu type: {{ item.service.name }}</p>
             <p class="standard-text text-center">Source of protein: {{ item.service.protein }}</p>
             <p class="standard-text text-center">Number of courses: {{ item.service.no_of_courses }}</p>
-            <p class="standard-text text-center">Number of menus booked: {{ item.quantity }}</p>
+            <p class="standard-text text-center">Number of guests: {{ item.quantity }}</p>
             <p class="standard-text text-center">Price per menu: {{ item.service.price|floatformat:2 }}kr</p>
         {% endif %}
             <br>

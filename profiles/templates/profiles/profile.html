@@ -14,7 +14,6 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                {{ profile }}
                 {% if retreat_items %}
                     <!--Introduction for users without any items in their retreat-->
                     {% include 'profiles/includes/profile_retreat_contents.html' %}
@@ -42,7 +41,13 @@
             </div>
             <div class="col-12 col-lg-6">
                 <h2 class="standard-title">Order History:</h2>
-                {{ orders }}
+                {% if orders %}
+                    <!--Introduction for users without any items in their retreat-->
+                    {% include 'profiles/includes/order_history.html' %}
+                {% elif not orders %}
+                    <!--Introduction for users with items already in their retreat-->
+                    {% include 'profiles/includes/no_order_history.html' %}
+                {% endif %}
             </div>
         </div>
     </div>
