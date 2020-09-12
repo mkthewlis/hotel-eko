@@ -1,0 +1,8 @@
+/*-------------------------------------------------------- My Account section */
+
+.account-img {
+    background: url('/media/about_hero_image.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 400px;
+}

@@ -13,17 +13,29 @@
             </div>
         </div>
         <div class="row">
-            {% if retreat_items %}
-                <!--Introduction for users without any items in their retreat-->
-                {% include 'profiles/includes/profile_retreat_contents.html' %}
-            {% elif not retreat_items %}
-                <!--Introduction for users with items already in their retreat-->
-                {% include 'profiles/includes/profile_no_retreat.html' %}
-            {% endif %}
+            <div class="col-12 col-lg-6">
+                {% if retreat_items %}
+                    <!--Introduction for users without any items in their retreat-->
+                    {% include 'profiles/includes/profile_retreat_contents.html' %}
+                {% elif not retreat_items %}
+                    <!--Introduction for users with items already in their retreat-->
+                    {% include 'profiles/includes/profile_no_retreat.html' %}
+                {% endif %}
+            </div>
+            <div class="col-12 col-lg-6 account-img">
+            </div>
         </div>
         <div class="row standard-header-box">
             <div class="col-12">
                 <h1 class="standard-title box-title text-center">My Details</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h2>Account details:</h2>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h2>Order History:</h2>
             </div>
         </div>
     </div>
