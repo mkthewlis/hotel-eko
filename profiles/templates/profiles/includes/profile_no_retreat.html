@@ -1,5 +1,7 @@
-<p class="standard-text standard-padding">You haven't added anything to your retreat yet!</p>
-<p class="standard-text">Unsure of what to add? Begin by having a look through our 
-<a class="" href="{% url 'all_stay_services' %}">Stay</a>, 
-<a class="" href="{% url 'all_relax_services' %}">Relax</a> and 
-<a class="" href="{% url 'all_eat_services' %}">Eat</a> options to decide what you would like your retreat to include.</p>
+<p class="standard-text standard-padding">Hello {{ profile.user.username|title }}! A preview of your current retreat will be visible here once you start personalising your trip.</p>
+<div class="standard-padding pt-0">
+    <p class="standard-text">Unsure of what to add? Begin by having a look through our 
+    <a class="" href="{% url 'all_stay_services' %}">Stay</a>, 
+    <a class="" href="{% url 'all_relax_services' %}">Relax</a> and 
+    <a class="" href="{% url 'all_eat_services' %}">Eat</a> options to decide what you would like your retreat to include.</p>
+</div>

@@ -1,4 +1,5 @@
 <div class="ml-3 standard-padding">
+    <p class="standard-text text-center">{{ profile.user.username|title }}</p>
     <p class="standard-text">Here's a quick overview of what you have added to your retreat:</p>
     {% for item in retreat_items %}
         <p class="standard-text">Item number: {{ forloop.counter }}</p>
