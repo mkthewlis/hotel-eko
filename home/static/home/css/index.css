@@ -18,7 +18,13 @@
     background: url('/media/index_forest_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
-    min-height: 500px;
+    min-height: 700px;
+}
+
+.forest-img-box {
+    background-color:#F2F4F9;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 15%;
 }
 
 /*-------------------------------------------------------- Carousel section */
