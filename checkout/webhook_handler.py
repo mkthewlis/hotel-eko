@@ -55,8 +55,15 @@ class StripeWH_Handler:
         billing_details = intent.charges.data[0].billing_details
         total_price = round(intent.charges.data[0].amount / 100, 2)
 
+        # Clean data in the billing details
+        for field, value in billing_details.address.items():
+            if value == "":
+                billing_details.address[field] = None
+
+        # Update profle information if save_info was
         username = intent.metadata.username
         profile = UserProfile.objects.get(user__username=username)
+
         if save_info:
             profile.default_phone_number = billing_details.phone
             profile.default_country = billing_details.address.country
