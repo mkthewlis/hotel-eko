@@ -2,14 +2,19 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
 from .models import UserProfile
+from owner_blog.models import OwnerBlog
 from .forms import UserProfileForm
 from checkout.models import Order
 
 
 def profile(request):
-    """ Display the user's profile: 'my account' """
+    """
+    Displays the user's profile on their 'my account' page
+    as well as the owner's blog posts
+    """
 
     profile = get_object_or_404(UserProfile, user=request.user)
+    blog_posts = OwnerBlog.objects.all()
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -27,6 +32,7 @@ def profile(request):
         'orders': orders,
         'on_profile_page': True,
         'profile': profile,
+        'blog_posts': blog_posts,
     }
 
     return render(request, template, context)
