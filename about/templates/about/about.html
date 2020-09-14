@@ -83,6 +83,13 @@
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2 pb-5">
                 <p class="standard-text standard-padding">PLACEMENT TEXT FOR NOW. Reviews will come here after models are added.</p>
+                {% if not reviews %}
+                    {% include 'about/includes/no_reviews.html' %}
+                {% else %}
+                    {% for review in reviews %}
+                        <p>{{ review.review_title }}</p>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
