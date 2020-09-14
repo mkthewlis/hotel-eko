@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 
 from profiles.models import UserProfile
+from .forms import ReviewForm
 from services.models import Service
 from user_reviews.models import UserReview
 
@@ -30,6 +31,31 @@ def about(request):
             'reviews': reviews,
         }
         return render(request, 'about/about.html', context)
+
+
+def edit_review(request, review_id):
+    """ Allows the author of the review to edit what
+    they have written """
+
+    user = get_object_or_404(UserProfile, user=request.user)
+    user_reviews = UserReview.objects.all()
+    review_form = ReviewForm()
+
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST, instance=user)
+        if review_form.is_valid():
+            review_form.save()
+            messages.success(request, 'Success! Your review has been updated.')
+    else:
+        review_form = review_form(instance=user)
+
+    template = 'about/about.html'
+    context = {
+        'review_form': review_form,
+        'user': user,
+    }
+
+    return render(request, template, context)
 
 
 def delete_review(request, review_id):

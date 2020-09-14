@@ -6,15 +6,16 @@
         <p class="standard-text">Review of: <a href="{% url 'service_detail' review.service.id %}">{{ review.service }}</a></p>
         <p class="standard-text">Added by: {{ review.user_profile }}</p>
 
-        <!--Delete review modal, only accessible to author or superuser -->
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser or request.user == review.user_profile %}
-                <a class="btn" data-toggle="modal" data-target="#deleteReviewModal{{ review.service.id }}">Delete</a>
-                <div class="modal fade" id="deleteReviewModal{{ review.service.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewModalLabel{{ review.service.id }}" aria-hidden="true">
+
+                <!--Delete review modal, only accessible to author or superuser -->
+                <a class="btn" data-toggle="modal" data-target="#deleteReviewModal{{ review.id }}">Delete</a>
+                <div class="modal fade" id="deleteReviewModal{{ review.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewModalLabel{{ review.id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title standard-title" id="deleteReviewModalLabel{{ review.service.id }}">Delete</h5>
+                                <h5 class="modal-title standard-title" id="deleteReviewModalLabel{{ review.id }}">Delete</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -29,6 +30,32 @@
                         </div>
                     </div>
                 </div>
+
+                <!--Edit review modal, only accessible to author or superuser -->
+                <a class="btn" data-toggle="modal" data-target="#editModal{{ review.service.id }}">Edit</a>
+                <div class="modal fade" id="editModal{{ review.service.id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ review.service.id }}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title standard-title" id="editModalLabel{{ review.service.id }}">Edit Review</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="mt-3" action="{% url 'edit_review' review.id %}" method="POST" id="profile-update-form">
+                                    {% csrf_token %}
+                                    {{ review_form|crispy }}
+                                    <button class="btn">Update Review</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             {% endif %}
         {% endif %}
 
