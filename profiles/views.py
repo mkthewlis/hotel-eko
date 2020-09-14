@@ -96,3 +96,26 @@ def new_blog(request):
     }
 
     return render(request, template, context)
+
+
+def delete_blog(request, blog_post_id):
+    """ Removes a blog post from the profiles template if the
+    same hotel owner is in session """
+
+    post = get_object_or_404(OwnerBlog, id=blog_post_id)
+
+    if request.user.is_superuser:
+        post.delete()
+        messages.success(request, 'Success! Your post has \
+                                    been deleted')
+        return redirect(reverse("profile"))
+    else:
+        messages.error(request, 'Only the hotel owner can delete posts.')
+        return redirect(reverse("profile"))
+
+    template = 'profiles/profile.html'
+    context = {
+        'post': post,
+    }
+
+    return render(request, template, context)
