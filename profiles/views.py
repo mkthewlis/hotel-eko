@@ -7,6 +7,8 @@ from owner_blog.forms import BlogForm
 from .forms import UserProfileForm
 from checkout.models import Order
 
+import datetime
+
 
 def profile(request):
     """
@@ -62,14 +64,24 @@ def new_blog(request):
     """ Allows the owner of the hotel to add new blog posts
     to the profile page """
 
+    user_profile = UserProfile.objects.get(user=request.user)
+
     if request.user.is_authenticated and request.user.is_superuser:
+
         if request.method == 'POST':
             blog_form = BlogForm(request.POST)
+
             if blog_form.is_valid():
-                blog_form.save(commit=False)
+                new_post = blog_form.save(commit=False)
+                new_post.user_profile = user_profile
+                date_added = datetime.datetime.now()
+                blog_form.save()
                 messages.success(request, 'Success! Your new post has \
                                             been added')
                 return redirect(reverse("profile"))
+            else:
+                messages.error(request, 'Your post could not be added. \
+                                            Please check your post is valid.')
         else:
             blog_form = BlogForm()
 

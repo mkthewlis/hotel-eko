@@ -58,6 +58,7 @@
         <div class="row">
             {% include 'profiles/includes/owner_blog.html' %}
         </div>
+        <!--Include new blog form is user is superuser-->
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
                <div class="row">
