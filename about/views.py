@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 
 from profiles.models import UserProfile
@@ -30,3 +30,37 @@ def about(request):
             'reviews': reviews,
         }
         return render(request, 'about/about.html', context)
+
+
+def delete_review(request, review_id):
+    """ Removes a hotel review if either the user who added it
+    or the hotel owner is in session """
+
+    review = get_object_or_404(UserReview, id=review_id)
+    user = get_object_or_404(UserProfile, user=request.user)
+
+    if request.user.is_authenticated:
+        if request.user == user:
+            review.delete()
+            messages.success(request, 'Success! Your review has \
+                                    been deleted.')
+            return redirect(reverse("about"))
+        elif request.user.is_superuser:
+            review.delete()
+            messages.success(request, 'Success! You have deleted this review.')
+            return redirect(reverse("about"))
+        else:
+            messages.error(request, 'This review can only be deleted \
+                                    by the author.')
+            return redirect(reverse("about"))
+    else:
+        messages.error(request, 'You have to be signed in to add, \
+                                    edit or delete a review.')
+        return redirect(reverse("profile"))
+
+    template = 'about/about.html'
+    context = {
+        'review': review,
+    }
+
+    return render(request, template, context)
