@@ -12,7 +12,7 @@ class UserReviewAdmin(admin.ModelAdmin):
         "user_profile",
         "service",
         "review_title",
-        "review_content"
+        "review_content",
     )
 
 

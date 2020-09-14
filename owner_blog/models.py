@@ -12,7 +12,7 @@ class OwnerBlog(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name="reviews",
+        related_name="owner_profile",
     )
     title = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
