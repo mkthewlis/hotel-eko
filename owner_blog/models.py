@@ -18,5 +18,8 @@ class OwnerBlog(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     thought_content = models.TextField(blank=True, null=True, default="")
 
+    class Meta:
+        ordering = ['-date_added']
+
     def __str__(self):
         return self.title
