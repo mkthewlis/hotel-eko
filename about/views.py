@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 
 from profiles.models import UserProfile
-from .forms import ReviewForm
+from user_reviews.forms import ReviewForm
 from services.models import Service
 from user_reviews.models import UserReview
 
@@ -37,22 +37,29 @@ def edit_review(request, review_id):
     """ Allows the author of the review to edit what
     they have written """
 
-    user = get_object_or_404(UserProfile, user=request.user)
-    user_reviews = UserReview.objects.all()
-    review_form = ReviewForm()
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    review = get_object_or_404(UserReview, id=review_id)
 
-    if request.method == 'POST':
-        review_form = ReviewForm(request.POST, instance=user)
-        if review_form.is_valid():
-            review_form.save()
-            messages.success(request, 'Success! Your review has been updated.')
-    else:
-        review_form = review_form(instance=user)
+    print(review)
+    print(user_profile)
+
+    if request.user == user_profile.user:
+        if request.method == 'POST':
+            if review != "":
+                review_form = ReviewForm(request.POST, instance=review)
+                if review_form.is_valid():
+                    review_form.save()
+                    messages.success(request, 'Success! Your review has \
+                                                been updated.')
+        else:
+            print('Test else statement')
+            review_form = ReviewForm(instance=review)
 
     template = 'about/about.html'
     context = {
         'review_form': review_form,
-        'user': user,
+        'user_profile': user_profile,
+        'review': review,
     }
 
     return render(request, template, context)
