@@ -9,14 +9,21 @@ from user_reviews.models import UserReview
 def about(request):
     """ A view to return index page """
 
-    user = get_object_or_404(UserProfile, user=request.user)
     service = Service.objects.all()
     reviews = UserReview.objects.all()
 
-    context = {
-        'user': user,
-        'service': service,
-        'reviews': reviews,
-    }
+    if request.user.is_authenticated:
+        user = get_object_or_404(UserProfile, user=request.user)
+        context = {
+            'user': user,
+            'service': service,
+            'reviews': reviews,
+        }
+        return render(request, 'about/about.html', context)
 
-    return render(request, 'about/about.html', context)
+    else:
+        context = {
+            'service': service,
+            'reviews': reviews,
+        }
+        return render(request, 'about/about.html')
