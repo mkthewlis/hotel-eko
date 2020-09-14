@@ -1,0 +1,10 @@
+<div class="col-12">
+    <h2 class="standard-title">Add a new post below:</h2>
+</div>
+<div class="col-12 mt-3">
+	<form class="" action="{% url 'new_blog' %}" method="POST" id="new-blog-form">
+        {% csrf_token %}
+        {{ blog_form|crispy }}
+        <button class="btn">Add post</button>
+    </form>
+</div>

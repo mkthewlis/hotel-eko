@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 
 from .models import UserProfile
 from owner_blog.models import OwnerBlog
+from owner_blog.forms import BlogForm
 from .forms import UserProfileForm
 from checkout.models import Order
 
@@ -15,6 +16,7 @@ def profile(request):
 
     profile = get_object_or_404(UserProfile, user=request.user)
     blog_posts = OwnerBlog.objects.all()
+    blog_form = BlogForm()
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -33,6 +35,7 @@ def profile(request):
         'on_profile_page': True,
         'profile': profile,
         'blog_posts': blog_posts,
+        'blog_form': blog_form,
     }
 
     return render(request, template, context)
@@ -50,6 +53,29 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+def new_blog(request):
+    """ Allows the owner of the hotel to add new blog posts
+    to the profile page """
+
+    if request.user.is_authenticated and request.user.is_superuser:
+        if request.method == 'POST':
+            blog_form = BlogForm(request.POST)
+            if blog_form.is_valid():
+                blog_form.save(commit=False)
+                messages.success(request, 'Success! Your new post has \
+                                            been added')
+                return redirect(reverse("profile"))
+        else:
+            blog_form = BlogForm()
+
+    template = 'profiles/profile.html'
+    context = {
+        'blog_form': blog_form,
     }
 
     return render(request, template, context)
