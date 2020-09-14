@@ -62,7 +62,7 @@ def order_history(request, order_number):
 
 def new_blog(request):
     """ Allows the owner of the hotel to add new blog posts
-    to the profile page """
+    to the profile page, checking that the post content is not empty """
 
     user_profile = UserProfile.objects.get(user=request.user)
 
@@ -72,6 +72,11 @@ def new_blog(request):
             blog_form = BlogForm(request.POST)
 
             if blog_form.is_valid():
+                if len(request.POST["thought_content"]) <= 0:
+                    messages.error(
+                        request, "You have not added any content to your post. \
+                                            Please add content and try again.")
+                    return redirect(reverse("profile"))
                 new_post = blog_form.save(commit=False)
                 new_post.user_profile = user_profile
                 date_added = datetime.datetime.now()

@@ -5,7 +5,7 @@
     <div class="col-12 col-md-3 ml-md-5">
         <p class="standard-text">{{ blog_post.date_added }}</p>
     </div>
-    <div class="col-12 col-md-8 mb-3">
+    <div class="col-12 col-md-8 {% if forloop.last or blog_post.count == 1 %} mb-5 {% endif %}">
         <p class="standard-text">{{ blog_post.thought_content }}</p>
     </div>
 {% endfor %}
