@@ -7,7 +7,10 @@ from user_reviews.models import UserReview
 
 
 def about(request):
-    """ A view to return index page """
+    """ A view to return about page. If a user is in session they are
+    able to view the reviews and add review form. If they are not
+    signed in, they are prompted to do so
+     """
 
     service = Service.objects.all()
     reviews = UserReview.objects.all()
@@ -26,4 +29,4 @@ def about(request):
             'service': service,
             'reviews': reviews,
         }
-        return render(request, 'about/about.html')
+        return render(request, 'about/about.html', context)

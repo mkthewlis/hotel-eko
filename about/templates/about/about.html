@@ -81,15 +81,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2 pb-5 mt-5">
-                {% if not reviews %}
-                    {% include 'about/includes/no_reviews.html' %}
-                {% else %}
-                    {% for review in reviews %}
-                        <p class="standard-text">Testing template: {{ review.review_title }}</p>
-                    {% endfor %}
-                {% endif %}
-            </div>
+            {% if not reviews %}
+                {% include 'about/includes/no_reviews.html' %}
+            {% else %}
+                {% include 'about/includes/user_reviews.html' %}
+            {% endif %}
         </div>
     </div>
     <!--Links section-->
