@@ -37,10 +37,10 @@ def delete_review(request, review_id):
     or the hotel owner is in session """
 
     review = get_object_or_404(UserReview, id=review_id)
-    user = get_object_or_404(UserProfile, user=request.user)
+    user_profile = get_object_or_404(UserProfile, user_profile=request.user)
 
     if request.user.is_authenticated:
-        if request.user == user:
+        if request.user == user_profile:
             review.delete()
             messages.success(request, 'Success! Your review has \
                                     been deleted.')
@@ -51,7 +51,7 @@ def delete_review(request, review_id):
             return redirect(reverse("about"))
         else:
             messages.error(request, 'This review can only be deleted \
-                                    by the author.')
+                                    by the author or hotel manager.')
             return redirect(reverse("about"))
     else:
         messages.error(request, 'You have to be signed in to add, \
@@ -61,6 +61,7 @@ def delete_review(request, review_id):
     template = 'about/about.html'
     context = {
         'review': review,
+        'user_profile': user_profile,
     }
 
     return render(request, template, context)
