@@ -77,21 +77,25 @@ def edit_review(request, review_id):
 
     user_profile = get_object_or_404(UserProfile, user=request.user)
     review = get_object_or_404(UserReview, id=review_id)
+    review_form = ReviewForm()
 
+    print(user_profile)
     if request.user == user_profile.user:
         if request.method == 'POST':
             print('First test')
-            if review != "":
-                print('Second test')
-                review_form = ReviewForm(request.POST, instance=user_profile)
-                if review_form.is_valid():
-                    print('Success!')
-                    review_form.save()
-                    messages.success(request, 'Success! Your review has \
+            print(user_profile)
+            print(review)
+            review_form = ReviewForm(request.POST)
+            if review_form.is_valid():
+                print('second test')
+                user_profile = user_profile
+                print('Success!')
+                review_form.save()
+                messages.success(request, 'Success! Your review has \
                                                 been updated.')
         else:
             print('At the else statement')
-            review_form = ReviewForm(instance=user_profile)
+            review_form = ReviewForm()
 
     template = 'about/about.html'
     context = {
