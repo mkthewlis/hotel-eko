@@ -15,15 +15,18 @@ def about(request):
 
     service = Service.objects.all()
     reviews = UserReview.objects.all()
+    review_form = ReviewForm()
 
     if request.user.is_authenticated:
         user = get_object_or_404(UserProfile, user=request.user)
-        context = {
-            'user': user,
-            'service': service,
-            'reviews': reviews,
-        }
-        return render(request, 'about/about.html', context)
+        if request.user == user.user:
+            context = {
+                'user': user,
+                'service': service,
+                'reviews': reviews,
+                'review_form': review_form,
+            }
+            return render(request, 'about/about.html', context)
 
     else:
         context = {
@@ -79,17 +82,11 @@ def edit_review(request, review_id):
     review = get_object_or_404(UserReview, id=review_id)
     review_form = ReviewForm()
 
-    print(user_profile)
     if request.user == user_profile.user:
         if request.method == 'POST':
-            print('First test')
-            print(user_profile)
-            print(review)
             review_form = ReviewForm(request.POST)
             if review_form.is_valid():
-                print('second test')
                 user_profile = user_profile
-                print('Success!')
                 review_form.save()
                 messages.success(request, 'Success! Your review has \
                                                 been updated.')

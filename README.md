@@ -23,9 +23,8 @@ If you would like to test the payment functionality of this project, please crea
         - [Tablet User](#Tablet-User)
     - [Design Process](#Design-Process)
     - [Documenting the design process](#Documenting-the-design-process)
-    - [Database design](#Database-structure)
+    - [Database Structure](#Database-structure)
         - [Designing the database](#Designing-the-Database)
-        - [Data models](#Data-Models)
 - [**Features**](#Features)
     - [Existing features](#Existing-features)
     - [Features left to implement](#Features-left-to-implement)
@@ -45,10 +44,9 @@ If you would like to test the payment functionality of this project, please crea
 
 - To create a hotel website with a structure that is intuitive for users to navigate and a design that meets contemporary industry standards.
 
-
 - To create a full stack website where both the owner of the hotel and its users could satisfy all CRUD functions, allowing them to Create, Read, Update and Delete hotel offers or bookings respectively. 
 
--	To implement Stripe payment for users looking to make hotel reservations.
+- To implement Stripe payment for users looking to make hotel reservations.
 
 - To make the website interactive, by adding JavaScript to create a positive user experience.
 
@@ -139,7 +137,7 @@ I also relied on Django’s default user model for authorization, allowing me to
 
 While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch]().
 
-With this complete, I had a better understanding of how I could develop the database and continued with a Microsoft Excel document. This eventually led to the structure outlined visually below. 
+With this complete, I had a better understanding of how I could develop the database and continued with a Microsoft Excel document. This eventually led to the structure modelled below. 
 
 #### Profiles App
 
