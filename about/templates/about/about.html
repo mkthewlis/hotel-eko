@@ -84,7 +84,7 @@
             {% if not reviews %}
                 {% include 'about/includes/no_reviews.html' %}
             {% else %}
-                {% include 'about/includes/user_reviews.html' %}
+                {% include 'about/includes/user_reviews.html' with review_form=review_form %}
             {% endif %}
         </div>
     </div>
