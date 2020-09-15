@@ -33,6 +33,44 @@ def about(request):
         return render(request, 'about/about.html', context)
 
 
+def new_review(request):
+    """ Allows users who have signed in to leave a review about
+    a specific service that the hotel offers """
+
+    user_profile = UserProfile.objects.get(user=request.user)
+    service = Service.objects.get(service=service)
+
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            review_form = UserReview(request.POST)
+
+            if review_form.is_valid():
+                if len(request.POST["review_content"]) <= 0:
+                    messages.error(
+                        request, "Your review is empty! \
+                                    Please add content and try again.")
+                    return redirect(reverse("about"))
+                new_review = review_form.save(commit=False)
+                new_review.user_profile = user_profile
+                service = service
+                review_form.save()
+                messages.success(request, 'Success! Your review has \
+                                        been added.')
+                return redirect(reverse("about"))
+            else:
+                messages.error(request, 'Your review could not be added. \
+                                    Please check that your review is valid.')
+        else:
+            review_form = ReviewForm()
+
+    template = 'about/about.html'
+    context = {
+        'review_form': review_form,
+    }
+
+    return render(request, template, context)
+
+
 def edit_review(request, review_id):
     """ Allows the author of the review to edit what
     they have written """
@@ -40,20 +78,20 @@ def edit_review(request, review_id):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     review = get_object_or_404(UserReview, id=review_id)
 
-    print(review)
-    print(user_profile)
-
     if request.user == user_profile.user:
         if request.method == 'POST':
+            print('First test')
             if review != "":
-                review_form = ReviewForm(request.POST, instance=review)
+                print('Second test')
+                review_form = ReviewForm(request.POST, instance=user_profile)
                 if review_form.is_valid():
+                    print('Success!')
                     review_form.save()
                     messages.success(request, 'Success! Your review has \
                                                 been updated.')
         else:
-            print('Test else statement')
-            review_form = ReviewForm(instance=review)
+            print('At the else statement')
+            review_form = ReviewForm(instance=user_profile)
 
     template = 'about/about.html'
     context = {

@@ -44,7 +44,7 @@
                             <div class="modal-body">
                                 <form class="mt-3" action="{% url 'edit_review' review.id %}" method="POST" id="review-update-form">
                                     {% csrf_token %}
-                                    {{ review_form|crispy }}
+                                    {{ review_form | crispy }}
                                     <button class="btn">Update Review</button>
                                 </form>
                             </div>
@@ -69,7 +69,7 @@
     <h2 class="standard-title">Add a new post below:</h2>
 </div>
 <div class="col-10 offset-1 col-md-6 offset-md-3 mt-3">
-	<form class="" action="" method="POST" id="new-blog-form">
+	<form class="" action="{% url 'new_review' %}" method="POST" id="new-blog-form">
         {% csrf_token %}
         {{ review_form|crispy }}
         <button class="btn">Add post</button>
