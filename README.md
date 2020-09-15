@@ -24,7 +24,7 @@ If you would like to test the payment functionality of this project, please crea
     - [Design Process](#Design-Process)
     - [Documenting the design process](#Documenting-the-design-process)
     - [Database design](#Database-structure)
-        - [Designing the database](#Tablet-User)
+        - [Designing the database](#Designing-the-Database)
         - [Data models](#Data-Models)
 - [**Features**](#Features)
     - [Existing features](#Existing-features)
@@ -135,18 +135,15 @@ Design for tablet devices:
 As I built my project with Django, I used the built-in sqlite3 database during all development stages. When I then deployed the project to Heroku towards completion, I changed to a PostgresSQL database as that is provided by Heroku as an add-on for production. 
 I also relied on Django’s default user model for authorization, allowing me to meet one of the project requirements of separating features by anonymous users, users in session and superusers. Further information about this feature can be found here: [django.contrib.auth.models](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/). Finally, the structure of the Checkout and Services apps were inspired by my studies with Code Institute, namely the Boutique Ado project found here: [Boutique Ado]( https://github.com/mkthewlis/boutique-ado).
 
-
 #### Designing the Database
 
-While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch]()
+While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch]().
 
 With this complete, I had a better understanding of how I could develop the database and continued with a Microsoft Excel document. This eventually led to the structure outlined visually below. 
 
-#### Data models
+#### Profiles App
 
-##### Profiles App
-
-**Profile Model**
+*UserProfile Model*
 
 | **Name** | **Database Key** | **Field Type** | **Validation** |
 --- | --- | --- | --- 
@@ -158,4 +155,84 @@ With this complete, I had a better understanding of how I could develop the data
  Town/City | default_town_or_city | CharField | max_length=40, null=True, blank=True
  County | default_county | CharField | max_length=80, null=True, blank=True
  Country | default_country | CountryField | blank_label='Country', null=True, blank=True
+
+#### Owner Blog App
+
+*OwnerBlog Model*
+
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+ User Profile | user_profile | ForeignKey 'UserProfile' | on_delete=modals.SET_NULL, null=True, blank=True, related_name="owner_profile"
+ Title | title | Charfield | max_length=200
+ Date Added | date_added | DateTimeField | auto_now_add=True
+ Tought Content | thought_content | TextField | blank=True, null=True, default=""
+
+#### Services App
+
+*Services Model*
+
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+ Sku | sku | CharField | max_length=254, null=True, blank=True
+ Name | name | CharField | max_length=254 
+ Category | category | ForeignKey 'Category' | null=True, blank=True, on_delete=models.SET_NULL
+ Price | price | DecimalField | max_digits=6, decimal_places=2
+ Description | description | TextField | max_length=900 
+ Image | image | ImageField | null=True, blank=True
+ Is Stay | is_stay | BooleanField | default=False
+ Number of Guests | no_of_guests | IntegerField | null=True, blank=True
+ Has Breakfast | has_breakfast | BooleanField | null=True, blank=True
+ Is Relax | is_relax | BooleanField | default=False
+ Length | length | IntegerField | null=True, blank=True
+ Scents | scents | CharField | max_length=254, null=True, blank=True
+ Is Eat | is_eat | BooleanField | default=False
+ Protein | protein | CharField | max_length=254, null=True, blank=True
+ Number of Courses | no_of_courses | IntegerField | null=True, blank=True
+ 
+*Category Model*
+
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+ Category | category | CharField | max_length=254
+
+#### Checkout App
+
+*Checkout Model*
+
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+ Order Number | order_number | CharField | max_length=32, null=False, editable=False
+ User Profile | user_profile | ForeignKey 'UserProfile' | on_delete=models.SET_NULL, null=True, blank=True, related_name='orders'
+ Full Name | full_name | CharField | max_length=50, null=False, blank=False
+ Email | email | EmailField | max_length=254, null=False, blank=False
+ Country | country | CountryField | blank_label='Country*', null=False, blank=False
+ Postcode | postcode | CharField | max_length=20, null=True, blank=True
+ Town/City | town_or_city | CharField | max_length=40, null=False, blank=False
+ Phone number | phone_number | CharField | max_length=20, null=False, blank=False
+ Street Address 1 | street_address1 | CharField | max_length=80, null=False, blank=False
+ Street Address 2 | street_address2 | CharField | max_length=80, null=False, blank=True
+ County | county | CharField | max_length=80, null=True, blank=True
+ Date | date | DateTimeField | auto_now_add=True
+ Total Price | total_price | DecimalField | max_digits=10, decimal_places=2, null=False, default=0
+ Original Retreat | original_retreat | TextField | null=False, blank=False, default=''
+ Stripe Pid | stripe_pid | CharField | max_length=254, null=False, blank=False, default=''
+
+*OrderLineItem Model*
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+ Order | order | ForeignKey 'Order' | null=False, blank=False, on_delete=models.CASCADE, related_name='orderitems'
+ Service | service | ForeignKey 'Service' | null=False, blank=False, on_delete=models.PROTECT
+ Quantity | quantity | IntegerField | null=False, blank=False, default=0
+ Lineitem Total | lineitem_total | DecimalField | max_digits=8, decimal_places=2, null=False, blank=False, editable=False
+
+#### User Reviews App
+
+*UserReviews Model*
+
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+ User Profile | user_profile | ForeignKey 'UserProfile' | on_delete=modals.SET_NULL, null=True, blank=True, related_name="user_profile"
+ Service | service | ForeignKey 'Service' | on_delete=models.SET_NULL, null=True, blank=True, related_name="user_service"
+ Review Title | review_title | Charfield | max_length=200
+ Review Content | review_content | TextField | blank=True, null=True, default=""
 
