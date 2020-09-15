@@ -41,7 +41,7 @@ def new_review(request):
     a specific service that the hotel offers """
 
     user_profile = UserProfile.objects.get(user=request.user)
-    service = Service.objects.get(service=service)
+    service = Service.objects.get(id=service_id)
 
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -63,8 +63,6 @@ def new_review(request):
             else:
                 messages.error(request, 'Your review could not be added. \
                                     Please check that your review is valid.')
-        else:
-            review_form = ReviewForm()
 
     template = 'about/about.html'
     context = {
@@ -84,15 +82,22 @@ def edit_review(request, review_id):
 
     if request.user == user_profile.user:
         if request.method == 'POST':
-            review_form = ReviewForm(request.POST)
+            review_form = ReviewForm(request.POST, instance=review)
             if review_form.is_valid():
-                user_profile = user_profile
-                review_form.save()
-                messages.success(request, 'Success! Your review has \
-                                                been updated.')
+                if len(request.POST["service" or "review_content"]) <= 0:
+                    messages.error(
+                        request, "You have not completed the review form. \
+                                            Please add content and try again.")
+                    return redirect(reverse("about"))
+                else:
+                    review = review_form.save(commit=False)
+                    user_profile = user_profile
+                    review_form.save()
+                    messages.success(request, 'Success! Your review has \
+                                                    been updated.')
+                    return redirect(reverse("about"))
         else:
-            print('At the else statement')
-            review_form = ReviewForm()
+            review_form = ReviewForm(instance=review)
 
     template = 'about/about.html'
     context = {
@@ -109,15 +114,18 @@ def delete_review(request, review_id):
     or the hotel owner is in session """
 
     review = get_object_or_404(UserReview, id=review_id)
-    user_profile = get_object_or_404(UserProfile, user_profile=request.user)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.user.is_authenticated:
+        print(user_profile)
         if request.user == user_profile:
+            print('Issue here?')
             review.delete()
             messages.success(request, 'Success! Your review has \
                                     been deleted.')
             return redirect(reverse("about"))
         elif request.user.is_superuser:
+            print('Or here?')
             review.delete()
             messages.success(request, 'Success! You have deleted this review.')
             return redirect(reverse("about"))
