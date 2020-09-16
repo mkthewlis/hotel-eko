@@ -41,21 +41,18 @@ def new_review(request):
     a specific service that the hotel offers """
 
     user_profile = UserProfile.objects.get(user=request.user)
-    service = Service.objects.get(id=service_id)
 
     if request.user.is_authenticated:
         if request.method == 'POST':
-            review_form = UserReview(request.POST)
-
+            review_form = ReviewForm(request.POST)
             if review_form.is_valid():
-                if len(request.POST["review_content"]) <= 0:
+                if len(request.POST["review_content"]) <= 0 or len(request.POST["service"]) <= 0:
                     messages.error(
-                        request, "Your review is empty! \
+                        request, "You haven't completed the review form! \
                                     Please add content and try again.")
                     return redirect(reverse("about"))
                 new_review = review_form.save(commit=False)
                 new_review.user_profile = user_profile
-                service = service
                 review_form.save()
                 messages.success(request, 'Success! Your review has \
                                         been added.')
@@ -117,22 +114,22 @@ def delete_review(request, review_id):
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.user.is_authenticated:
-        print(user_profile)
-        if request.user == user_profile:
-            print('Issue here?')
+        if request.user == user_profile.user:
             review.delete()
             messages.success(request, 'Success! Your review has \
                                     been deleted.')
             return redirect(reverse("about"))
+
         elif request.user.is_superuser:
-            print('Or here?')
             review.delete()
             messages.success(request, 'Success! You have deleted this review.')
             return redirect(reverse("about"))
+
         else:
             messages.error(request, 'This review can only be deleted \
                                     by the author or hotel manager.')
             return redirect(reverse("about"))
+
     else:
         messages.error(request, 'You have to be signed in to add, \
                                     edit or delete a review.')
