@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Service
+from .forms import ServiceForm
 
 
 def all_stay_services(request):
@@ -47,3 +48,14 @@ def service_detail(request, service_id):
         'service': service,
     }
     return render(request, 'services/service_detail.html', context)
+
+
+def add_service(request):
+    """ Add a product to the store """
+    form = ServiceForm()
+    template = 'services/add_service.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

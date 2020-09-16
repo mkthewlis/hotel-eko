@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!--Title section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">Product Management</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center standard-title mt-3">
+                <h2>Add a Service</h2>
+            </div>
+            <div class="col-10 offset-1 col-md-6 offset-md-3 mt-3">
+                <form class="" action="{% url 'add_service' %}" method="POST" id="new-blog-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn mb-5">Add service</button>
+                </form>
+            </div>
+            <div class="col-10 offset-1 col-md-6 offset-md-3 mt-3 mb-5 text-center">
+                <a class="mr-5" href="{% url 'about' %}">Return to About Page</a>
+                <a class="ml-5" href="{% url 'home' %}">Return to Home Page</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
