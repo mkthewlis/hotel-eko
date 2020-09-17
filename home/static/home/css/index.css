@@ -4,23 +4,19 @@
     background: url('/media/index_hero_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
-    min-height: 900px;
+    min-height: 800px;
 }
 
 .index-hero-box {
     min-height: 70px;
-    border: 2px solid #251D1D;
-    border-right: 0px;
     background-color: #fff;
+    box-shadow: 0 0 2px 2px #D3E0E7;
 }
 
 .index-hero-box h1 {
     color: #251D1D !important;
 }
 
-.hero-box-padding {
-    padding-top: 380px;
-}
 /*-------------------------------------------------------- More information section */
 
 .forest-img {
@@ -80,4 +76,17 @@
 
 .carousel-indicators li {
     background-color: #76A1B1;
+}
+
+/*-------------------------------------------------------- Media queries */
+
+@media screen and (max-width: 767px){
+    .carousel-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 585px){
+    .index-hero-box {
+        padding-left: 0px !important;
 }

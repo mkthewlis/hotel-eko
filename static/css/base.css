@@ -223,3 +223,15 @@
 .allauth-form-inner-content a {
     color: #76A1B1;
 }
+
+/*-------------------------------------------------------- Media queries */
+
+@media screen and (max-width: 576px){
+    .footer-padding {
+        min-height: 500px;
+    }
+
+    #footer-position {
+        min-height: 500px;
+    }
+}

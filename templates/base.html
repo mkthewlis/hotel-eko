@@ -116,27 +116,27 @@
     </div>
     <!--To stick the footer to the bottom of all pages-->
     <footer class="container-fluid" id="footer-position">
-        <div class="row mt-4 ml-1 mr-1">
-            <div class="col-12 col-sm-4 justify-content-end">
-                <h4 class="footer-title">Contact Us</h4>
+        <div class="row ml-1 mr-1 justify-content-around">
+            <div class="col-12 col-sm-4 text-center text-sm-left">
+                <h4 class="footer-title mt-5">Contact Us</h4>
                 <p class="footer-text">Fjällvägen 4</p>
                 <p class="footer-text">Sweden</p>
                 <p class="footer-text">+46 424 4242</p>
                 <p class="footer-text">contact@hotelekoexample.com</p>
             </div>
-            <div class="col-12 col-sm-4 text-center sm-d-none">
-                <h4 class="footer-title">Get Social</h4>
+            <div class="col-12 col-sm-4 text-center">
+                <h4 class="footer-title mt-5">Get Social</h4>
                 <div class="footer-text footer-icon mt-3">
                     <a class="mr-2" href="https://www.tripadvisor.com" target="_blank"><i class="fab fa-tripadvisor tripadvisor"></i></a>
                     <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram instagram"></i></a>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 text-right">
-                <h4 class="footer-title">Learn More</h4>
-                <p class="footer-link"><a href="{% url 'about' %}">About</a></p>
-                <p class="footer-link"><a href="{% url 'all_stay_services' %}">Stay</a></p>
-                <p class="footer-link"><a href="{% url 'all_relax_services' %}">Relax</a></p>
-                <p class="footer-link"><a href="{% url 'all_eat_services' %}">Eat</a></p>
+            <div class="col-12 col-sm-4 text-center text-sm-right">
+                <h4 class="footer-title mt-5">Learn More</h4>
+                <p class="footer-link d-inline-flex d-sm-block"><a href="{% url 'about' %}">About</a></p>
+                <p class="footer-link d-inline-flex d-sm-block"><a href="{% url 'all_stay_services' %}">Stay</a></p>
+                <p class="footer-link d-inline-flex d-sm-block"><a href="{% url 'all_relax_services' %}">Relax</a></p>
+                <p class="footer-link d-inline-flex d-sm-block"><a href="{% url 'all_eat_services' %}">Eat</a></p>
             </div>
         </div>
     </footer>
