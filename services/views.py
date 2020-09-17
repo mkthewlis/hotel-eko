@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 from .models import Service
 from .forms import ServiceForm
 
@@ -51,8 +52,23 @@ def service_detail(request, service_id):
 
 
 def add_service(request):
-    """ Add a product to the store """
-    form = ServiceForm()
+    """ Add a service to the hotel selection """
+
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES)
+        if request.POST["image"] == False:
+            messages.error(request, 'Please add an image to upload this \
+                                service to the website.')
+        elif form.is_valid():
+            form.save()
+            messages.success(request, 'Success! This service has now been \
+                                 added to the hotel\'s services.')
+        else:
+            messages.error(request, 'Could not add service at this time. \
+                        Please check that the form is valid and try again.')
+    else:
+        form = ServiceForm()
+
     template = 'services/add_service.html'
     context = {
         'form': form,

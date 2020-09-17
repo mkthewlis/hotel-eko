@@ -10,10 +10,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <img class="img-fluid feature-img" src="{{ service.image.url }}" alt="{{ service.name }}">
+                {% if service.image %}
+                    <img class="img-fluid feature-img" src="{{ service.image.url }}" alt="{{ service.name }}">
+                {% else %}
+                    <img class="img-fluid feature-img" src="{{ MEDIA_URL }}noimage.png" alt="No image available">
+                {% endif %}
             </div>
         </div>
-    </div> 
+    </div>
 <!--Title section-->
     <div class="container-fluid">
         <div class="row standard-header-box">

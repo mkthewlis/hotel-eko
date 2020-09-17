@@ -29,7 +29,11 @@
         {% for stay in stay|dictsort:"no_of_guests" %}
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <img class="img-fluid feature-img" src="{{ stay.image.url }}" alt="{{ stay.name }}">
+                    {% if stay.image %}
+                        <img class="img-fluid feature-img" src="{{ stay.image.url }}" alt="{{ stay.name }}">
+                    {% else %}
+                        <img class="img-fluid feature-img" src="{{ MEDIA_URL }}noimage.png" alt="No image available">
+                    {% endif %}
                 </div>
                 <div class="col-12 col-md-6">
                     <h3 class="standard-title">{{ stay.name }}</h3>
