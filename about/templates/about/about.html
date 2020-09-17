@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{% static 'about/css/about.css' %}">
 {% endblock %}
 
+<!--Sets this template as current page in the menu-->
+{% block nav_about %} active-menu {% endblock %}
+
 {% block content %}
     <!--Hero image section-->
     <div class="container-fluid about-hero-img">

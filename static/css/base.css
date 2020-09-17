@@ -32,9 +32,11 @@
 }
 
 .top-title {
-    background-color: #F2F4F9;
-    padding-right: 10px;
-    padding-left: 100px;
+    background-color: #FFF;
+    box-shadow: 0 0 2px 2px #251D1D;
+    width: 300px;
+    text-align: right;
+    padding-right: 15px;
 }
 
 .standard-padding {
@@ -62,7 +64,7 @@
 /*Changes the border of the navbar on scroll*/
 .sticky-top.scrolled {
   border-bottom: 1px solid #251D1D !important;
-  box-shadow: 0 0 3px 0 #251D1D;
+  box-shadow: 0 0 10px 0 #251D1D;
   transition: border-bottom 10ms linear, box-shadow 30ms linear;
 }
 
@@ -82,10 +84,19 @@
     font-size: 20px;
 }
 
+.navbar-light .navbar-nav .nav-link:hover, #logo-design:hover {
+    color: #76A1B1;
+}
+
 #logo-design {
     font-size: 40px;
     text-decoration: none;
 }
+
+.active-menu {
+    color: #76A1B1 !important;
+}
+
 
 /*-------------------------------------------------------- Footer styles*/
 
@@ -117,8 +128,14 @@
     margin-bottom: 3px;
 }
 
-.footer-link {
+.footer-link a {
     text-decoration: none !important;
+    color: #251D1D;
+}
+
+.footer-link a:hover {
+    text-decoration: none !important;
+    color: #76A1B1;
 }
 
 .footer-icon i {

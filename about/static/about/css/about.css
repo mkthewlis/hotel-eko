@@ -5,6 +5,7 @@
     background-size: cover;
     width: 100%;
     min-height: 600px;
+    background-attachment: fixed;
 }
 
 /*-------------------------------------------------------- Steps section */

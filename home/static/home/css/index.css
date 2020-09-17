@@ -11,6 +11,7 @@
     min-height: 70px;
     background-color: #fff;
     box-shadow: 0 0 2px 2px #D3E0E7;
+    position: sticky;
 }
 
 .index-hero-box h1 {
@@ -84,9 +85,4 @@
     .carousel-btn {
         display: none;
     }
-}
-
-@media screen and (max-width: 585px){
-    .index-hero-box {
-        padding-left: 0px !important;
 }

@@ -23,6 +23,7 @@ ul {
     background-size: cover;
     width: 100%;
     min-height: 600px;
+    background-attachment: fixed;
 }
 
 /*-------------------------------------------------------- relax.html */
@@ -32,6 +33,7 @@ ul {
     background-size: cover;
     width: 100%;
     min-height: 600px;
+    background-attachment: fixed;
 }
 
 /*-------------------------------------------------------- eat.html */
@@ -41,5 +43,6 @@ ul {
     background-size: cover;
     width: 100%;
     min-height: 600px;
+    background-attachment: fixed;
 }
 
