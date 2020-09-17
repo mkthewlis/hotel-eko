@@ -34,46 +34,25 @@
         </div>
 
         <!--Edit blog post modal-->
-        <a class="btn text-left ml-md-5" data-toggle="modal" data-target="#editBlogModal">Edit</a>
-        <div class="modal fade" id="editBlogModal" tabindex="-1" role="dialog" aria-labelledby="editBlogModalLabel" aria-hidden="true">
+        <a class="btn text-left ml-md-5" data-toggle="modal" data-target="#editBlogModal{{ blog_post.id }}">Edit</a>
+        <div class="modal fade" id="editBlogModal{{ blog_post.id }}" tabindex="-1" role="dialog" aria-labelledby="editBlogModalLabel{{ blog_post.id }}" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title standard-title" id="editBlogModalLabel">Edit Post</h5>
+                        <h5 class="modal-title standard-title" id="editBlogModalLabel{{ blog_post.id }}">Edit Post</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <p class="standard-text">{{ blog_post.title }}</p>
-                        <form class="form update-form" action="" method="POST">
+                        <form class="mt-3" action="{% url 'edit_blog' blog_post.id %}" method="POST" id="blog-update-form">
                             {% csrf_token %}
-                            <div class="form-row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label for="title{{ blog_post.blog_post_id }}" class="standard-text">Title: </label>
-                                            <input name="title" id="post{{ blog_post.blog_post_id }}" data-item_id="{{ blog_post.blog_post_id }}" 
-                                            type="text" class="form-control"
-                                            value="{{ blog_post.title }}"  required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label for="content{{ blog_post.blog_post_id }}" class="standard-text">Thought content: </label>
-                                            <input name="content" id="content{{ blog_post.blog_post_id }}" data-item_id="{{ blog_post.blog_post_id }}" 
-                                            type="text" class="form-control"
-                                            value="{{ blog_post.thought_content }}"  required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {{ blog_form|crispy }}
+                            <button class="btn">Update Post</button>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary update-blog" name="submit-blog-update" data-item_id="{{ blog_post.blog_post_id }}">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>

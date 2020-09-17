@@ -122,3 +122,39 @@ def delete_blog(request, blog_post_id):
     }
 
     return render(request, template, context)
+
+
+def edit_blog(request, blog_post_id):
+    """ Allows the superuser to edit the blog post that they've written """
+
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    blog = get_object_or_404(OwnerBlog, id=blog_post_id)
+    blog_form = BlogForm()
+
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            blog_form = BlogForm(request.POST, instance=blog)
+            if blog_form.is_valid():
+                if len(request.POST["title" or "thought_content"]) <= 0:
+                    messages.error(
+                        request, "You have not completed the post form. \
+                                            Please add content and try again.")
+                    return redirect(reverse("profile"))
+                else:
+                    blog = blog_form.save(commit=False)
+                    user_profile = user_profile
+                    blog_form.save()
+                    messages.success(request, 'Success! Your post has \
+                                                    been updated.')
+                    return redirect(reverse("profile"))
+        else:
+            blog_form = BlogForm(instance=blog)
+
+    template = 'profile/profile.html'
+    context = {
+        'blog_form': blog_form,
+        'user_profile': user_profile,
+        'blog': blog,
+    }
+
+    return render(request, template, context)
