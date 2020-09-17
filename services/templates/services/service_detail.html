@@ -10,11 +10,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                {% if service.image %}
-                    <img class="img-fluid feature-img" src="{{ service.image.url }}" alt="{{ service.name }}">
-                {% else %}
-                    <img class="img-fluid feature-img" src="{{ MEDIA_URL }}noimage.png" alt="No image available">
-                {% endif %}
+                <img class="img-fluid feature-img" src="{{ service.image.url }}" alt="{{ service.name }}">
             </div>
         </div>
     </div>
