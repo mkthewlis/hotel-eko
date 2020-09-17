@@ -27,8 +27,8 @@
 .standard-header-box {
     min-height: 120px;
     background-color: #FFF;
-    border-top: 2px solid #466060;
-    border-bottom: 2px solid #466060; 
+    border-top: 2px solid #251D1D;
+    border-bottom: 2px solid #251D1D; 
 }
 
 .top-title {
@@ -94,7 +94,7 @@
     width:100%;
     min-height: 200px;
     background-color: #FFF;
-    border-top: 2px solid #466060; 
+    border-top: 2px solid #251D1D; 
 }
 
 .footer-title {
@@ -107,8 +107,24 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     color: #251D1D;
-    text-decoration: none;
     margin-bottom: 3px;
+}
+
+.footer-link {
+    text-decoration: none !important;
+}
+
+.footer-icon i {
+    font-size: 40px;
+    color: #251D1D;
+}
+
+.tripadvisor:hover {
+    color: #00af87;
+}
+
+.instagram:hover {
+    color: #833AB4;
 }
 
 /* ------------------------------- Bootstrap toasts styling */

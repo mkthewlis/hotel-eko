@@ -43,3 +43,11 @@
 .index-eat-img {
     overflow: hidden;
 }
+
+.carousel-btn {
+    border: 2px solid #251D1D; 
+    color: #251D1D;
+    background-color: #fff;
+    font-size: 30px;
+    margin-bottom: 280px;
+}
