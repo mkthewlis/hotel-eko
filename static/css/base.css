@@ -18,14 +18,17 @@
 }
 
 .box-title {
-    line-height: 120px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 /*-------------------------------------------------------- Standard box styles*/
 
 .standard-header-box {
     min-height: 120px;
-    background-color: #F2F4F9;
+    background-color: #FFF;
+    border-top: 2px solid #466060;
+    border-bottom: 2px solid #466060; 
 }
 
 .top-title {
@@ -41,10 +44,10 @@
 /*-------------------------------------------------------- Standard btn styles*/
 
 .standard-btn {
-    min-width: 50px;
+    min-width: 300px;
     min-height: 30px;
     color: #F2F4F9;
-    background-color: #76A1B1;
+    background-color: #251D1D;
     font-family: 'Poiret One', cursive;
     font-size: 20px;
     cursor: pointer;
@@ -59,11 +62,11 @@
 .menu-style {
     opacity: 100%;
     min-height: 50px;
-    background-color: #F2F4F9;
+    background-color: #FFF;
 }
 
 .navbar-nav .dropdown-menu {
-    background-color: #F2F4F9;
+    background-color: #FFF;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -81,7 +84,7 @@
 
 /* To make sure the footer does not cover any page content */
 .footer-padding {
-    min-height: 150px;
+    min-height: 200px;
 }
 
 /* To stick footer to the bottom */
@@ -89,21 +92,23 @@
     position:absolute;
     bottom: 0;
     width:100%;
-    min-height: 150px;
-    background-color: #76A1B1;
+    min-height: 200px;
+    background-color: #FFF;
+    border-top: 2px solid #466060; 
 }
 
 .footer-title {
     font-family: 'Poiret One', cursive;
-    font-size: 20px;
-    color: #F2F4F9;
+    font-size: 25px;
+    color: #251D1D;
 }
 
 .footer-text, .footer-link {
-    font-family: 'Cardo', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 17px;
-    color: #F2F4F9;
+    color: #251D1D;
     text-decoration: none;
+    margin-bottom: 3px;
 }
 
 /* ------------------------------- Bootstrap toasts styling */
