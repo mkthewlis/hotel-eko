@@ -59,6 +59,13 @@
     padding: 0px;
 }
 
+/*Changes the border of the navbar on scroll*/
+.sticky-top.scrolled {
+  border-bottom: 1px solid #251D1D !important;
+  box-shadow: 0 0 3px 0 #251D1D;
+  transition: border-bottom 10ms linear, box-shadow 30ms linear;
+}
+
 .menu-style {
     opacity: 100%;
     min-height: 50px;

@@ -24,7 +24,7 @@
 
 .forest-img-box {
     background-color:#FFF;
-    box-shadow: 0 20px 20px 0 #251D1D;
+    box-shadow: 0 10px 10px 0 #251D1D;
     margin-top: 15%;
     border: 1px solid #466060; 
 }
@@ -32,6 +32,13 @@
 #learn-more-btn {
     min-width: 300px;
     background-color: #251D1D;
+    border: 2px solid #251D1D;
+    font-size: 28px;
+}
+
+#learn-more-btn:hover {
+    background-color: #fff;
+    color: #251D1D;
 }
 
 /*-------------------------------------------------------- Carousel section */
@@ -50,4 +57,9 @@
     background-color: #fff;
     font-size: 30px;
     margin-bottom: 280px;
+}
+
+.carousel-btn:hover {
+    color: #fff;
+    background-color: #251D1D;
 }
