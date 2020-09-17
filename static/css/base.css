@@ -55,6 +55,18 @@
     cursor: pointer;
 }
 
+.dark-btn {
+    min-width: 300px;
+    background-color: #251D1D;
+    border: 2px solid #251D1D;
+    font-size: 28px;
+}
+
+.dark-btn:hover {
+    background-color: #fff;
+    color: #251D1D;
+}
+
 /*-------------------------------------------------------- Menu styles*/
 
 .sticky-top {

@@ -25,8 +25,14 @@
     min-height: 400px;
 }
 
-.links-btn {
-    text-align: center;
-    padding-top: 120px;
-    margin: 0 auto;
+.links-img a {
+    margin-top: 120px;
+}
+
+/*-------------------------------------------------------- Media queries */
+
+@media screen and (max-width: 991px){
+    .links-img a {
+        margin-top: 48px;
+    }
 }

@@ -11,7 +11,7 @@
     min-height: 70px;
     background-color: #fff;
     box-shadow: 0 0 2px 2px #D3E0E7;
-    position: sticky;
+    padding-left: 0px;
 }
 
 .index-hero-box h1 {
@@ -33,18 +33,6 @@
     box-shadow: 0 10px 10px 0 #251D1D;
     margin-top: 15%;
     border: 1px solid #466060; 
-}
-
-#learn-more-btn {
-    min-width: 300px;
-    background-color: #251D1D;
-    border: 2px solid #251D1D;
-    font-size: 28px;
-}
-
-#learn-more-btn:hover {
-    background-color: #fff;
-    color: #251D1D;
 }
 
 /*-------------------------------------------------------- Carousel section */
