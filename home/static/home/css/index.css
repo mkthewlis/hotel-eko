@@ -7,11 +7,20 @@
     min-height: 900px;
 }
 
-.index-title {
-    color: #F8ECED !important;
-    padding-top: 400px;
+.index-hero-box {
+    min-height: 70px;
+    border: 2px solid #251D1D;
+    border-right: 0px;
+    background-color: #fff;
 }
 
+.index-hero-box h1 {
+    color: #251D1D !important;
+}
+
+.hero-box-padding {
+    padding-top: 380px;
+}
 /*-------------------------------------------------------- More information section */
 
 .forest-img {
@@ -62,4 +71,13 @@
 .carousel-btn:hover {
     color: #fff;
     background-color: #251D1D;
+}
+
+.carousel-icons-style {
+    color: #76A1B1;
+    font-size: 40px;
+}
+
+.carousel-indicators li {
+    background-color: #76A1B1;
 }
