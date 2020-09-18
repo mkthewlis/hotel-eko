@@ -62,7 +62,8 @@
                                 <a class="nav-link {% block nav_eat%}{% endblock %}" href="{% url 'all_eat_services' %}">Eat</a>
                             </li>
                             <li class="list-inline-item dropdown">
-                                <a class="nav-link {% block nav_reservations %}{% endblock %}" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations
+                                <a class="nav-link {% block nav_reservations %}{% endblock %}" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations 
+                                    <i class="fas fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}

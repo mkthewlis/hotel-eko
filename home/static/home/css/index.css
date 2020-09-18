@@ -24,7 +24,7 @@
     background: url('/media/index_forest_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
-    min-height: 900px;
+    min-height: 800px;
     background-attachment: fixed;
 }
 
@@ -51,6 +51,7 @@
     background-color: #fff;
     font-size: 30px;
     margin-bottom: 280px;
+    min-width: 300px;
 }
 
 .carousel-btn:hover {
@@ -69,8 +70,17 @@
 
 /*-------------------------------------------------------- Media queries */
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
+    .carousel-btn {
+    margin-bottom: 180px;
+    }
+}
+
+@media screen and (max-width: 400px){
     .carousel-btn {
         display: none;
+    }
+    .forest-img {
+        min-height: 1000px;
     }
 }

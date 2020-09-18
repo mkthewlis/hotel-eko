@@ -46,7 +46,7 @@
 /*-------------------------------------------------------- Standard btn styles*/
 
 .standard-btn {
-    min-width: 300px;
+    width: 300px;
     min-height: 30px;
     color: #F2F4F9;
     background-color: #251D1D;
@@ -56,7 +56,6 @@
 }
 
 .dark-btn {
-    min-width: 300px;
     background-color: #251D1D;
     border: 2px solid #251D1D;
     font-size: 28px;
@@ -262,5 +261,18 @@
 
     #footer-position {
         min-height: 500px;
+    }
+    
+    .standard-btn {
+        max-width: 200px !important;
+    }
+    .sticky-top {
+        border-bottom: 1px solid #251D1D !important;
+    }
+}
+
+@media screen and (min-width: 280px) and (max-width: 400px){
+    .top-title{
+        min-width: 100%;
     }
 }
