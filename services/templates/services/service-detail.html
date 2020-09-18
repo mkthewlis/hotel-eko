@@ -28,11 +28,11 @@
             <div class="col-12 col-md-6 standard-padding">
                 <ul>
                     {% if service.is_stay %}
-                        {% include 'services/includes/stay_details.html' %}
+                        {% include 'services/includes/stay-details.html' %}
                     {% elif service.is_relax %}
-                        {% include 'services/includes/relax_details.html' %}
+                        {% include 'services/includes/relax-details.html' %}
                     {% elif service.is_eat %}
-                        {% include 'services/includes/eat_details.html' %}
+                        {% include 'services/includes/eat-details.html' %}
                     {% endif %}
                 </ul>
             </div>
