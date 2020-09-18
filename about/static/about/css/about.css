@@ -50,6 +50,11 @@
 }
 
 /*-------------------------------------------------------- Media queries */
+@media screen and (max-width: 991px){
+    .step-title {
+        font-size: 45px;
+    }
+}
 
 @media screen and (max-width: 991px){
     .links-img a {
@@ -59,7 +64,8 @@
         height: 200px !important;
     }
     .introduction-bg {
-        padding-left: 0px;
+        padding-left: 30px;
+        padding-right: 0px;
     }   
 }
 

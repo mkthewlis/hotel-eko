@@ -50,6 +50,17 @@
     padding: 50px;
 }
 
+/*-------------------------------------------------------- Modal styles*/
+
+.modal {
+    color: #251D1D;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.modal-content {
+    background-color: #f8f8ff;
+}
+
 /*-------------------------------------------------------- Standard btn styles*/
 
 .standard-btn {
@@ -73,39 +84,22 @@
     color: #251D1D;
 }
 
-.delete-btn {
+.small-btn {
     min-width: 150px;
     min-height: 30px;
     color: #251D1D !important;
     background-color: #fff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size: 20px;
     cursor: pointer;
     border: 1px solid #251D1D;
     padding: 5px;
+    text-align: center;
 }
 
-.delete-btn:hover {
+.small-btn:hover {
     color: #fff !important;
     background-color: #251D1D;
-    border: 1px solid #251D1D;
-}
-
-.edit-btn {
-    min-width: 150px;
-    min-height: 30px;
-    color: #fff !important;
-    background-color: #251D1D;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    cursor: pointer;
-    border: 1px solid #251D1D;
-    padding: 5px;
-}
-
-.delete-btn:hover {
-    color: #251D1D !important;
-    background-color: #fff;
     border: 1px solid #251D1D;
 }
 
@@ -311,6 +305,9 @@
     }
     .sticky-top {
         border-bottom: 1px solid #251D1D !important;
+    }
+    .form-box {
+        padding: 0 10px 0 10px;
     }
 }
 
