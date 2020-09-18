@@ -50,15 +50,19 @@
     padding: 50px;
 }
 
-/*-------------------------------------------------------- Modal styles*/
+/*-------------------------------------------------------- Modal & card styles*/
 
-.modal {
+.modal, .card {
     color: #251D1D;
     font-family: 'Open Sans', sans-serif;
 }
 
 .modal-content {
     background-color: #f8f8ff;
+}
+
+.card a{
+    text-decoration: none;
 }
 
 /*-------------------------------------------------------- Standard btn styles*/

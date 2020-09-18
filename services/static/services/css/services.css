@@ -9,11 +9,17 @@ ul {
 }
 
 .feature-img {
-    max-height: 500px;
-    background-size: cover;
-    width: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
+    width:  400px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.service-card {
+    background-color:#f8f8ff;
+    box-shadow: 0 5px 5px 0 #4A3832;
+    border: 2px solid #251D1D; 
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 /*-------------------------------------------------------- stay.html */
@@ -46,3 +52,28 @@ ul {
     background-attachment: fixed;
 }
 
+@media screen and (min-width: 320px) and (max-width: 450px){
+    .service-card {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .service-card button {
+        margin-left: 15%;
+    }
+}
+
+@media screen and (width: 320px) {
+    .service-card button {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (min-width: 270px) and (max-width: 280px){
+    .service-card button {
+        margin-left: 0px;
+    }
+    .service-card {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
