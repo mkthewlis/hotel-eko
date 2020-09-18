@@ -57,15 +57,17 @@
                             <li class="nav-item mr-2">
                                 <a class="nav-link {% block nav_about %}{% endblock %}" href="{% url 'about' %}">About</a>
                             </li>
-                            <li class="nav-item mr-2">
-                                <a class="nav-link {% block nav_stay %}{% endblock %}" href="{% url 'all_stay_services' %}">Stay</a>
-                            </li>
-                            <li class="nav-item mr-2">
-                                <a class="nav-link {% block nav_relax %}{% endblock %}" href="{% url 'all_relax_services' %}">Relax</a>
-                            </li>
-                            <li class="nav-item mr-2">
-                                <a class="nav-link {% block nav_eat%}{% endblock %}" href="{% url 'all_eat_services' %}">Eat</a>
-                            </li>
+                            {% with url_name=request.resolver_match.url_name %}
+                                <li class="nav-item mr-2">
+                                    <a class="nav-link {% if url_name == 'all_stay_services' %} active-menu {% endif %}" href="{% url 'all_stay_services' %}">Stay</a>
+                                </li>
+                                <li class="nav-item mr-2">
+                                    <a class="nav-link {% if url_name == 'all_relax_services' %} active-menu {% endif %}" href="{% url 'all_relax_services' %}">Relax</a>
+                                </li>
+                                <li class="nav-item mr-2">
+                                    <a class="nav-link {% if url_name == 'all_eat_services' %} active-menu {% endif %}" href="{% url 'all_eat_services' %}">Eat</a>
+                                </li>
+                            {% endwith %}
                             <li class="list-inline-item dropdown">
                                 <a class="nav-link {% block nav_reservations %}{% endblock %}" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations 
                                     <i class="fas fa-caret-down"></i>
