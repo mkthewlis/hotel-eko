@@ -11,9 +11,10 @@ def all_stay_services(request):
     context = {
         'stay': stay,
         'service': service,
+        'stay_page': True,
     }
 
-    return render(request, 'services/stay.html', context)
+    return render(request, 'services/services.html', context)
 
 
 def all_relax_services(request):
@@ -25,9 +26,10 @@ def all_relax_services(request):
     context = {
         'relax': relax,
         'service': service,
+        'relax_page': True,
     }
 
-    return render(request, 'services/relax.html', context)
+    return render(request, 'services/services.html', context)
 
 
 def all_eat_services(request):
@@ -39,9 +41,10 @@ def all_eat_services(request):
     context = {
         'eat': eat,
         'service': service,
+        'eat_page': True,
     }
 
-    return render(request, 'services/eat.html', context)
+    return render(request, 'services/services.html', context)
 
 
 def service_detail(request, service_id):
