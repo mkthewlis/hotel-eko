@@ -43,6 +43,13 @@
     padding: 5%;
 }
 
+.form-box {
+    background-color:#f8f8ff;
+    box-shadow: 0 5px 5px 0 #4A3832;
+    border: 2px solid #251D1D; 
+    padding: 50px;
+}
+
 /*-------------------------------------------------------- Standard btn styles*/
 
 .standard-btn {
@@ -64,6 +71,42 @@
 .dark-btn:hover {
     background-color: #fff;
     color: #251D1D;
+}
+
+.delete-btn {
+    min-width: 150px;
+    min-height: 30px;
+    color: #251D1D !important;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #251D1D;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    color: #fff !important;
+    background-color: #251D1D;
+    border: 1px solid #251D1D;
+}
+
+.edit-btn {
+    min-width: 150px;
+    min-height: 30px;
+    color: #fff !important;
+    background-color: #251D1D;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #251D1D;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    color: #251D1D !important;
+    background-color: #fff;
+    border: 1px solid #251D1D;
 }
 
 /*-------------------------------------------------------- Menu styles*/
@@ -105,7 +148,7 @@
 }
 
 .active-menu {
-    color: #76A1B1 !important;
+    color: #527E8E !important;
 }
 
 

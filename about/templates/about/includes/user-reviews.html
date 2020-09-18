@@ -9,7 +9,7 @@
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser or request.user == review.user_profile.user %}
                 <!--Delete review modal, only accessible to author or superuser -->
-                <a class="btn" data-toggle="modal" data-target="#deleteReviewModal{{ review.id }}">Delete</a>
+                <a class="delete-btn" data-toggle="modal" data-target="#deleteReviewModal{{ review.id }}">Delete</a>
                 <div class="modal fade" id="deleteReviewModal{{ review.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteReviewModalLabel{{ review.id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -31,7 +31,7 @@
                 </div>
 
                 <!--Edit review modal, only accessible to author or superuser -->
-                <a class="btn" data-toggle="modal" data-target="#editModal{{ review.id }}">Edit</a>
+                <a class="edit-btn" data-toggle="modal" data-target="#editModal{{ review.id }}">Edit</a>
                 <div class="modal fade" id="editModal{{ review.id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ review.id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

@@ -27,8 +27,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6 pl-lg-5 introduction-bg">
-                <h2 class="standard-title mt-5">Morning hike or trip to the spa?</h2>
+            <div class="col-12 col-lg-6 ml-5 ml-lg-0 introduction-bg">
+                <h2 class="standard-title mt-5">Morning hike or a cup of tea?</h2>
                 <p class="standard-text mt-5 mb-5 mr-5">We believe that the best experiences are those that 
                 we create ourselves. We’ve therefore built our whole hotel concept with you 
                 in mind. From the freedom to let you design your own retreat, to the locally sourced 
@@ -36,17 +36,9 @@
                 used in our spa. Our attention to detail means that you can focus on what 
                 matters most to you: creating a retreat to meet your specific needs.</p>
             </div>
-            <div class="col-12 col-lg-6 organic-image">
+            <div class="col-12 col-lg-6 organic-img">
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row standard-header-box">
-            <div class="col-12">
-                <h1 class="standard-title box-title text-center">Get started with three steps.</h1>
-            </div>
-        </div>
-        {% include 'about/includes/booking-steps.html' %}
     </div>
     <!--Reviews section-->
     <div class="container-fluid">
@@ -57,12 +49,21 @@
         </div>
         <div class="row">
             {% if not reviews %}
-                {% include 'about/includes/no_reviews.html' %}
+                {% include 'about/includes/no-reviews.html' %}
             {% else %}
-                {% include 'about/includes/user_reviews.html' %}
+                {% include 'about/includes/user-reviews.html' %}
             {% endif %}
-            {% include 'about/includes/new_review_form.html' %}
+            {% include 'about/includes/new-review-form.html' %}
         </div>
+    </div>
+    <!--Steps section-->
+    <div class="container-fluid">
+        <div class="row standard-header-box mt-5">
+            <div class="col-12">
+                <h1 class="standard-title box-title text-center">Get started with three steps.</h1>
+            </div>
+        </div>
+        {% include 'about/includes/booking-steps.html' %}
     </div>
     <!--Links section-->
     <div class="container-fluid">

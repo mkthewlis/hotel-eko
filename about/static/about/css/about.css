@@ -16,10 +16,10 @@
     color: #251D1D;
 }
 
-.organic-image {
+.organic-img {
     background: url('/media/about_organic.jpg');
     width: 100%;
-    min-height: 500px;
+    max-height: 900px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 80%;
@@ -27,6 +27,7 @@
 
 .introduction-bg {
     background-color: #fff;
+    padding-left: 50px;
 }
 
 .step-title {
@@ -54,6 +55,12 @@
     .links-img a {
         margin-top: 48px;
     }
+    .organic-img {
+        height: 200px !important;
+    }
+    .introduction-bg {
+        padding-left: 0px;
+    }   
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){

@@ -1,0 +1,14 @@
+{% if request.user.is_authenticated %}
+<div class="col-10 offset-1 col-md-10 offset-md-1 mt-5 mb-5">
+    <div class="form-box">
+        <h2 class="standard-title mb-5 mt-3 text-center">Add a new review below:</h2>
+        <form class="" action="{% url 'new_review' %}" method="POST" id="new-blog-form">
+            {% csrf_token %}
+            {{ review_form|crispy }}
+            <div class="text-center">
+                <button class="standard-btn dark-btn mt-3">Add post</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
