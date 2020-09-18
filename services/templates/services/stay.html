@@ -57,11 +57,11 @@
                                         <input type="hidden" name="service_category" value="{{ service.category }}">
                                     </div>
                                 </form>
+                                <a class="standard-btn dark-btn" href="{% url 'service_detail' stay.id %}">Learn More</a>
                             {% else %}
                                 <p class="standard-text"><a href="{% url 'account_login' %}">Sign In</a> or
                                 <a href="{% url 'account_signup' %}">Register</a> to add {{ stay.name }} to your retreat.</p>
                             {% endif %}
-                            <button class="standard-btn dark-btn" href="{% url 'service_detail' stay.id %}">Learn More</button>
                         </div>
                     </div>
                 </div>
