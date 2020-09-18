@@ -99,12 +99,19 @@
     border: 1px solid #251D1D;
     padding: 5px;
     text-align: center;
+    text-decoration: none !important;
 }
 
 .small-btn:hover {
     color: #fff !important;
     background-color: #251D1D;
     border: 1px solid #251D1D;
+    text-decoration: none !important;
+}
+
+.return-btn {
+    text-decoration: none !important;
+    padding: 5px 10px 5px 10px;
 }
 
 /*-------------------------------------------------------- Menu styles*/

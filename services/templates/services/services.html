@@ -5,20 +5,11 @@
     <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
 {% endblock %}
 
-<!--Sets this template as current page in the menu-->
-{% if stay_page %}
-{% block nav_stay %} active-menu {% endblock %}
-{% elif eat_page %}
-{% block nav_eat %} active-menu {% endblock %}
-{% elif relax_page %}
-{% block nav_relax %} active-menu {% endblock %}
-{% endif %}
-
 {% block content %}
     <!--Hero image section-->
     <div class="container-fluid {% if stay %} stay-hero-img {% elif eat %} eat-hero-img {% elif relax %} relax-hero-img {% endif %}">
         <div class="row">
-            <div class="col d-flex justify-content-end pr-0">
+            <div class="col d-flex justify-content-end pr-0 pl-0">
                 <div class="top-title">
                     <h1 class="standard-title"> {% if stay %} Stay {% elif eat %} Eat {% elif relax %} Relax {% endif %} </h1>
                 </div>

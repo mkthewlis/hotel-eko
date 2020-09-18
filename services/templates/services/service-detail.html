@@ -9,8 +9,8 @@
     <!--Hero image section-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <img class="img-fluid feature-img" src="{{ service.image.url }}" alt="{{ service.name }}">
+            <div class="col-12 pl-0 pr-0">
+                <img class="img-fluid feature-img-hero" src="{{ service.image.url }}" alt="{{ service.name }}" id="{% if service.name == 'Land' %}land-img{% endif %}">
             </div>
         </div>
     </div>
@@ -18,14 +18,14 @@
     <div class="container-fluid">
         <div class="row standard-header-box">
             <div class="col-12">
-                <h1 class="standard-title box-title text-left">{{ service.name }}</h1>
+                <h1 class="standard-title box-title text-center">{{ service.name }}</h1>
             </div>
         </div>
     </div>
     <!--Detail section-->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 standard-padding">
+        <div class="row mt-5 justify-content-around">
+            <div class="col-12 col-lg-6">
                 <ul>
                     {% if service.is_stay %}
                         {% include 'services/includes/stay-details.html' %}
@@ -37,23 +37,23 @@
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
-                <form class="form" action="{% url 'add_to_retreat' service.id %}" method="POST">
+                <form class="form mt-5 mt-lg-0" action="{% url 'add_to_retreat' service.id %}" method="POST">
                         {% csrf_token %}
-                        <div class="form-row">
-                            <div class="col-12">
+                        <div class="form-row text-center align-items-center">
+                            <div class="col-12 align-items-center">
                                 {% if service.is_stay %}
                                     <p class="standard-text">Number of nights:</p>
                                 {% elif service.is_relax or service.is_eat %}
                                     <p class="standard-text">Number of guests:</p>
                                 {% endif %}
-                                <div class="form-group w-50">
+                                <div class="form-group">
                                     <div class="input-group">
                                         <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="10" data-item_id="{{ service.id }}" id="id_qty_{{ service.id }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <input type="submit" class="btn" value="Add to My Retreat">
+                                <input type="submit" class="small-btn" value="Add to My Retreat">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             <input type="hidden" name="service_category" value="{{ service.category }}">
@@ -70,13 +70,13 @@
     <!--Return to overview link section-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 text-center standard-padding standard-text">
+            <div class="col-12 text-center standard-text mt-5 mb-5">
                 {% if service.is_stay %}
-                    <a href="{% url 'all_stay_services' %}">Return to all Stay options</a>
+                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_stay_services' %}">All Stay Options</a>
                 {% elif service.is_relax %}
-                    <a href="{% url 'all_relax_services' %}">Return to all Relax options</a>
+                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_relax_services' %}">All Relax Options</a>
                 {% elif service.is_eat %}
-                    <a href="{% url 'all_eat_services' %}">Return to all Eat options</a>
+                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_eat_services' %}">All Eat Options</a>
                 {% endif %}
             </div>
         </div>
