@@ -11,7 +11,26 @@
 /*-------------------------------------------------------- Steps section */
 
 .step-title {
-    font-size: 35px;
+    font-size: 30px;
+    font-family: 'Poiret One', cursive;
+    color: #251D1D;
+}
+
+.organic-image {
+    background: url('/media/about_organic.jpg');
+    width: 100%;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 80%;
+}
+
+.introduction-bg {
+    background-color: #fff;
+}
+
+.step-title {
+    font-size: 100px;
 }
 
 /*-------------------------------------------------------- Reviews section */

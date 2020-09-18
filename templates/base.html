@@ -14,8 +14,11 @@
     {% block corecss %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poiret+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <!-- AOS Library -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     {% endblock %}
 
     {% block extra_css %}
@@ -29,6 +32,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <!--Stripe-->
         <script src="https://js.stripe.com/v3/"></script>
+        <!--AOS JS Library-->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -154,6 +159,9 @@
                 $nav.toggleClass('scrolled', $(this).scrollTop() > 50);
                 });
             });
+
+            // To allow AOS scroll effects
+            AOS.init();
         </script>
     {% endblock %}
 
