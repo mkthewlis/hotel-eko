@@ -7,9 +7,12 @@ from owner_blog.forms import BlogForm
 from .forms import UserProfileForm
 from checkout.models import Order
 
+from django.contrib.auth.decorators import login_required
+
 import datetime
 
 
+@login_required
 def profile(request):
     """
     Displays the user's profile on their 'my account' page
@@ -46,6 +49,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -63,6 +67,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+@login_required
 def new_blog(request):
     """ Allows the owner of the hotel to add new blog posts
     to the profile page, checking that the post content is not empty """
@@ -101,6 +106,7 @@ def new_blog(request):
     return render(request, template, context)
 
 
+@login_required
 def delete_blog(request, blog_post_id):
     """ Removes a blog post from the profiles template if the
     same hotel owner is in session """
@@ -124,6 +130,7 @@ def delete_blog(request, blog_post_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_blog(request, blog_post_id):
     """ Allows the superuser to edit the blog post that they've written """
 

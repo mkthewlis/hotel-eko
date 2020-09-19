@@ -10,7 +10,7 @@
 .retreat-overview {
     max-height: 450px;
     overflow-y: auto;
-    border-top: #251D1D 2px solid;
+    border: #251D1D 2px solid;
     border-bottom: #251D1D 2px solid;
 }
 
@@ -69,6 +69,14 @@
     }
     #new-blog-form{
         padding: 5% !important;
-}   
+    }   
+}
+@media screen and (min-width: 767px) and (max-width: 1036px){
+    #profile-form {
+        padding: 5% !important;
+    }
+    #profile-form button {
+        width: 240px;
+    }
 }
 

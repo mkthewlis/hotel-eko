@@ -37,10 +37,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-5 offset-md-1 offset-xl-1">
+            <div class="col-12 col-md-6">
                 <h2 class="standard-title mt-5 ml-md-0">Account details:</h2>
-                <div class="form-box mb-2 mb-md-5 mt-3 mt-md-5">
-                    <form class="mb-3 pt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                <div class="form-box mb-2 mb-md-5 mt-4 mt-md-5" id="profile-form">
+                    <form class="mb-3 pt-5" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div class="text-center mt-5 mb-0">
@@ -49,7 +49,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-10 col-md-8 col-lg-5 offset-1 offset-md-1 mb-5">
+            <div class="col-12 col-md-6 mb-5">
                 <h2 class="standard-title mt-5">Reservations:</h2>
                 {% if orders %}
                     <!--Include if user already has booking history-->
@@ -69,13 +69,13 @@
             {% include 'profiles/includes/owner-blog.html' %}
         </div>
         <!--Include new blog form is user is superuser-->
+        <div class="row">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-               <div class="row">
-                    {% include 'profiles/includes/blog-form.html' %}
-                </div>
+                {% include 'profiles/includes/blog-form.html' %}
             {% endif %}
-        {% endif %}           
+        {% endif %}
+        </div>         
     </div>
 {% endblock %}
 
