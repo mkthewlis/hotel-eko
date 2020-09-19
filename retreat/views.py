@@ -68,13 +68,14 @@ def update_retreat(request, item_id):
 def remove_from_retreat(request, item_id):
     """Remove an item from the user's retreat """
 
-    service = get_object_or_404(Service, pk=item_id)
-
     try:
         retreat = request.session.get('retreat', {})
+        print(retreat)
 
         if request.user.is_authenticated:
+            print('in if statement')
             retreat.pop(item_id)
+            print(item_id)
             messages.success(request, f'Deleted {service.name} from your retreat')
 
             request.session['retreat'] = retreat
