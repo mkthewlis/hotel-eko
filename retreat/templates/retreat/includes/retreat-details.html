@@ -1,0 +1,128 @@
+{% load retreat_tools %}
+
+<div class="container-fluid">
+    <div class="row">
+        {% for item in retreat_items %}
+            <div class="col-12 col-md-3 ml-md-5 mb-sm-5 mb-0 mb-md-5 mt-5">
+                <h2 class="standard-title text-left mb-4">{{ item.service.name }}</h2>
+
+                <!--Edit quantity modal-->
+                <a class="small-btn ml-1 ml-md-5" data-toggle="modal" data-target="#editModal{{ item.item_id }}">Edit</a>
+                <div class="modal fade" id="editModal{{ item.item_id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title standard-title" id="editModalLabel">Edit quantity</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="standard-text">Current quantity: {{ item.quantity }}</p>
+                                <form class="form update-form" action="{% url 'update_retreat' item.item_id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="input-group w-100">
+                                                    <label for="id_qty_{{ item.item_id }}" class="standard-text">Updated quantity: </label>
+                                                    <input name="quantity" id="id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}" 
+                                                    type="number" min="1" max="10" class="form-control"
+                                                    value="{{ item.quantity }}"  required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="small-btn" name="submit-update" data-item_id="{{ item.item_id }}">Save changes</button>
+                                <button type="button" class="small-btn" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Delete item modal-->
+                <a class="small-btn" data-toggle="modal" data-target="#deleteModal">Delete</a>
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title standard-title" id="deleteModalLabel">Delete {{ item.service.name }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="standard-text text-center">Are you sure you want to delete this item from your Retreat?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" class="small-btn" data-dismiss="modal">Close</a>
+                                <a type="button" class="small-btn" id="remove_{{ item.item_id }}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 {% if forloop.last or review.count == 1 %} mb-0 {% endif %} mt-3 mt-md-5 text-left">
+                <!--Shows contents of retreat-->
+                {% if item.service.is_stay == True %}
+                    <p class="standard-text">Room type: {{ item.service.name }}</p>
+                    <p class="standard-text">Maximim number of guests: {{ item.service.no_of_guests }}</p>
+                    <p class="standard-text">Breakfast included: {{ item.service.has_breakfast|yesno:"Yes,No" }}</p>
+                    <p class="standard-text">Number of nights booked: {{ item.quantity }}</p>
+                    <p class="standard-text">Price per night: {{ item.service.price|floatformat:2 }}kr</p>
+                {% elif item.service.is_relax == True %}
+                    <p class="standard-text">Treatment type: {{ item.service.name }}</p>
+                    <p class="standard-text">Length of treatment: {{ item.service.length }}</p>
+                    <p class="standard-text">Signature scents used: {{ item.service.scents }}</p>
+                    <p class="standard-text">Number of guests: {{ item.quantity }}</p>
+                    <p class="standard-text">Price per treatment: {{ item.service.price|floatformat:2 }}kr</p>
+                {% elif item.service.is_eat == True %}
+                    <p class="standard-text">Menu type: {{ item.service.name }}</p>
+                    <p class="standard-text">Source of protein: {{ item.service.protein }}</p>
+                    <p class="standard-text">Number of courses: {{ item.service.no_of_courses }}</p>
+                    <p class="standard-text">Number of guests: {{ item.quantity }}</p>
+                    <p class="standard-text">Price per menu: {{ item.service.price|floatformat:2 }}kr</p>
+                {% endif %}
+            </div>
+            <div class="col-12 col-md-3 mt-3 mt-md-5">
+                <p class="standard-text">Subotal: {{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr </p>
+                <p class="standard-text">View details:
+                    <a href="{% url 'service_detail' item.service.id %}" aria-label="{{ item.service.name }}">
+                        {{ item.service.name }}
+                    </a>
+                </p>
+            </div>
+        {% endfor %}
+        <!--Total price and checkout button-->
+        <div class="col-12 text-center mt-5 mb-3">
+            <h2 class="standard-title">Total price: {{ total|floatformat:2 }}kr</h2>
+        </div>
+        <div class="col-12 text-center mb-5 mt-5">
+            <a href="{% url 'checkout' %}" class="standard-btn btn dark-btn">Checkout</a>
+        </div>
+    </div>
+</div>
+<!--Links section-->
+<div class="container-fluid">
+    <div class="row standard-header-box">
+        <div class="col-12">
+            <h1 class="standard-title box-title text-center">Have you explored all that we offer?</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid links-img">
+    <div class="row center-align text-center">
+        <div class="col-12 col-lg-4 mt-lg-5">
+            <a class="btn standard-btn dark-btn" href="{% url 'all_stay_services' %}">Stay</a>
+        </div>
+        <div class="col-12 col-lg-4 mt-lg-5">
+            <a class="btn standard-btn dark-btn" href="{% url 'all_relax_services' %}">Relax</a>
+        </div>
+        <div class="col-12 col-lg-4 mt-lg-5">
+            <a class="btn standard-btn dark-btn" href="{% url 'all_eat_services' %}">Eat</a>
+        </div>
+    </div>
+</div>

@@ -3,10 +3,12 @@
 {% load retreat_tools %}
 
 {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'retreat/css/retreat.css' %}">
 {% endblock %}
 
 <!--Sets this template as current page in the menu-->
 {% block nav_reservations %} active-menu {% endblock %}
+{% block nav_retreat %} active-menu {% endblock %}
 
 {% block content %}
     <!--Title section-->
@@ -17,28 +19,11 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            {% if retreat_items %}
-                    {% include 'retreat/includes/retreat_details.html' %}
-            {% else %}
-        </div>
-    </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="standard-title text-center standard-padding">You haven't added anything to your retreat yet!</h2>
-                </div>
-                <div class="col-12 col-lg-6 offset-lg-3">
-                    <p class="standard-text">Unsure of what to add? Begin by having a look through our 
-                    <a class="" href="{% url 'all_stay_services' %}">Stay</a>, 
-                    <a class="" href="{% url 'all_relax_services' %}">Relax</a> and 
-                    <a class="" href="{% url 'all_eat_services' %}">Eat</a> options
-                    to decide what you would like your retreat to include.</p>
-                </div>
-            {% endif %}
-        </div>
-    </div>
+    {% if retreat_items %}
+        {% include 'retreat/includes/retreat-details.html' %}
+    {% else %}
+        {% include 'retreat/includes/no-retreat.html' %}
+    {% endif %}
 {% endblock %}
 
 {% block postloadjs %}

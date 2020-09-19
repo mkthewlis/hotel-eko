@@ -75,6 +75,7 @@
     font-family: 'Poiret One', cursive;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .dark-btn {
@@ -83,7 +84,12 @@
     font-size: 28px;
 }
 
-.dark-btn:hover {
+.dark-btn a {
+    text-decoration: none !important; 
+    color: #F2F4F9;
+}
+
+.dark-btn:hover, .dark-btn a:hover {
     background-color: #fff;
     color: #251D1D;
 }

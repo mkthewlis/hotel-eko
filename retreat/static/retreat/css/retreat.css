@@ -1,0 +1,23 @@
+/*-------------------------------------------------------- Links section */
+
+.links-img {
+    background: url('/media/index_forest_image.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 400px;
+}
+
+.links-img a {
+    margin-top: 120px;
+}
+
+/*-------------------------------------------------------- Media queries */
+
+@media screen and (max-width: 991px){
+    .links-img a {
+        margin-top: 48px;
+    }
+    .no-retreat {
+        margin-left: 20px;
+    }
+}
