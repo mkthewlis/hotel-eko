@@ -251,7 +251,7 @@
 }
 
 .allauth-form-inner-content input {
-    border-color: #B39F99;
+    border-color: #4A3832;
     border-radius: 0;
 }
 
@@ -264,7 +264,7 @@
 }
 
 .allauth-form-inner-content input::placeholder {
-    color: #251D1D;
+    color: #614A42;
 }
 
 .allauth-form-inner-content button,

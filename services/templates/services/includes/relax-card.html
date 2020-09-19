@@ -30,6 +30,7 @@
                     {% else %}
                         <p class="standard-text"><a href="{% url 'account_login' %}">Sign In</a> or
                         <a href="{% url 'account_signup' %}">Register</a> to add {{ relax.name }} to your retreat.</p>
+                        <a class="standard-btn dark-btn" href="{% url 'service_detail' service.id %}">Learn More</a>
                     {% endif %}
                 </div>
             </div>

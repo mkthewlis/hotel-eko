@@ -7,10 +7,31 @@
     min-height: 400px;
 }
 
+.retreat-overview {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.retreat-overview i {
+    margin-right: 40px;
+}
+
+/* Scrollbar always visible courtesy of: https://stackoverflow.com/questions/1202425/making-the-main-scrollbar-always-visible */
+.retreat-overview::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+.retreat-overview::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
 /*-------------------------------------------------------- My Details section */
 
 .order-history {
-    max-height: 416px; /* height of profile form + submit button */
+    max-height: 416px;
     overflow-y: auto;
 }
 
@@ -19,7 +40,7 @@
 }
 
 #profile-update-form input::placeholder {
-    color: #B39F99;
+    color: #614A42;
 }
 
 #id_default_country,
@@ -28,5 +49,5 @@
 }
 
 #id_default_country option:first-child {
-    color: #B39F99;
+    color: #614A42;
 }

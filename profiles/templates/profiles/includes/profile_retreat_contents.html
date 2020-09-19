@@ -1,19 +1,21 @@
 <div class="ml-3 standard-padding">
-    <p class="standard-text text-center">Hello {{ profile.user.username|title }}!</p>
+    <p class="standard-text text-center">Hello {{ profile.user.username }}!</p>
     <p class="standard-text">Here's a quick overview of what you have added to your retreat:</p>
-    {% for item in retreat_items %}
-        <p class="standard-text">Item number: {{ forloop.counter }}</p>
-        {% if item.service.is_stay == True %}
-            <p class="standard-text">Room Type: {{ item.service.name }}</p>
-            <p class="standard-text">Number of nights booked: {{ item.quantity }}</p>
-        {% elif item.service.is_relax == True %}
-            <p class="standard-text">Treatment Type: {{ item.service.name }}</p>
-            <p class="standard-text">Number of guests: {{ item.quantity }}</p>
-        {% elif item.service.is_eat == True %}
-            <p class="standard-text">Menu Type: {{ item.service.name }}</p>
-            <p class="standard-text">Number of guests: {{ item.quantity }}</p>
-        {% endif %}
-    {% endfor %}
+    <div class="retreat-overview">
+        {% for item in retreat_items %}
+            <p class="standard-text pl-3 mt-3">Item number: {{ forloop.counter }}</p>
+            {% if item.service.is_stay == True %}
+                <p class="standard-text pl-5"><i class="fas fa-long-arrow-alt-right"></i>  Room Type: {{ item.service.name }}</p>
+                <p class="standard-text pl-5"><i class="fas fa-long-arrow-alt-right"></i>  Number of nights booked: {{ item.quantity }}</p>
+            {% elif item.service.is_relax == True %}
+                <p class="standard-text pl-5"><i class="fas fa-long-arrow-alt-right"></i>  Treatment Type: {{ item.service.name }}</p>
+                <p class="standard-text pl-5"><i class="fas fa-long-arrow-alt-right"></i>  Number of guests: {{ item.quantity }}</p>
+            {% elif item.service.is_eat == True %}
+                <p class="standard-text pl-5"><i class="fas fa-long-arrow-alt-right"></i>  Menu Type: {{ item.service.name }}</p>
+                <p class="standard-text pl-5"><i class="fas fa-long-arrow-alt-right"></i>  Number of guests: {{ item.quantity }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
     <p class="standard-text mt-5">See the full contents of your retreat and make changes to it here:
     <a class="" href="{% url 'view_retreat' %}">My Retreat</a></p>
 </div>
