@@ -1,9 +1,9 @@
-<div class="col-10 offset-1 col-md-10 offset-md-3 mt-3">
-    <h2 class="standard-title">Add a new post below:</h2>
+<div class="col-10 col-md-12 mt-3">
+    <h2 class="standard-title text-center">Add a new post below:</h2>
 </div>
 <div class="col-10 offset-1 col-md-6 offset-md-3 mt-3">
     <div class="form-box mb-5 mt-3">
-        <form action="{% url 'new_blog' %}" method="POST" id="new-blog-form">
+        <form class="pt-5 pt-md-1" action="{% url 'new_blog' %}" method="POST" id="new-blog-form">
             {% csrf_token %}
             {{ blog_form|crispy }}
             <div class="text-center mt-5">

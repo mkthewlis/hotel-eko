@@ -10,6 +10,8 @@
 .retreat-overview {
     max-height: 450px;
     overflow-y: auto;
+    border-top: #251D1D 2px solid;
+    border-bottom: #251D1D 2px solid;
 }
 
 .retreat-overview i {
@@ -24,7 +26,8 @@
 
 .retreat-overview::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: #251D1D;
+  opacity: 50%;
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
@@ -51,3 +54,21 @@
 #id_default_country option:first-child {
     color: #614A42;
 }
+
+/*-------------------------------------------------------- Blog section */
+
+
+/*-------------------------------------------------------- Media queries section */
+
+@media screen and (max-width: 450px){
+    .retreat-overview i {
+        display: none;
+    }
+    .retreat-overview p {
+        font-size: 20px !important;
+    }
+    #new-blog-form{
+        padding: 5% !important;
+}   
+}
+
