@@ -6,7 +6,7 @@
 /*-------------------------------------------------------- Spinner style*/
 
 #custom-spinner {
-    background: url('/media/loading-spinner.gif') no-repeat scroll center center #FFF;
+    background: url('/media/loading-spinner.gif') no-repeat scroll center center;
     position: absolute;
     height: 100%;
     width: 100%;
