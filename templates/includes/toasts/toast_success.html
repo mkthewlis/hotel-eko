@@ -10,7 +10,8 @@
     </div>
     <!--Prevents the user from seeing their retreat when they are already on the retreat overview page-->
     {% if not request.get_full_path == "/retreat/" %}
-        {% if total and on_profile_page == False %}
+        {% if request.get_full_path == "/about/" %}
+        {% elif total and not on_profile_page %}
             <div class="bg-white text-center">
                 <p class="text-center bg-white">My Retreat:</p>
                 {% for item in retreat_items %}
