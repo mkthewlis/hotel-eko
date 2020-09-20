@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 
 from django.utils.safestring import mark_safe
+from django.contrib.auth.decorators import login_required
 
 from services.models import Service
 
 
+@login_required
 def view_retreat(request):
     """ A view that returns the retreat that a user has customised
     and designed after their own preferences """
@@ -13,6 +15,7 @@ def view_retreat(request):
     return render(request, 'retreat/retreat.html')
 
 
+@login_required
 def add_to_retreat(request, item_id):
     """ A view that allows users to add items to their retreat,
     regardless of which category they belong to. However, users
@@ -43,6 +46,7 @@ def add_to_retreat(request, item_id):
         return redirect(redirect_url)
 
 
+@login_required
 def update_retreat(request, item_id):
     """ A view that adjusts the retreat after a user has
      changed the quantity """
@@ -65,17 +69,16 @@ def update_retreat(request, item_id):
         return redirect(reverse('view_retreat'))
 
 
+@login_required
 def remove_from_retreat(request, item_id):
     """Remove an item from the user's retreat """
 
     try:
         retreat = request.session.get('retreat', {})
-        print(retreat)
+        service = get_object_or_404(Service, pk=item_id)
 
         if request.user.is_authenticated:
-            print('in if statement')
             retreat.pop(item_id)
-            print(item_id)
             messages.success(request, f'Deleted {service.name} from your retreat')
 
             request.session['retreat'] = retreat
