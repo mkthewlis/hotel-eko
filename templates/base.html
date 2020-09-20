@@ -11,11 +11,14 @@
     {% block extra_meta %}
     {% endblock %}
 
+    <!--Favicon created courtesy of: https://gauger.io/fonticon/-->
+    <link rel="icon" href="/static/icons/favicon.ico" type="image/png">
     {% block corecss %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poiret+One&display=swap" rel="stylesheet">
+        <!--Local base CSS file-->
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <!-- AOS Library -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -25,15 +28,10 @@
     {% endblock %}
 
     {% block corejs %}
-        <!--Scripts in header to ensure they load as quickly as possible-->
-        <script src="https://kit.fontawesome.com/392ae530c6.js" crossorigin="anonymous"></script>
+        <!--Core js scripts in header to ensure they load as quickly as possible-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <!--Stripe-->
-        <script src="https://js.stripe.com/v3/"></script>
-        <!--AOS JS Library-->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -44,7 +42,7 @@
   <body onload="customSpinner()">
     <!--Container for all html code for prevent footer from covering content on shorter pages-->
     <div id="container">
-        <!--Spinner overlay runs with customSpinner function defined above-->
+        <!--Spinner overlay runs with customSpinner function defined above in body tag-->
         <div class="spinner-overlay">
             <div id="custom-spinner"></div>
         </div>
@@ -157,45 +155,17 @@
     {% endblock %}
 
     {% block postloadjs %}
-        <script type="text/javascript">
+        <!--Stripe-->
+        <script src="https://js.stripe.com/v3/"></script>
 
-            // Shows toast alerts following user actions
-            $('.toast').toast('show');
+        <!--AOS JS Library-->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-            // Adds spinner overlay when page loads
-            function customSpinner() {
-                $('.spinner-overlay').fadeOut(2000);
-            }
+        <!--Local JavaScript file-->
+        <script src="{% static 'js/scripts.js' %}"></script>
 
-            $(document).ready(function(){
-                // Adds border bottom navbar on scroll down past 30px, inspired by source code found on here: https://stackoverflow.com/questions/23706003/changing-nav-bar-color-after-scrolling
-                $(function () {
-                    $(document).scroll(function () {
-                    var $nav = $(".sticky-top");
-                    $nav.toggleClass('scrolled', $(this).scrollTop() > 50);
-                    });
-                });
-
-                // Smooth scroll to top function courtesy of: https://codepen.io/deveb22/pen/QxPmGz
-                var scrollBtn = $('#scroll-top-button');
-
-                $(window).scroll(function() {
-                    if ($(window).scrollTop() > 120) {
-                        scrollBtn.addClass('show');
-                    } else {
-                        scrollBtn.removeClass('show');
-                    }
-                });
-
-                scrollBtn.on('click', function(e) {
-                    e.preventDefault();
-                    $('html, body').animate({scrollTop:0}, '80');
-                });
-
-                // To allow AOS scroll effects
-                AOS.init();
-            });
-        </script>
+        <!--FontAwesome kit-->
+        <script src="https://kit.fontawesome.com/392ae530c6.js" crossorigin="anonymous"></script>
     {% endblock %}
 
     </div>
