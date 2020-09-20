@@ -22,6 +22,43 @@
     z-index: 999;
 }
 
+/*-------------------------------------------------------- Scroll top button*/
+
+/*Scroll to top button inspired by: https://codepen.io/deveb22/pen/QxPmGz */
+#scroll-top-button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 0px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#scroll-top-button::after {
+    content: "\f151";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #76A1B1;
+}
+#scroll-top-button:hover::after {
+    cursor: pointer;
+    color: #251D1D;
+}
+
+#scroll-top-button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /*-------------------------------------------------------- Standard font styles*/
 
 .standard-title {
