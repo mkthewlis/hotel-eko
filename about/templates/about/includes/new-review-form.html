@@ -11,4 +11,9 @@
         </form>
     </div>
 </div>
+{% else %}
+<div class="col-12 text-center mt-5 pl-5 pr-5">
+    <p class="standard-text">Want to leave a review about us? Please either <a href="{% url 'account_login' %}">Sign In</a> or
+    <a class="" href="{% url 'account_signup' %}">Register</a> to add your feedback here.</p>
+</div>
 {% endif %}

@@ -13,42 +13,51 @@
                 <h1 class="standard-title box-title text-center">Booking Complete</h1>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 success-hero-img"></div>
+        </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 text-center standard-padding">
-                <h2 class="standard-title">Success {{ order.full_name }}!</h2>
-                <p class="standard-text">Your retreat is now confirmed.</p>
+            <div class="col-12 text-center pt-5 mb-3">
+                <h2 class="standard-title pb-4">Success {{ order.full_name }}! Your retreat is now confirmed.</h2>
             </div>
             <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
-                <p>Our booking office will be in touch with you soon to confirm your arrival dates and answer
-                any questions that you may have.</p>
-                <p>We look forward to welcoming you soon!</p>
-                <p>Best wishes,</p>
-                <p>The Team at Hotel Eko</p>
+                <div class="form-box">
+                    <p class="pt-2">Reservation number:</p>
+                    <p class="pb-3 reservation-number">{{ order.order_number }}</p>
+                    <p>Our booking office will be in touch with you soon to confirm your arrival dates and answer
+                    any questions that you may have.</p>
+                    <p>We look forward to welcoming you soon!</p>
+                    <p>Best wishes,</p>
+                    <p>The Team at Hotel Eko</p>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="standard-title standard-padding">While you wait...</h2>
+            <div class="col-12 text-center pt-5">
+                <h2 class="standard-title mb-3">While you wait...</h2>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 text-center mt-3 mb-3">
+                <p class="checkout-item-title">Here's an overview of your retreat:</p>
+                {% for item in order.lineitems.all %}
+                    <p class="standard-text">Item name: {{ item.service.name }} x {{ item.quantity }}</p>
+                    <p class="standard-text">Total price: {{ order.total_price }}</p>
+                {% endfor %}
             </div>
             <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
                 <p>We've sent an email to {{ order.email }} to confirm the details of your reservation. If you would like
-                to get in touch with us right away, please use the reservation number below as a reference.</p>
-            </div>
-            <div class="col-12 col-md-8 offset-md-2 text-center standard-text standard-padding">
-                <p>Reservation number:</p>
-                <p>{{ order.order_number }}</p>
+                to get in touch with us right away, please use your reservation number as a reference.</p>
             </div>
             {% if from_profile %}
-                <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
-                    <a class="" href="{% url 'profile' %}">Return to My Details</a>
+                <div class="col-12 col-md-8 offset-md-2 text-center standard-text mb-5">
+                    <a class="btn standard-btn dark-btn mt-5 mb-5" href="{% url 'profile' %}">Return to My Details</a>
                 </div>
             {% else %}
-                <div class="col-12 col-md-8 offset-md-2 text-center standard-text">
+                <div class="col-12 col-md-8 offset-md-2 mt-0 text-center standard-text mb-5">
                     <p>You can view your account and reservations at any time by visiting your personalised account page with the 
                     button below.</p>
-                    <a class="" href="{% url 'profile' %}">My Details</a>
+                    <a class="btn standard-btn dark-btn mt-5" href="{% url 'profile' %}">My Details</a>
                 </div>
             {% endif %}
         </div>

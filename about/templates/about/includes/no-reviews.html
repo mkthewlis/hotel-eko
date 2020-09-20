@@ -2,8 +2,5 @@
     <p class="standard-text">It looks like no one has reviewed us yet! </p>
     {% if request.user.is_authenticated %}
         <p class="standard-text">Why not add a review by filling in the form below?</p>
-    {% else %}
-        <p class="standard-text">Please <a class="" href="{% url 'account_login' %}">Sign In</a> or
-        <a class="" href="{% url 'account_signup' %}">Register</a> to add a review.</p>
     {% endif %}
 </div>

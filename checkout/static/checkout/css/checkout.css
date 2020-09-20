@@ -1,3 +1,22 @@
+
+.checkout-item-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+}
+
+.success-hero-img {
+    background: url('/media/auth_hero_image.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    min-height: 500px;
+    background-attachment: fixed;
+    border-bottom: 2px solid #251d25;
+}
+
+.reservation-number {
+    overflow-wrap: break-word;
+}
+
 /*-------------------------------------------------------- Stripe styling courtesy of Stripe */
 
 .StripeElement,
@@ -46,4 +65,18 @@ select option {
 select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
+}
+
+/*-------------------------------------------------------- Media Queries */
+
+@media screen and (max-width: 400px){
+    .success-hero-img{
+        min-height: 400px;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width: 1024px){
+    .success-hero-img{
+        min-height: 800px;
+    }
 }

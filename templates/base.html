@@ -76,7 +76,10 @@
                                 {% if request.user.is_authenticated %}
                                     <a class="nav-link {% block nav_details %}{% endblock %}" href="{% url 'profile' %}">My Details</a>
                                     <a class="nav-link {% block nav_retreat %}{% endblock %}" href="{% url 'view_retreat' %}">My Retreat</a>
-                                    <a class="nav-link {% block nav_signout %}{% endblock %}" href="{% url 'account_logout' %}">Sign Out</a>
+                                    {% if total %}
+                                        <a class="nav-link {% block nav_checkout %}{% endblock %}" href="{% url 'checkout' %}">Checkout</a>
+                                    {% endif %}
+                                        <a class="nav-link {% block nav_signout %}{% endblock %}" href="{% url 'account_logout' %}">Sign Out</a>
                                 {% else %}
                                     <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
                                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
