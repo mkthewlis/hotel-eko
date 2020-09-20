@@ -41,8 +41,13 @@
 
     <title>Hotel Eko {% block extra_title %}{% endblock %}</title>
   </head>
-  <body>
+  <body onload="customSpinner()">
+    <!--Container for all html code for prevent footer from covering content on shorter pages-->
     <div id="container">
+        <!--Spinner overlay runs with customSpinner function defined above-->
+        <div class="spinner-overlay">
+            <div id="custom-spinner"></div>
+        </div>
         <header class="sticky-top">
             <nav class="navbar navbar-expand-md navbar-light navbar-bg menu-style">
                 <a class="standard-title" id="logo-design" href="{% url 'home' %}">Hotel Eko</a>
@@ -155,7 +160,14 @@
 
     {% block postloadjs %}
         <script type="text/javascript">
+
+            // Shows toast alerts following user actions
             $('.toast').toast('show');
+
+            // Adds spinner overlay when page loads
+            function customSpinner() {
+                $('.spinner-overlay').fadeOut(2000);
+            }
 
             // Adds border bottom navbar on scroll down past 30px, inspired by source code found on here: https://stackoverflow.com/questions/23706003/changing-nav-bar-color-after-scrolling
             $(function () {
