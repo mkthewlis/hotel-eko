@@ -7,6 +7,9 @@
 <!--Sets this template as current page in the menu-->
 {% block nav_reservations %} active-menu {% endblock %}
 
+<!--Adds extra title for current page-->
+{% block extra_title %}- Sign Out{% endblock %}
+
 {% block inner_content %}
 <div class="auth-form-container">
     <h2 class="standard-title standard-padding">{% trans "Sign Out" %}</h2>

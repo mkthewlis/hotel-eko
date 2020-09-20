@@ -13,6 +13,7 @@
 
     <!--Favicon created courtesy of: https://gauger.io/fonticon/-->
     <link rel="icon" href="/static/icons/favicon.ico" type="image/png">
+
     {% block corecss %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -72,7 +73,7 @@
                                 </li>
                             {% endwith %}
                             <li class="list-inline-item dropdown">
-                                <a class="nav-link {% block nav_reservations %}{% endblock %}" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations 
+                                <a class="nav-link {% block nav_reservations %}{% endblock %}" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account
                                     <i class="fas fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -85,7 +86,7 @@
                                         <a class="nav-link {% block nav_signout %}{% endblock %}" href="{% url 'account_logout' %}">Sign Out</a>
                                 {% else %}
                                     <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
-                                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                                    <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
                                 {% endif %}
                                 </div>
                             </li>

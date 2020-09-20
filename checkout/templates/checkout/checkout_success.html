@@ -5,6 +5,13 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+<!--Sets this template as current page in the menu-->
+{% block nav_reservations %} active-menu {% endblock %}
+{% block nav_checkout %} active-menu {% endblock %}
+
+<!--Adds extra title for current page-->
+{% block extra_title %}- Checkout Success{% endblock %}
+
 {% block content %}
     <!--Title section-->
     <div class="container-fluid">

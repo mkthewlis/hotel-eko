@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
 {% endblock %}
 
+{% block extra_title %}-
+    {% if service.is_stay %} Stay {% elif service.is_eat %} Eat {% elif service.is_relax %} Relax {% endif %}
+ {% endblock %}
+
 {% block content %}
     <!--Hero image section-->
     <div class="container-fluid">
@@ -72,11 +76,11 @@
         <div class="row">
             <div class="col-12 text-center standard-text mt-5 mb-5">
                 {% if service.is_stay %}
-                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_stay_services' %}">All Stay Options</a>
+                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_stay_services' %}">Back to Stay Options</a>
                 {% elif service.is_relax %}
-                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_relax_services' %}">All Relax Options</a>
+                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_relax_services' %}">Back to Relax Options</a>
                 {% elif service.is_eat %}
-                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_eat_services' %}">All Eat Options</a>
+                    <a class="standard-btn dark-btn return-btn" href="{% url 'all_eat_services' %}">Back to Eat Options</a>
                 {% endif %}
             </div>
         </div>

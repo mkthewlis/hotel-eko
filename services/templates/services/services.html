@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
 {% endblock %}
 
+<!--Adds extra title for current page-->
+{% block extra_title %}-
+    {% if stay %} Stay {% elif eat %} Eat {% elif relax %} Relax {% endif %}
+ {% endblock %}
+
 {% block content %}
     <!--Hero image section-->
     <div class="container-fluid {% if stay %} stay-hero-img {% elif eat %} eat-hero-img {% elif relax %} relax-hero-img {% endif %}">
