@@ -11,7 +11,7 @@
 {% block inner_content %}
 
 <div class="auth-form-container">
-    <h2 class="standard-title standard-padding">{% trans "Sign In" %}</h2>
+    <h2 class="standard-title pt-4 pb-3">{% trans "Sign In" %}</h2>
 
     <form class="login" method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
@@ -19,8 +19,10 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
+    <div class="text-center">
+        <button class="primaryAction standard-btn dark-btn" type="submit">{% trans "Sign In" %}</button>
+    </div>
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-    <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
     </form>
 
     {% get_providers as socialaccount_providers %}

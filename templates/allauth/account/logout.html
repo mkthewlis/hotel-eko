@@ -12,7 +12,7 @@
 
 {% block inner_content %}
 <div class="auth-form-container">
-    <h2 class="standard-title standard-padding">{% trans "Sign Out" %}</h2>
+    <h2 class="standard-title pt-4">{% trans "Sign Out" %}</h2>
 
     <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
@@ -21,7 +21,9 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
     {% endif %}
-    <button type="submit">{% trans 'Sign Out' %}</button>
+    <div class="text-center">
+        <button type="submit" class="standard-btn dark-btn">{% trans 'Sign Out' %}</button>
+    </div>
     </form>
 
     <p class="mt-4">Return to  

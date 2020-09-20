@@ -45,8 +45,8 @@
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-style: normal;
-    font-size: 2em;
-    line-height: 50px;
+    font-size: 3em;
+    line-height: 80px;
     color: #76A1B1;
 }
 #scroll-top-button:hover::after {
@@ -295,21 +295,23 @@
     background: url('/media/auth_hero_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
-    min-height: 900px;
+    min-height: 1200px;
 }
 
 .auth-form-container {
-    background-color: #F2F4F9;
+    background-color:#f8f8ff;
+    box-shadow: 0 5px 5px 0 #4A3832;
+    border: 2px solid #251D1D; 
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 30px;
     padding-bottom: 30px;
-    opacity: 90%;
+    opacity: 95%;
 }
 
 .allauth-form-inner-content p {
     color: #251D1D;
-    font-family: 'Cardo', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .allauth-form-inner-content input {
@@ -318,7 +320,7 @@
 }
 
 .allauth-form-inner-content label {
-    font-family: 'Cardo', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
@@ -340,8 +342,8 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #6D5245;
-    border: 1px solid #6D5245;
+    background-color: #251D1D;
+    border: 1px solid #251D1D;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -360,6 +362,7 @@
 
 .allauth-form-inner-content a {
     color: #76A1B1;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /*-------------------------------------------------------- Media queries */
