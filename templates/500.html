@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!--Adds extra title for current page-->
+{% block extra_title %}- 500 Internal Error{% endblock %}
+
+{% block content %}
+<div class="container-fluid auth-hero-img">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <div class="form-box mt-5 text-center">
+                <h3 class="standard-title">Oops, it looks like there's been an internal server error!</h3>
+                <p class="standard-text">If you keep seeing this message, please drop us an email at contact@hotelekoexample.com 
+                and we'll look in to the issue.</p>
+                <div class="text-center">
+                    <a class="btn standard-btn dark-btn mb-3 mt-3" href="{% url 'home' %}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
