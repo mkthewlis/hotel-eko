@@ -1,24 +1,24 @@
-<div class="toast rounded-0 border-top-0" data-autohide="false">
-    <div class="toast-header bg-success text-dark">
+<div class="toast rounded-0" data-autohide="false">
+    <div class="toast-header toast-success toast-title">
         <strong class="mr-auto">Success!</strong>
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body bg-white">
+    <div class="toast-body toast-text">
         {{ message }}        
     </div>
     <!--Prevents the user from seeing their retreat when they are already on the retreat overview page-->
     {% if not request.get_full_path == "/retreat/" %}
         {% if request.get_full_path == "/about/" %}
         {% elif total and not on_profile_page %}
-            <div class="bg-white text-center">
-                <p class="text-center bg-white">My Retreat:</p>
+            <div class="text-center toast-text">
+                <p class="text-center mt-2">My Retreat:</p>
                 {% for item in retreat_items %}
                     <p class=""><strong>{{ item.service.name }}</strong> x {{ item.quantity }}</p>
                 {% endfor %}
                 <p class=""><strong>Total Price:</strong> {{ total|floatformat:2 }}kr </p>
-                <a href="{% url 'view_retreat' %}" class="btn">View my Retreat</a>
+                <a href="{% url 'view_retreat' %}" class="btn small-btn mb-3">View my Retreat</a>
             </div>
         {% endif %}
     {% endif %}

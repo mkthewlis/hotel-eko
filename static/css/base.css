@@ -276,9 +276,9 @@
 
 .message-container {
     position: fixed;
-    top: 72px;
+    top: 80px;
     right: 15px;
-    z-index: 99999999999;
+    z-index: 999;
 }
 
 .custom-toast {
@@ -287,6 +287,45 @@
 
 .toast-capper {
     height: 2px;
+}
+
+.toast-header {
+    border-bottom: 1px solid #251D1D;
+}
+
+.toast-title {
+    font-family: 'Poiret One', cursive;
+    font-size: 22px;
+    color:#251D1D;
+}
+
+.toast-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color:#251D1D;
+}
+
+.toast-success {
+    background-color: #99D17B;
+}
+
+.toast-error {
+    background-color: #F26157;
+}
+
+.toast-info {
+    background-color: #B4CBD5;
+}
+
+.toast {
+    background-color:#f8f8ff;
+    border: 1px solid #251D1D;
+    box-shadow: 0 5px 5px 0 #4A3832;
+}
+
+.toast button {
+    font-size: 40px;
+    color: #251D1D;
 }
 
 /* ------------------------------- Allauth styling */
