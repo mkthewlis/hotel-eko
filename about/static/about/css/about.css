@@ -1,7 +1,7 @@
 /*-------------------------------------------------------- Hero image section */
 
 .about-hero-img {
-    background: url('/media/about_hero_image.jpg') no-repeat center;
+    background: url('/static/images/about_hero_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
     min-height: 600px;
@@ -17,7 +17,7 @@
 }
 
 .organic-img {
-    background: url('/media/about_organic.jpg');
+    background: url('/static/images/about_organic.jpg');
     width: 100%;
     max-height: 900px;
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 /*-------------------------------------------------------- Links section */
 
 .links-img {
-    background: url('/media/index_forest_image.jpg') no-repeat center;
+    background: url('/static/images/index_forest_image.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
     min-height: 400px;
