@@ -1,7 +1,3 @@
-# WORK IN PROGRESS
-
-The project will soon be deployed to Heroku, where it will be open to public viewing.
-
 # Hotel Eko:
 
 ## Code Institute: Milestone Project 4
@@ -11,6 +7,8 @@ The project will soon be deployed to Heroku, where it will be open to public vie
 This was the last of four Milestone Projects that made up the Full Stack Web Development Program at *The Code Institute*. The main requirements were to build a full-stack website with the use of HTML, CSS, JavaScript, Python, Django and a relational database. Accommodating payment services was another requirement for this project and this was achieved through the use of Stripe.
 
 If you would like to test the payment functionality of this project, please create an account and use the card number 4242 4242 4242 4242 with any address details, expiry date and CVC that you choose. 
+
+[Click here to view the project live.](https://hotel-eko.herokuapp.com/)
 
 ## Table of contents
 
@@ -91,11 +89,11 @@ Viewing other hotel website designs led me to the following conclusions:
 - The website would allow users to meet several goals: by finding information about the hotel, creating a personalized retreat, making a reservation, writing a review and reading personalized notes from the owner. 
 
 ##### The following websites were particularly useful during the research process:
-- [Samsara Ubud]( https://www.samsaraubud.com/)
-- [Fäviken Magasinet]( http://favikenmagasinet.se/)
-- [Arctic Bath]( https://arcticbath.se//)
-- [Juvet]( https://juvet.com//)
-- [the Arctic Hideaway]( http://thearctichideaway.com/en/)
+- [Samsara Ubud](https://www.samsaraubud.com/)
+- [Fäviken Magasinet](http://favikenmagasinet.se/)
+- [Arctic Bath](https://arcticbath.se//)
+- [Juvet](https://juvet.com//)
+- [the Arctic Hideaway](http://thearctichideaway.com/en/)
 
 #### Design process: UX Design
 
@@ -234,3 +232,58 @@ With this complete, I had a better understanding of how I could develop the data
  Review Title | review_title | Charfield | max_length=200
  Review Content | review_content | TextField | blank=True, null=True, default=""
 
+## Features
+
+### Existing Features
+
+#### Consistent features across all pages
+
+- The menu at the top of the page and footer are consistent in design and are responsive throughout the website. However, the contents of the menu changes depending on if a user is logged in or not.
+- The menu bar for users logged in features a 'Sign Out' link where the 'Sign Up' link usually is. When a user in session chooses to sign out, a toast message confirms this action and they are redirected back to the home page.
+- Users with items added to their Retreat notice an additional 'Checkout' link in their navbar, allowing them direct access to go straight to checkout.
+- Extra authentication prevents users not authenticated from access certain pages, including the checkout pages and the 'My Details' and 'My Retreat' pages.
+- Each page features a 'scroll to top' arrow that becomes visible when the user has scrolled down the page.
+- The active page is highlighted in a light blue colour to show the user which page they are on.
+- All toast messages appear under the menu bar with the same fonts as used consistently in the theme. Depending on the type of message, the toast colour changes to reflect this message.
+- An overlay with a spinner gif appears on all pages until the page has fully loaded.
+- 
+
+#### Home
+
+- The user begins by seeing the hero image of a woman sitting by a mountain lake.
+- The user then scrolls down to see a textbox that slides upwards with an introduction to the hotel. Here a button prompts the user to 'Learn More', taking them to the About page.
+- Below this, the user sees a fullwidth carousel that features buttons to the three services provided by the hotel: namely Stay, Relax and Eat.
+- On smaller devices, the buttons on the carousel images are hidden, so the user only sees the images.
+
+#### About
+
+- A hero image of a couple at the retreat features at the top of this page.
+- Below it, a user sees a section with the company ethos. The text slides upwards and the image changes size depending on screen width.
+- The next section features user reviews. If a user is not signed in, they can only view the reviews added by other users and a prompt to sign in or register. If they have signed in, a form to add a review appears. 
+- Users who have signed in and have already added reviews can click on the edit or delete buttons. These open respective modals to either edit or delete the review. 
+- Below the reviews section, the process of making a reservation is described with three bullet points that also rise up when scrolled. The large number icons also change size and positioning to be responsive on smaller screens.
+- The final section features three buttons to the hotel service pages: Stay, Relax and Eat.
+
+#### Stay - Eat - Relax
+
+- Although different pages, these three pages follow the same structure and are built with a generic 'services' template to avoid repetitive code.
+- Each page is formatted to feature a hero image representing it's category with the category title at the top.
+- As the user scrolls down, cards slide upwards, with one card for each service belonging to that category. 
+- Each card contains the service title, image and a button to learn more about it. 
+- Users who are signed in can add the service to their retreat directly. Anonymous users are instead faced with a prompt to sign in or sign up.
+- Users are limited to adding 10 items of each service per order.
+
+#### Stay - Eat - Relax: detail pages
+
+- Users access these pages by clicking on the 'Learn More' button of the respective card.
+- This page features the service image, title, all details about it and the price.
+- If signed in, users can add the service to their retreat directly. Otherwise, they are prompted to sign in or sign up.
+- Users are limited to adding 10 items of each service per order.
+
+#### Sign In/ Sign Up
+
+- These pages feature the same hero image as a background, reflecting the hero image on the home page.
+- The authentication pages were built with Django, and therefore include all Django's builtin features (including requesting an email for forgotten passwords.)
+- Ontop of the hero image, they feature the respective Sign In or Sign Up forms, prompting a user to access the parts of the website that require authentication.
+- These pages can only be accessed when signed out / signed in respectively, so authorised users cannot sign in again.
+- Once signed in, users are redirected to their 'My Account' overview page.

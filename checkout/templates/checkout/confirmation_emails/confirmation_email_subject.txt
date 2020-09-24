@@ -1,1 +1,1 @@
-Hotel Eko confirmation for Reservation Number: {{ order.order_nuber }}
+Hotel Eko confirmation
