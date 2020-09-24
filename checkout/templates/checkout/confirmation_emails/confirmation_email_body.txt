@@ -7,11 +7,11 @@ Your booking information is as follows:
 
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
-Order Total: ${{ order.total_price }}
+Order Total: {{ order.total_price }}kr
 
 Our Bookings & Reservations department will be in touch with you soon to arrange your arrival dates and help you plan for your visit.
 
-If you have any questions in the meantime, feel free to contact us at {{ contact_email }}.
+If you have any questions in the meantime, feel free to contact us at contact@hotelekoexample.com.
 
 You can always view more information about this reservation, your full booking history and the latest news from the Hotel by signing in to your account on our website.
 
