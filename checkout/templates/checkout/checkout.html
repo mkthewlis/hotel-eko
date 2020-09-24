@@ -35,7 +35,7 @@
                         {% elif item.service.is_relax or item.service.is_eat %}
                             <p class="standard-text">Number of guests: {{ item.quantity }}</p>
                         {% endif %}
-                    <p class="standard-text">Item total:{{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr</p>
+                    <p class="standard-text">Item total: {{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr</p>
                     <br>
                 </div>
             {% endfor %}
