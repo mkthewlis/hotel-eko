@@ -36,6 +36,18 @@
 
 /*-------------------------------------------------------- Reviews section */
 
+.service-thumbnail {
+    width: 220px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #251d25;
+    margin-bottom: 30px;
+}
+
+.review-subtitle p {
+    margin-bottom: 0px;
+}
+
 /*-------------------------------------------------------- Links section */
 
 .links-img {
@@ -50,13 +62,24 @@
 }
 
 /*-------------------------------------------------------- Media queries */
+@media screen and (max-width: 767px){
+    .service-thumbnail {
+        width: 100%;
+        height: 200px;
+    } 
+}
+
+@media screen and (min-width: 767px) and (max-width: 991px){
+    .service-thumbnail {
+        width: 150px;
+        height: 100px;
+    } 
+}
+
 @media screen and (max-width: 991px){
     .step-title {
         font-size: 45px;
     }
-}
-
-@media screen and (max-width: 991px){
     .links-img a {
         margin-top: 48px;
     }
@@ -66,7 +89,7 @@
     .introduction-bg {
         padding-left: 30px;
         padding-right: 0px;
-    }   
+    }  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
