@@ -1,16 +1,27 @@
-<div class="order-history table-responsive">
-    <table class="table table-sm table-borderless standard-text mt-4">
-        <thead>
+<div class="order-history table-responsive pl-0 pl-lg-5 pr-0 pr-lg-5">
+    <table class="table order-table standard-text mt-4">
+        <thead class="mt-4">
             <tr>
                 <th>Booking Number</th>
+                <th>Order Date</th>
+                <th>Order Total</th>
+                <th>Review Booking</th>
             </tr>
         </thead>
         <tbody>
             {% for order in orders %}
                 <tr>
                     <td>
-                        <a class="standard-text" href="{% url 'order_history' order.order_number %}">
-                            {{ order.order_number }}
+                        <p>{{ order.order_number|truncatechars:8 }}</p>
+                    </td>
+                    <td>
+                        {{ order.date|date:"d-m-Y"}} 
+                    </td>
+                    <td>
+                        {{ order.total_price }}kr
+                    </td>
+                    <td class="text-center">
+                        <a class="standard-text small-btn" href="{% url 'order_history' order.order_number %}">Details
                         </a>
                     </td>
                 </tr>
