@@ -2,6 +2,8 @@
 
 ## Code Institute: Milestone Project 4
 
+![Hotel Eko Responsive Design](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/readme_images/am_i_responsive.png)
+
 *Hotel Eko* is a fictional retreat located in the north of Sweden. Having previously worked in the hotel industry, my idea for this project was to combine my knowledge of guest experiences with everything that I have learnt from my programming journey so far. The result is a hotel website that allows users to create their own hotel retreat personalized after their wishes for their stay, for them to be able to pay securely to confirm their reservation, to leave reviews when signed in and view blog updates from the hotel owner.
 
 This was the last of four Milestone Projects that made up the Full Stack Web Development Program at *The Code Institute*. The main requirements were to build a full-stack website with the use of HTML, CSS, JavaScript, Python, Django and a relational database. Accommodating payment services was another requirement for this project and this was achieved through the use of Stripe.
@@ -113,7 +115,7 @@ Viewing other hotel website designs led me to the following conclusions:
 ### Documenting the design process
 
 Selected color palette:
-![Color palette created with coolors.co]()
+![Color palette created with coolors.co](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/readme_images/color_palette.png)
 
 Design for desktop devices:
 ![My workspace on Figma]()
