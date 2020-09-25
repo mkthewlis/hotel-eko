@@ -219,7 +219,7 @@
 }
 
 .active-menu {
-    color: #527E8E !important;
+    color: #6494A6 !important;
 }
 
 
@@ -347,9 +347,8 @@
     border: 2px solid #251D1D; 
     padding-left: 30px;
     padding-right: 30px;
-    margin-top: 30px;
+    margin-top: 25%;
     padding-bottom: 30px;
-    opacity: 95%;
 }
 
 .allauth-form-inner-content p {
@@ -386,9 +385,9 @@
     -ms-user-select: none;
     user-select: none;
     background-color: #251D1D;
-    border: 1px solid #251D1D;
+    border: 2px solid #251D1D;
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 23px;
     line-height: 1.5;
     border-radius: 0;
 
@@ -398,9 +397,9 @@
 
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
-    background-color: #222;
-    border-color: #222;
+	color: #251D1D;
+    background-color: #F2F4F9;
+    border: 2px solid #251D1D;
 }
 
 .allauth-form-inner-content a {

@@ -13,21 +13,23 @@
 {% block inner_content %}
 <div class="auth-form-container">
     <h2 class="standard-title pt-4">{% trans "Sign Out" %}</h2>
-
-    <p>{% trans 'Are you sure you want to sign out?' %}</p>
-
+    <div class="text-center mt-4 mb-3">
+        <p>{% trans 'Are you sure you want to sign out?' %}</p>
+    </div>
     <form method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
     {% endif %}
-    <div class="text-center">
+    <div class="text-center mt-5 mb-5">
         <button type="submit" class="standard-btn dark-btn">{% trans 'Sign Out' %}</button>
     </div>
     </form>
 
-    <p class="mt-4">Return to  
-    <a href="{% url 'profile' %}">My Details</a></p>
-
+    <div class="text-center mt-4 mb-3">
+        <p class="mt-4">Return to  
+            <a href="{% url 'profile' %}">My Details</a>
+        </p>
+    </div>
 </div>
 {% endblock %}

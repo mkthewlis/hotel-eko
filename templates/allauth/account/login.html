@@ -22,7 +22,9 @@
     <div class="text-center">
         <button class="primaryAction standard-btn dark-btn" type="submit">{% trans "Sign In" %}</button>
     </div>
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    <div class="text-center mt-4 mb-3">
+        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    </div>
     </form>
 
     {% get_providers as socialaccount_providers %}
@@ -45,8 +47,11 @@
     {% include "socialaccount/snippets/login_extra.html" %}
 
     {% else %}
-    <p class="standard-padding">{% blocktrans %}Don't have an account? 
-    <a href="{{ signup_url }}">Sign up here</a>.{% endblocktrans %}</p>
+    <div class="text-center">
+        <p class="">{% blocktrans %}Don't have an account? 
+            <a href="{{ signup_url }}">Sign up here</a>.{% endblocktrans %}
+        </p>
+    </div>
     {% endif %}
 </div>
 
