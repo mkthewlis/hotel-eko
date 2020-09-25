@@ -276,7 +276,7 @@
     color: #833AB4;
 }
 
-/* ------------------------------- Bootstrap toasts styling */
+/* ------------------------------- Bootstrap toasts styles */
 
 .message-container {
     position: fixed;
@@ -332,7 +332,7 @@
     color: #251D1D;
 }
 
-/* ------------------------------- Allauth styling */
+/* ------------------------------- Allauth styles */
 
 .auth-hero-img {
     background: url('/static/images/auth_hero_image.jpg') no-repeat center;
@@ -433,5 +433,11 @@
 @media screen and (min-width: 280px) and (max-width: 400px){
     .top-title{
         min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .stay-hero-img, .relax-hero-img, .eat-hero-img, .forest-img, .success-hero-img, .about-hero-img {
+        background-attachment: scroll !important;
     }
 }
