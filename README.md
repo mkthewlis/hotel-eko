@@ -1,8 +1,8 @@
-# Hotel Eko:
+# Hotel Eko
 
 ## Code Institute: Milestone Project 4
 
-*Hotel Eko* is a fictional retreat located in the north of Sweden. Having worked in the hotel industry earlier, my idea for this project was to combine my knowledge of guest experiences with everything that I have learnt from my programming journey so far. The result is a hotel website that allows users to create their own hotel retreat personalized after their wishes for their stay, for them to be able to pay securely to confirm their reservation, to leave reviews when signed in and view blog updates from the hotel owner.
+*Hotel Eko* is a fictional retreat located in the north of Sweden. Having previously worked in the hotel industry, my idea for this project was to combine my knowledge of guest experiences with everything that I have learnt from my programming journey so far. The result is a hotel website that allows users to create their own hotel retreat personalized after their wishes for their stay, for them to be able to pay securely to confirm their reservation, to leave reviews when signed in and view blog updates from the hotel owner.
 
 This was the last of four Milestone Projects that made up the Full Stack Web Development Program at *The Code Institute*. The main requirements were to build a full-stack website with the use of HTML, CSS, JavaScript, Python, Django and a relational database. Accommodating payment services was another requirement for this project and this was achieved through the use of Stripe.
 
@@ -287,3 +287,12 @@ With this complete, I had a better understanding of how I could develop the data
 - Ontop of the hero image, they feature the respective Sign In or Sign Up forms, prompting a user to access the parts of the website that require authentication.
 - These pages can only be accessed when signed out / signed in respectively, so authorised users cannot sign in again.
 - Once signed in, users are redirected to their 'My Account' overview page.
+
+#### Error pages: 404 and 500 pages
+
+- Built with the same structure, these pages have a large hero image with a textbox notifying the user of the issue on it.
+- They feature buttons to take users back to the home page and the hotel email address to get in touch.
+
+#### My Details
+
+- The message at the top of the page changes depending on if the user is new to the site, if they have items already in their retreat and if they have previous orders.
