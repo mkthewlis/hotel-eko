@@ -18,45 +18,12 @@
     <div class="container-fluid">
         <div class="row standard-header-box">
             <div class="col-12">
-                <h1 class="standard-title box-title text-center">My Retreat</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row text-center">
-            <div class="col-12">
-                <h2 class="standard-title text-center standard-padding">Retreat Summary: {{ service_count }} item{% if service_count > 1 %}s{% endif %}</h2>
-            </div>
-            {% for item in retreat_items %}
-                <div class="col-12 {% if service_count > 3 %} col-md-4 {% else %} col-md-12 {% endif %}">
-                    <p class="standard-text checkout-item-title"><strong>{{ item.service.name }}</strong></p>
-                        {% if item.service.is_stay %}
-                            <p class="standard-text">Number of nights: {{ item.quantity }}</p>
-                        {% elif item.service.is_relax or item.service.is_eat %}
-                            <p class="standard-text">Number of guests: {{ item.quantity }}</p>
-                        {% endif %}
-                    <p class="standard-text">Item total: {{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr</p>
-                    <br>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="row text-center">
-            <div class="col-12">
-                <p class="standard-tex mt-5 standard-title">Order Total:</p>
-                <p class="standard-text checkout-item-title"><strong>{{ total | floatformat:2 }}kr</strong></p>
-            </div>
-            <div class="col-12">
-                <p class="standard-text mt-3 mb-5">Return to <a href="{% url 'view_retreat' %}">My Retreat</a> to make changes to your reservation.</p>
-            </div>
-        </div>
-        <div class="row standard-header-box">
-            <div class="col-12">
                 <h2 class="standard-title text-center standard-padding">Submit the form below to complete your reservation.</h2>
             </div>
         </div>
         <!--User detail section-->
         <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-3">
+            <div class="col-12 col-lg-6">
                 <div class="form-box mt-5 mb-5">
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
@@ -97,6 +64,33 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h2 class="standard-title text-center mt-5 mb-5">
+                    Retreat Summary: {{ service_count }} item{% if service_count > 1 %}s{% endif %}
+                </h2>
+                {% for item in retreat_items %}
+                    <div class="row">
+                        <div class="col-7">
+                            <p class="standard-text checkout-item-title blue-title"><strong>{{ item.service.name }}</strong></p>
+                                {% if item.service.is_stay %}
+                                    <p class="standard-text">Number of nights: {{ item.quantity }}</p>
+                                {% elif item.service.is_relax or item.service.is_eat %}
+                                    <p class="standard-text">Number of guests: {{ item.quantity }}</p>
+                                {% endif %}
+                            <p class="standard-text mb-3">Item total: {{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr</p>
+                            <br>
+                        </div>
+                        <div class="col-2 pr-0 pl-0">
+                            <a href="{% url 'service_detail' item.service.id %}">
+                                <img class="service-thumbnail mt-3" src="{{ item.service.image.url }}" alt="{{ service.name }}">
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-12 text-center">
+                <p class="standard-text mt-3 mb-5">Return to <a href="{% url 'view_retreat' %}">My Retreat</a> to make changes to your reservation.</p>
             </div>
         </div>
     </div>

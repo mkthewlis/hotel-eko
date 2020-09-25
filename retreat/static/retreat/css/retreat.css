@@ -1,3 +1,12 @@
+/*-------------------------------------------------------- Retreat details section */
+
+.service-thumbnail {
+    width: 150px;
+    height: 40%;
+    object-fit: cover;
+    border: 2px solid #251d25;
+}
+
 /*-------------------------------------------------------- Links section */
 
 .links-img {

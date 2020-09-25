@@ -4,7 +4,7 @@
     <div class="row">
         {% for item in retreat_items %}
             <div class="col-12 col-md-3 ml-md-5 mb-sm-5 mb-0 mb-md-5 mt-5">
-                <h2 class="standard-title text-left mb-4">{{ item.service.name }}</h2>
+                <h2 class="standard-title text-left mb-4 blue-title">{{ item.service.name }}</h2>
 
                 <!--Edit quantity modal-->
                 <a class="small-btn ml-1 ml-md-1" data-toggle="modal" data-target="#editModal{{ item.item_id }}">Edit</a>
@@ -94,6 +94,9 @@
                         {{ item.service.name }}
                     </a>
                 </p>
+                <a href="{% url 'service_detail' item.service.id %}">
+                    <img class="service-thumbnail mt-3" src="{{ item.service.image.url }}" alt="{{ service.name }}">
+                </a>
             </div>
         {% endfor %}
         <!--Total price and checkout button-->
