@@ -6,14 +6,14 @@
         </button>
     </div>
     <div class="toast-body toast-text text-center">
-        <p class="blue-title pb-0 mb-0">{{ message }}</p>       
+        <p class="pb-0 mb-0">{{ message }}</p>       
     </div>
     <!--Prevents the user from seeing their retreat when they are already on the retreat overview page-->
     {% if not request.get_full_path == "/retreat/" %}
         {% if request.get_full_path == "/about/" %}
         {% elif total and not on_profile_page %}
             <div class="text-center toast-text">
-                <p class="text-center">My Retreat:</p>
+                <p class="text-center blue-title">My Retreat:</p>
                 {% for item in retreat_items %}
                     <p class=""><strong>{{ item.service.name }}</strong> x {{ item.quantity }}</p>
                 {% endfor %}

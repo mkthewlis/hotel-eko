@@ -117,7 +117,7 @@ Viewing other hotel website designs led me to the following conclusions:
 Selected color palette:
 ![Color palette created with coolors.co](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/color_palette.png)
 
-Design for desktop devices:
+Design for desktop devices (in three parts):
 ![Desktop Workspace - One](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/desktop_one.png)
 ![Desktop Workspace - Two](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/desktop_two.png)
 ![Desktop Workspace - Three](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/desktop_three.png)
@@ -137,7 +137,7 @@ I also relied on Django’s default user model for authorization, allowing me to
 
 #### Designing the Database
 
-While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/readme_images/database_sketch.jpg).
+While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/readme_images/database_sketch.png).
 
 With this complete, I had a better understanding of how I could develop the database and continued with a Microsoft Excel document. This eventually led to the structure modelled below. 
 
