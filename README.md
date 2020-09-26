@@ -109,24 +109,26 @@ Viewing other hotel website designs led me to the following conclusions:
 
 5.	Surface plane: 
 * The first stylistic decision I made was to really focus on the atmosphere and branding of the hotel, as this would be part of the strategy to keep the user inspired to make a reservation. However, as the website would contain so many different elements and aspects, I knew that the visual design could not interfere with a user’s ability to navigate through the each page, but rather add to the experience of doing so.
-* With the idea of the type and style of design that I was after, I started a workspace on [Figma]( https://www.figma.com/file/Hv9GYC33ydTGLuwIxydgRr/Code-Institute?node-id=469%3A338) and began experimenting with my wireframes for desktop, tablet and mobile devices. As with my earlier three Milestone Projects, I found it useful to have my hero image in place, as doing so prompts me to choose the tone and theme for the rest of the design. I selected an image of a woman sitting on a bridge by a mountain lake, as I thought that image would inspire users to long for the change to unwind at the hotel. From this image, I began to extract the colors I would use and created a color palette with [coolors](https://coolors.co/), as shown below. I chose this palette as the colors are soothing, represent nature and offer an inviting feeling to users looking for a place to relax.
+* With the idea of the type and style of design that I was after, I started a workspace on [Figma](https://www.figma.com/file/Hv9GYC33ydTGLuwIxydgRr/Code-Institute?node-id=469%3A338) and began experimenting with my wireframes for desktop, tablet and mobile devices. As with my earlier three Milestone Projects, I found it useful to have my hero image in place, as doing so prompts me to choose the tone and theme for the rest of the design. I selected an image of a woman sitting on a bridge by a mountain lake, as I thought that image would inspire users to long for the change to unwind at the hotel. From this image, I began to extract the colors I would use and created a color palette with [coolors](https://coolors.co/), as shown below. I chose this palette as the colors are soothing, represent nature and offer an inviting feeling to users looking for a place to relax.
 * I turned to Google Fonts to select the fonts I would use for this project. I wanted to find two compatible fonts that were modern, as although the website was meant to be atmospheric, it should not come across as outdated. I found that Poiret One and Open Sans met this criteria.
 
 ### Documenting the design process
 
 Selected color palette:
-![Color palette created with coolors.co](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/readme_images/color_palette.png)
+![Color palette created with coolors.co](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/color_palette.png)
 
 Design for desktop devices:
-![My workspace on Figma]()
+![Desktop Workspace - One](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/desktop_one.png)
+![Desktop Workspace - Two](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/desktop_two.png)
+![Desktop Workspace - Three](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/desktop_three.png)
 
 Design for mobile devices:
-![My responsive design for mobile devices]()
+![My responsive design for mobile devices](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/mobile.png)
 
 Design for tablet devices:
-![My responsive design for tablet devices]()
+![My responsive design for tablet devices](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/wireframes/tablet.png)
 
-[The entire workspace can be viewed on Figma with this link.]( https://www.figma.com/file/Hv9GYC33ydTGLuwIxydgRr/Code-Institute?node-id=469%3A338)
+[The entire workspace can be viewed on Figma with this link.](https://www.figma.com/file/Hv9GYC33ydTGLuwIxydgRr/Code-Institute?node-id=469%3A338)
 
 ### Database structure
 
@@ -135,7 +137,7 @@ I also relied on Django’s default user model for authorization, allowing me to
 
 #### Designing the Database
 
-While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch]().
+While working on the Scope and Structure planes of the design process, I also began working on the database structure. The first stage included drawing a basic idea of what the database would look like, and how data would relate to each other within it. The result of that process led to the following simplistic sketch of the idea: [Handrawn database sketch](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/readme_images/database_sketch.jpg).
 
 With this complete, I had a better understanding of how I could develop the database and continued with a Microsoft Excel document. This eventually led to the structure modelled below. 
 
