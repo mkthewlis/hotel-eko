@@ -5,20 +5,23 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body toast-text">
-        {{ message }}        
+    <div class="toast-body toast-text text-center">
+        <p class="blue-title pb-0 mb-0">{{ message }}</p>       
     </div>
     <!--Prevents the user from seeing their retreat when they are already on the retreat overview page-->
     {% if not request.get_full_path == "/retreat/" %}
         {% if request.get_full_path == "/about/" %}
         {% elif total and not on_profile_page %}
             <div class="text-center toast-text">
-                <p class="text-center mt-2">My Retreat:</p>
+                <p class="text-center">My Retreat:</p>
                 {% for item in retreat_items %}
                     <p class=""><strong>{{ item.service.name }}</strong> x {{ item.quantity }}</p>
                 {% endfor %}
-                <p class=""><strong>Total Price:</strong> {{ total|floatformat:2 }}kr </p>
-                <a href="{% url 'view_retreat' %}" class="btn small-btn mb-3">View my Retreat</a>
+                <p class="blue-title"><strong>Total Price:</strong> {{ total|floatformat:2 }}kr </p>
+                <a href="{% url 'view_retreat' %}" class="btn small-btn mb-3">View My Retreat</a>
+            </div>
+            <div class="text-center toast-text">
+                <a href="{% url 'checkout' %}" class="btn small-btn mb-3">Go To Checkout</a>
             </div>
         {% endif %}
     {% endif %}
