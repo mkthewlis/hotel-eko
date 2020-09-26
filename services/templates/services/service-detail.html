@@ -47,8 +47,10 @@
                             <div class="col-12 align-items-center">
                                 {% if service.is_stay %}
                                     <p class="standard-text">Number of nights:</p>
-                                {% elif service.is_relax or service.is_eat %}
+                                {% elif service.is_relax %}
                                     <p class="standard-text">Number of guests:</p>
+                                {% elif service.is_eat %}
+                                    <p class="standard-text">Number of menus:</p>
                                 {% endif %}
                                 <div class="form-group">
                                     <div class="input-group">

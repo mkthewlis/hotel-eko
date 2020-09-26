@@ -12,7 +12,7 @@
                 <p class="standard-text pl-4 pl-md-5"><i class="fas fa-long-arrow-alt-right"></i>  Number of guests: {{ item.quantity }}</p>
             {% elif item.service.is_eat == True %}
                 <p class="standard-text pl-4 pl-md-5"><i class="fas fa-long-arrow-alt-right"></i>  Menu Type: {{ item.service.name }}</p>
-                <p class="standard-text pl-4 pl-md-5"><i class="fas fa-long-arrow-alt-right"></i>  Number of guests: {{ item.quantity }}</p>
+                <p class="standard-text pl-4 pl-md-5"><i class="fas fa-long-arrow-alt-right"></i>  Number of menus: {{ item.quantity }}</p>
             {% endif %}
         {% endfor %}
     </div>

@@ -75,8 +75,10 @@
                             <p class="standard-text checkout-item-title blue-title"><strong>{{ item.service.name }}</strong></p>
                                 {% if item.service.is_stay %}
                                     <p class="standard-text">Number of nights: {{ item.quantity }}</p>
-                                {% elif item.service.is_relax or item.service.is_eat %}
+                                {% elif item.service.is_relax %}
                                     <p class="standard-text">Number of guests: {{ item.quantity }}</p>
+                                {% elif item.service.is_eat %}
+                                    <p class="standard-text">Number of menus: {{ item.quantity }}</p>
                                 {% endif %}
                             <p class="standard-text mb-3">Item total: {{ item.service.price | calc_subtotal:item.quantity | floatformat:2 }}kr</p>
                             <br>
