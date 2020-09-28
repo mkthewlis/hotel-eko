@@ -245,12 +245,13 @@ With this complete, I had a better understanding of how I could develop the data
 - The menu at the top of the page and footer are consistent in design and are responsive throughout the website. However, the contents of the menu changes depending on if a user is logged in or not.
 - The menu bar for users logged in features a 'Sign Out' link where the 'Sign Up' link usually is. When a user in session chooses to sign out, a toast message confirms this action and they are redirected back to the home page.
 - Users with items added to their Retreat notice an additional 'Checkout' link in their navbar, allowing them direct access to go straight to checkout.
+- The authentication pages (Sign In, Sign Up & Sign Out) were built with Django, and therefore include all Django's builtin features (including requesting an email for forgotten passwords.)
 - Extra authentication prevents users not authenticated from access certain pages, including the checkout pages and the 'My Details' and 'My Retreat' pages.
 - Each page features a 'scroll to top' arrow that becomes visible when the user has scrolled down the page.
 - The active page is highlighted in a light blue colour to show the user which page they are on.
 - All toast messages appear under the menu bar with the same fonts as used consistently in the theme. Depending on the type of message, the toast colour changes to reflect this message.
+- Across all 'Service' pages (Stay, Relax & Eat), toast messages appear to confirm the contents of a user's retreat when they add new service items. This message also includes two buttons: 'View My Retreat' and 'Go To Checkout' to prompt users to continue towards making a reservation.
 - An overlay with a spinner gif appears on all pages until the page has fully loaded.
-- 
 
 #### Home
 
@@ -287,16 +288,54 @@ With this complete, I had a better understanding of how I could develop the data
 #### Sign In/ Sign Up
 
 - These pages feature the same hero image as a background, reflecting the hero image on the home page.
-- The authentication pages were built with Django, and therefore include all Django's builtin features (including requesting an email for forgotten passwords.)
 - Ontop of the hero image, they feature the respective Sign In or Sign Up forms, prompting a user to access the parts of the website that require authentication.
 - These pages can only be accessed when signed out / signed in respectively, so authorised users cannot sign in again.
 - Once signed in, users are redirected to their 'My Account' overview page.
 
-#### Error pages: 404 and 500 pages
-
-- Built with the same structure, these pages have a large hero image with a textbox notifying the user of the issue on it.
-- They feature buttons to take users back to the home page and the hotel email address to get in touch.
-
 #### My Details
 
-- The message at the top of the page changes depending on if the user is new to the site, if they have items already in their retreat and if they have previous orders.
+- The message at the top of the page changes depending on if the user is new to the site, if they have items already in their retreat and if they have previous orders. Users who have items in their retreat see an overview of what they have selected and see a link to prompt them to go to the My Retreat page to make changes.
+- Below this setion, users can view and update their billing details. If users have made reservations in the past, a table with their booking history appears with a button to direct them to the initial 'booking success' page for that booking.
+- The final section is the 'Thoughts from the Owner' blog. Here the hotel owner sees a form to submit new blog posts to the page, along with an edit and delete button that trigger their respective modals. Regular users can view the posts but cannot add, edit or delete posts from the page.
+
+#### My Retreat
+
+- This page is similar to a shopping cart on e-commerce sites: here the user can see each item in their retreat.
+- All necessary information about the service item that a user has selected is included on this page, including price, quantity, subtotal and a thumbnail image that links them back to that page.
+- A 'checkout' button prompts the user to confirm the reservation through payment.
+- The page ends with three buttons linking users back to the services available: Stay, Relax & Eat.
+
+#### Checkout
+
+- If a user has signed in and added items to their retreat, the 'Checkout' link appears in the dropdown navigation menu.
+- Otherwise, users can navigate to this page from the 'My Retreat' page through the button prompt.
+- Here the user adds their details to an input form and can select whether to save the information to their profile for future reservations.
+- An order summary also includes the name, price, quantity and thumbail link of each item in their retreat. 
+- Below these features, a user can either select the 'Return to My Retreat' link or confirm the reservation with the 'Complete Order' button.
+
+#### Checkout Success
+
+- This page is accessed by completing the checkout process. However, it can also be accessed through the 'My Details' page when clicking on more information about a previous booking. In this case, an alert message confirms that the user is viewing a previous booking and that the confirmation email was sent at the time of payment.
+- The title is personalized with the user's name above the same hero image as the one featured on the authorization pages. 
+- Below a box contains a message from the hotel team explaining that they will be in touch to confirm a future arrival date. The order number and order details are also included below this message.
+
+#### Sign Out
+
+- This page features the same hero image as the Sign In/ Sign Up pages and can only be accessed by users that are not authenticated.
+- Ontop of the hero image, a box includes a prompt that confirms that a user really does want to leave the site, with a 'Sign Out' button to do so.
+- Once signed out, users are redirected back to the Home page.
+
+#### Error pages: 404 and 500 pages
+
+- Built with the same structure as the auth pages, these two pages have a large hero image with a textbox notifying the user of the issue they have come across.
+- As well as the error message, they also feature buttons to take users back to the home page and include the hotel's email address if users want to get in touch.
+
+### Features Left to Implement
+
+- As most hotel websites offer, a future feature I would like to add is the ability to select a date of stay. I decided not to include this feature at this point, as building the logic required to caclulate the number of available rooms, for instance, was beyond the scope of this project. However, this would be the first feature that I would consider working on to develop the idea further.
+- Another feature would be to include a chat app to allow users to get in touch with the reception team before their arrival. This would allow them to ask any questions or make specific requests that they may have.
+- Creating a members club would be a nice feature, giving points to users depending on how much they spend on each reservation. These points could be used at the hotel and would be a good way to encourage regular users to return to earn more points, as it would provide another incentive for them to do so.
+- I would also consider adding different levels of authentication, so the hotel owner and the reception team would have different levels of access to the features of the site.
+
+## Technologies Used 
+
