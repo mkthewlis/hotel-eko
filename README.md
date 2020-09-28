@@ -132,7 +132,7 @@ Design for tablet devices:
 
 ### Database structure
 
-As I built my project with Django, I used the built-in sqlite3 database during all development stages. When I then deployed the project to Heroku towards completion, I changed to a PostgresSQL database as that is provided by Heroku as an add-on for production. 
+As I built my project with Django, I used the built-in SQLite3 database during all development stages. When I then deployed the project to Heroku towards completion, I changed to a PostgresSQL database as that is provided by Heroku as an add-on for production. 
 I also relied on Django’s default user model for authorization, allowing me to meet one of the project requirements of separating features by anonymous users, users in session and superusers. Further information about this feature can be found here: [django.contrib.auth.models](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/). Finally, the structure of the Checkout and Services apps were inspired by my studies with Code Institute, namely the Boutique Ado project found here: [Boutique Ado]( https://github.com/mkthewlis/boutique-ado).
 
 #### Designing the Database
@@ -338,4 +338,73 @@ With this complete, I had a better understanding of how I could develop the data
 - I would also consider adding different levels of authentication, so the hotel owner and the reception team would have different levels of access to the features of the site.
 
 ## Technologies Used 
+
+### Languages, libraries, databases, frameworks, editors, version control and deployment
+
+- HTML5
+    * The language used to create add structure and content to the website.
+- CSS3 
+    * The language used to style the HTML5 elements according to the design wireframes and colour scheme.
+- JavaScript
+    * The languge used to make the app interactive.
+- [jQuery](https://jquery.com/)
+    * I used the jQuery library to help write the JavaScript code used in this project.
+- Python
+    * The programming languaged used to create the back-end function of the site.
+- [Django](https://www.djangoproject.com/)
+    * The Python web framework used to quickly take my design "from concept to completion".
+- [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+    * Django Crispy Forms allowed me to efficiently style the Django forms used throughout the site.
+- [SQLite](https://docs.djangoproject.com/en/3.1/ref/databases/#sqlite-notes)
+    * I used Django's built-in SQLite3 database during production and added data through Django's admin panel when authorised as a superuser.
+- [PostgresSQL](https://www.heroku.com/postgres)
+    * For deployment, I used a Postgres database offered through Heroku. I then added the same data again through Django's admin panel, with the same process that I had followed during production.
+- [Gunicorn](https://gunicorn.org/)
+    * The Python WSGI (Web Server Gateway Interface) HTTP Server used in deployment to Heroku.
+- [Psycopg2](https://pypi.org/project/psycopg2/)
+    * Psycopg2 was used to adapt Python to the PostgreSQL database.
+- [Bootstrap framework](https://getbootstrap.com/) 
+    * I used Bootstrap's grid container system as I wanted to design my project with a 'mobile first' approach. I also used Bootstrap's modal, toast, navbar, carousel and accordion features to add structure to my content. 
+- [Gitpod](https://www.gitpod.io/)
+    * I relied on Gitpod's dev environment to write the code for my project.
+- [Git Version Control](https://git-scm.com/)
+    * I used Git for Version Control to track and record changes to my code and refer back when needed.
+- [GitHub](https://github.com/)
+    * I used GitHub as my remote repository, to push to and store the commited changes to my app from Git.
+- [Heroku](https://www.heroku.com/)
+    * I used Heroku as a hosting platform to deploy the live version of my app. 
+
+### Additional tools used
+- [Stripe](https://stripe.com/en-se)
+    * Stripe was used to add the secure payment feature to the site.
+- [AWS S3 Bucket](https://aws.amazon.com/s3/)
+    * I used Amazon's S3 Bucket to store my static files, including local CSS & JavaScript code, favicon, gifs and image files.
+- [Figma](https://www.figma.com/) 
+    * Figma helped me design my project, by creating wireframes for desktop, tablet and mobile devices. 
+- [FontAwesome](https://fontawesome.com/) 
+    * I relied on free FontAwesome icons for the 'back to top' and bullet point arrows used throughout the design.
+- [TinyPNG](https://tinypng.com/) 
+    * I used TinyPNG to compress my image files to try to reduce the loading time for each page. 
+- [Google Fonts](https://fonts.google.com/)
+    * I used two complementary fonts from Google for my project: Poiret One and Open Sans. 
+- [Gauger Fonticon Generator](https://gauger.io/fonticon/) 
+    * This free Fonticon Generator allowed me to create a favicon with the font and colors used in my design.
+- [W3C Markup Validation Service](https://validator.w3.org/) 
+    * This was a great tool throughout the project to check whether there were any errors in my HTML and CSS code (as discussed in more detail in the Testing section).
+- [JSHint](https://jshint.com/) 
+    * This tool helped me test my JavaScript and jQuery code (explained in more detail in the Testing section). 
+- [PEP8 online](http://pep8online.com/)
+    * I used PEP8 to check that my Python code complied with formatting standards. 
+
+## Testing
+
+Please view the complete testing process in this separate document [here](https://github.com/mkthewlis/hotel-eko/blob/master/testing.md).
+
+## Deployment
+
+This project was developed using Gitpod as the chosen IDE and GitHub as a remote repository. 
+
+The deployed project can be viewed on the following link: [Hotel Eko: Live Website](https://hotel-eko.herokuapp.com/)
+
+The project's GitHub repository can be viewed with the following link: [Hotel Eko: GitHub Repository](https://github.com/mkthewlis/hotel-eko)
 
