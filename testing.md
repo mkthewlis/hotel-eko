@@ -1,0 +1,27 @@
+## Testing
+
+To return to the previous document, please click [here](https://github.com/mkthewlis/hotel-eko/blob/master/README.md).
+
+- [**Testing User Stories**](#Testing-User-Stories)
+    - [Project Stakeholders](#Project-stakeholders)
+    - [New users](#New-users)
+    - [Returning users](#Returning-users)
+    - [Tablet user](#Tablet-user)
+- [**Validators and Lintners**](#Validators-and-lintners)
+    - [HTML](#HTML)
+    - [CSS](#CSS)
+    - [JavaScript](#JavaScript)
+    - [Python](#Python)
+- [**Compatibility tests**](#Compatibility-tests)
+    - [Using different browsers](#Using-different-browsers)
+    - [Using different devices](#Using-different-devices)
+    - [Using different screen sizes](#Using-different-screen-sizes)
+- [**Manual tests**](#Manual-tests)
+    - [Menu bar](#Menu-bar)
+    - [Footer](#Footer)
+    - [Home](#Home)
+    - [Reviews](#Reviews)
+    - [Retreat](#Retreat)
+    - [Owner Blog](#Owner-blog)
+    - [Payment](#Payment)
+    - [404 page](#404-page)

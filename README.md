@@ -341,15 +341,15 @@ With this complete, I had a better understanding of how I could develop the data
 
 ### Languages, libraries, databases, frameworks, editors, version control and deployment
 
-- HTML5
+- [HTML5](https://www.w3schools.com/html/)
     * The language used to create add structure and content to the website.
-- CSS3 
+- [CSS3](https://www.w3schools.com/css/)
     * The language used to style the HTML5 elements according to the design wireframes and colour scheme.
-- JavaScript
+- [JavaScript](https://www.w3schools.com/js/DEFAULT.asp)
     * The languge used to make the app interactive.
 - [jQuery](https://jquery.com/)
     * I used the jQuery library to help write the JavaScript code used in this project.
-- Python
+- [Python](https://www.python.org/)
     * The programming languaged used to create the back-end function of the site.
 - [Django](https://www.djangoproject.com/)
     * The Python web framework used to quickly take my design "from concept to completion".
@@ -379,6 +379,8 @@ With this complete, I had a better understanding of how I could develop the data
     * Stripe was used to add the secure payment feature to the site.
 - [AWS S3 Bucket](https://aws.amazon.com/s3/)
     * I used Amazon's S3 Bucket to store my static files, including local CSS & JavaScript code, favicon, gifs and image files.
+- [Gmail](https://www.google.com/intl/sv/gmail/about/#)
+    * Google's free email service used to send confirmation emails to users who have made reservations.
 - [Figma](https://www.figma.com/) 
     * Figma helped me design my project, by creating wireframes for desktop, tablet and mobile devices. 
 - [FontAwesome](https://fontawesome.com/) 
@@ -408,3 +410,108 @@ The deployed project can be viewed on the following link: [Hotel Eko: Live Websi
 
 The project's GitHub repository can be viewed with the following link: [Hotel Eko: GitHub Repository](https://github.com/mkthewlis/hotel-eko)
 
+### Local deployment
+
+If you would like to work on this project further you can clone it to your local machine using the following steps:
+
+1. Begin by taking the following steps in preparation to clone the project.
+- Install the following in your IDE of choice:
+    * Git (for version controll)
+    * pip (package installer for Python; pip3 was used at the time of production: September 2020)
+    * Python3 (the programming language used to produce the backend logic of this project)
+- Make sure that you have created an account with [Stripe](https://stripe.com/en-se), as this is necessary to use the payment feature of the project.
+- Either use an existing [Gmail](https://www.google.com/intl/sv/gmail/about/#) account or create a new one, then sign in and navigate to the [Google Account Security](https://myaccount.google.com/security) page. From here, create two-step authentication by creating an App password for a Django app. Use these values when setting up your email username and password in the steps below.
+2. Scroll to the top of this repository and click on the "clone or download button".
+3. Decide whether you want to clone the project using HTTPS or an SSH key and do the following:
+    * HTTPS: click on the checklist icon to the right of the URL to copy it
+    * SSH key: first click on 'Use SSH' then click on the same icon as above
+4. Return to your IDE and open a new Terminal window.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Enter the following command and press 'Enter' to create your local clone:
+```
+git clone https://github.com/mkthewlis/hotel-eko.git
+```
+7. Install the required dependencies with the following command:
+```
+pip3 install -r requirements.txt
+```
+8. Create an env.py file and add the following, complete with your own values:
+```
+import os  
+os.environ["DEVELOPMENT"] = "True"    
+os.environ["SECRET_KEY"] = "<your value>"    
+os.environ["STRIPE_PUBLIC_KEY"] = "<your value>"    
+os.environ["STRIPE_SECRET_KEY"] = "<your value>"    
+os.environ["STRIPE_WH_SECRET"] = "<your value>" 
+os.environ["EMAIL_USER"] = "<your value>"
+os.environ["EMAIL_PASS"] = "<your value>"
+```
+(Note: Django Secret Keys can be generated with websites such as [miniwebtool](https://miniwebtool.com/django-secret-key-generator/).)
+
+9. Add your env.py file to .gitignore to make sure your database information is not viewable to others and to keep your values safe.
+10. To set up the Django SQLite3 tables required for this project, use the following commands:
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+11. With this complete, create a superuser for your project with the following command and follow the instructions in the Terminal (note: this will be necessary to add data to the hotel site once deployed locally):
+```
+python3 manage.py createsuperuser
+```
+12. Your cloned version is now ready to run locally with the following command:
+```
+python3 manage.py runserver
+```
+13. Once you run your project locally, add '/admin' to the locally deployed project's URL. From here, you can add the service categories and service items to the database. This information can be copied from each individual service's page of the deployed version of the project found on here: [Hotel Eko](https://hotel-eko.herokuapp.com/)
+You can find both the source of this information and learn more about the process with the following link: [Cloning a Repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+### Deploying this project to Heroku 
+
+To deploy the project to Heroku, use the following steps as a continuitation from local deployment outlined above:
+
+1. Begin by making sure that you meet the requirements outlined in Step 1 as above. In addition, create a [AWS S3 Bucket](https://aws.amazon.com/s3/), as this will be necessary to store static files for deployment.
+2. Create an account and sign in to Heroku. From here, created a new app with a unique name that had not already been taken (this project uses 'hotel-eko'). Set the region to the closest to you, eg. 'Europe'.
+3. To use the Postgres database for deployment, select 'Heroku Postgres' as a free add-on.
+4. With the app created, go to the 'Settings' tab and click on the 'Reveal Config Variables' button. From here, input the following values:
+
+| **Key** | **Value** |
+--- | ---
+ AWS_ACCESS_KEY_ID | your AWS bucket ID
+ AWS_SECRET_ACCESS_KEY | your AWS secret key
+ DATABASE_URL | your Heroku Postgres database url
+ EMAIL_HOST_PASS | your password to use your gmail account for emails
+ EMAIL_HOST_USER | your email address
+ SECRET_KEY | secret key used for your Django project
+ STRIPE_PUBLIC_KEY | obtained through your Stripe account
+ STRIPE_SECRET_KEY | obtained through your Stripe account
+ STRIPE_WH_SECRET | obtained through your Stripe account
+ USE_AWS | True
+
+3. In Gitpod, create a requirements.txt file with the following command:
+```
+pip3 freeze --local > requirements.txt
+```
+4. Create a Procfile with the following content within (making sure that 'Procfile' was written with a capitalized 'P'):
+```
+echo web: gunicorn hotel_eko.wsgi:application > Procfile
+```
+5. Commit these changes with the following:
+```
+git add .
+```
+```
+git commit -m "<your commit message here>"
+```
+6. With these files committed, I logged in to Heroku using this command and entered my details at the prompt:
+```
+heroku login -i
+```
+7. Once logged in, I linked my Heroku app created above as the remote repository with this command:
+```
+heroku git:remote -a hotel-eko
+```
+8. I then completed the deployment by pushing the projekt to Heroku:
+```
+git push heroku master
+``` 
+9. This completed the process of deploying the project to Heroku. Once deployed, I continued to push all changes made to the project to Heroku throughout the remaining development process.
