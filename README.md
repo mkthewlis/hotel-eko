@@ -35,6 +35,7 @@ If you would like to test the payment functionality of this project, please crea
     - [Deploying this project to Heroku](#Deploying-this-project-to-Heroku)
 - [**Credits**](#Credits)
     - [Content](#Content)
+    - [Code](#Code)
     - [Images](#Images)
     - [Acknowledgements](#Acknowledgements)
 
@@ -242,7 +243,7 @@ With this complete, I had a better understanding of how I could develop the data
 
 #### Consistent features across all pages
 
-- The menu at the top of the page and footer are consistent in design and are responsive throughout the website. However, the contents of the menu changes depending on if a user is logged in or not.
+- The menu at the top of the page and footer at the bottom are consistent in design and are responsive throughout the website. However, the contents of the menu changes depending on if a user is logged in or not.
 - The menu bar for users logged in features a 'Sign Out' link where the 'Sign Up' link usually is. When a user in session chooses to sign out, a toast message confirms this action and they are redirected back to the home page.
 - Users with items added to their Retreat notice an additional 'Checkout' link in their navbar, allowing them direct access to go straight to checkout.
 - The authentication pages (Sign In, Sign Up & Sign Out) were built with Django, and therefore include all Django's builtin features (including requesting an email for forgotten passwords.)
@@ -391,6 +392,8 @@ With this complete, I had a better understanding of how I could develop the data
     * I used two complementary fonts from Google for my project: Poiret One and Open Sans. 
 - [Gauger Fonticon Generator](https://gauger.io/fonticon/) 
     * This free Fonticon Generator allowed me to create a favicon with the font and colors used in my design.
+- [Animate On Scroll](https://michalsnik.github.io/aos/)
+    * The AOS feature was possible thanks to Michał Sajnóg's work, with his GitHub repository linked above
 - [W3C Markup Validation Service](https://validator.w3.org/) 
     * This was a great tool throughout the project to check whether there were any errors in my HTML and CSS code (as discussed in more detail in the Testing section).
 - [JSHint](https://jshint.com/) 
@@ -529,9 +532,15 @@ git push heroku master
 
 The content of this website is entirely fictional and written by myself.
 
+### Code
+
+This project was possible thanks to following the mini-project [Boutique Ado]( https://github.com/mkthewlis/boutique-ado), which was part of the course material while studying with *Code Institute*. 
+Although changes have been made to suit this project's aim and scope, the 'checkout', 'retreat','services' and 'profiles' apps were inspired by and draws upon the course material.
+
 ### Images
 
-The images are all from [Pexels](https://www.pexels.com/), which is an open source library of photos, images and videos.
+- The images are all from [Pexels](https://www.pexels.com/), which is an open source library of photos, images and videos.
+- The spinner gif was found on [Preloaders.net](https://icons8.com/preloaders/en/circular) and 'Black Hole' was selected for this project.
 
 ### Acknowledgements
 
@@ -539,6 +548,7 @@ Thank you to the following people who helped with support and inspiration:
 
 - My mentor [Seun Owonikoko](https://github.com/seunkoko). As with my earlier three projects, Seun was a great help and support throughout the development process of this project. I've learnt a huge amount working with her and she's now become a great friend! 
 - The fantastic support from the *Code Institute* tutors, always keen to drop hints when trying to debug code.
+- My classmate [James Gregory](https://github.com/asdfractal/) for his advice when restructuring my database and being great at answering general questions.
 - And as always, a big thank you to my family and friends for striking the perfect balance between giving me space and offering their support through long coding sessions.
 
-> **_NOTE:_** This project was created for educational purposes only and 'Hotel Eko' is a purely fictional hotel. 
+> **_NOTE:_** This project was created for educational purposes only as 'Hotel Eko' is a purely fictional hotel. 
