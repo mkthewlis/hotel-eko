@@ -97,3 +97,9 @@
       min-height: 850px;
     }
 }
+
+@media screen and (min-width: 1200px){
+    .about-hero-img{
+        min-height: 800px;
+    }
+}
