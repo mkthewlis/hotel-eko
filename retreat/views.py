@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, \
+    HttpResponse, get_object_or_404
 from django.contrib import messages
 
 from django.utils.safestring import mark_safe
@@ -37,7 +38,9 @@ def add_to_retreat(request, item_id):
                     f'Updated {service.name} quantity to {retreat[item_id]}'
                 )
             elif total_quantity >= 10:
-                messages.error(request, mark_safe(f"A maximum of ten {service.name} bookings are allowed per retreat. <a href='/retreat/'>View My Retreat</a>"))
+                messages.error(request, mark_safe(f"A maximum of ten {service.name} \
+                    bookings are allowed per retreat. \
+                    <a href='/retreat/'>View My Retreat</a>"))
         else:
             retreat[item_id] = quantity
             messages.success(request, f'Added {service.name} to your retreat.')
@@ -58,12 +61,15 @@ def update_retreat(request, item_id):
     if request.user.is_authenticated:
         if quantity > 0 and quantity <= 10:
             retreat[item_id] = quantity
-            messages.success(request, f'Updated {service.name} quantity to {retreat[item_id]}')
+            messages.success(request, f'Updated {service.name} quantity to \
+                {retreat[item_id]}')
         elif quantity >= 10:
-            messages.error(request, f'A maximum of ten {service.name} bookings are allowed per retreat.')
+            messages.error(request, f'A maximum of ten {service.name} \
+                bookings are allowed per retreat.')
         else:
             retreat.pop(item_id)
-            messages.success(request, f'Deleted {service.name} from your retreat')
+            messages.success(request, f'Deleted {service.name} from \
+                your retreat')
 
         request.session['retreat'] = retreat
         return redirect(reverse('view_retreat'))
@@ -79,7 +85,8 @@ def remove_from_retreat(request, item_id):
 
         if request.user.is_authenticated:
             retreat.pop(item_id)
-            messages.success(request, f'Deleted {service.name} from your retreat')
+            messages.success(request, f'Deleted {service.name} \
+                from your retreat')
 
             request.session['retreat'] = retreat
             return HttpResponse(status=200)

@@ -44,12 +44,12 @@
                 </div>
 
                 <!--Delete item modal-->
-                <a class="small-btn" data-toggle="modal" data-target="#deleteModal">Delete</a>
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <a class="small-btn" data-toggle="modal" data-target="#deleteModal{{ item.item_id }}">Delete</a>
+                <div class="modal fade" id="deleteModal{{ item.item_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ item.item_id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title standard-title" id="deleteModalLabel">Delete {{ item.service.name }}</h5>
+                                <h5 class="modal-title standard-title" id="deleteModalLabel{{ item.item_id }}">Delete {{ item.service.name }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -58,8 +58,8 @@
                                 <p class="standard-text text-center">Are you sure you want to delete this item from your Retreat?</p>
                             </div>
                             <div class="modal-footer">
-                                <a type="button" class="small-btn" data-dismiss="modal">Close</a>
-                                <a type="button" class="small-btn remove-item" id="remove_{{ item.item_id }}">Delete</a>
+                                <button type="button" class="small-btn" data-dismiss="modal">Close</button>
+                                <button type="button" class="small-btn remove-item" id="remove_{{ item.item_id }}">Delete</button>
                             </div>
                         </div>
                     </div>
