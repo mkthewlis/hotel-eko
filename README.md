@@ -61,20 +61,18 @@ The following User Stories helped me to create a design that would satisfy the n
 
 #### Project stakeholders
 
--	As the hotel owner, I want to create a website that inspires users to make a reservation at the hotel. Ideally, I want to encourage them to book as many features as possible – as well as a hotel room – which will increase our revenue by keeping our guests at the hotel. 
--	I would like the website design to emphasize our brand aims: to offer peace and calm, by drawing on the natural beauty around the hotel.
--	To offer guests a platform to share reviews about their previous stays and view my welcoming thoughts prior to their arrival.
+- As the hotel owner, I want to create a website that inspires users to make a reservation at the hotel. Ideally, I want to encourage them to book as many features as possible – as well as a hotel room – which will increase our revenue by keeping our guests at the hotel. 
+- I would like the website design to emphasize our brand aims: to offer peace and calm, by drawing on the natural beauty around the hotel.
+- To offer guests a platform to share reviews about their previous stays and view my welcoming thoughts prior to their arrival.
 
 #### New users
 
 - I am a user who relies on apps for all aspects of my life, from finding recipes, measuring the number of steps that I walk and monitoring the temperature of my home. Although I enjoy everything that technology gives me, I now want to learn more about this hotel in order to make a reservation to escape my apps for a weekend break!
-
 - I have been recommended this hotel by a friend who stayed here last year. I would now like to find out more about what the hotel offers in order to decide whether I should make a reservation.
 
 #### Returning users
 
 - I have made a reservation and would like to confirm my booking number in order to share it with my friend who is joining me for the hotel stay. 
- 
 - My partner and I have stayed at the hotel before. We would now like to make another reservation with the same account that I used last time. 
 
 #### Tablet user
