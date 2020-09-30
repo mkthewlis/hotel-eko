@@ -46,7 +46,8 @@ def new_review(request):
         if request.method == 'POST':
             review_form = ReviewForm(request.POST)
             if review_form.is_valid():
-                if len(request.POST["review_content"]) <= 0 or len(request.POST["service"]) <= 0:
+                if len(request.POST["review_content"]) <= 0 or len(
+                        request.POST["service"]) <= 0:
                     messages.error(
                         request, "You haven't completed the review form! \
                                     Please add content and try again.")

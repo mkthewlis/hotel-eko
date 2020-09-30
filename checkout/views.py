@@ -37,6 +37,11 @@ def cache_checkout_data(request):
 
 @login_required
 def checkout(request):
+    """
+    Handles checkout process with Stripe and allows users to
+    save their details to their profile. Created following CI
+    videos with changes for this project.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -140,7 +145,8 @@ def checkout(request):
 def checkout_success(request, order_number):
     """
     Handles successful checkouts and saves user's
-    address to their profile
+    address to their profile, if selected. Created following
+    CI video lessons. 
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)

@@ -2,7 +2,6 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
-from django.conf import settings
 
 from django_countries.fields import CountryField
 
@@ -53,7 +52,8 @@ class Order(models.Model):
         """
         Update grand total each time a line item is added.
         """
-        self.total_price = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.total_price = self.lineitems.aggregate(Sum('lineitem_total'))[
+            'lineitem_total__sum'] or 0
         self.save()
 
     def save(self, *args, **kwargs):
@@ -70,10 +70,15 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    service = models.ForeignKey(Service, null=False, blank=False, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineitems')
+    service = models.ForeignKey(Service, null=False, blank=False,
+                                on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=8, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(max_digits=8, decimal_places=2,
+                                         null=False,
+                                         blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
