@@ -1,3 +1,6 @@
+/*-------------------------------------------------------- Template container*/
+
+/* Necessary to keep footer at bottom of all templates, even on smaller screens */
 #container {
     min-height: 100%;
     position: relative;
