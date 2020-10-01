@@ -86,7 +86,7 @@ table thead {
         padding: 5% !important;
     }   
 }
-@media screen and (min-width: 767px) and (max-width: 1036px){
+@media screen and (min-width: 767px) and (max-width: 1600px){
     #profile-form {
         padding: 5% !important;
     }
