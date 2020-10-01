@@ -29,13 +29,19 @@ To return to the previous document, please click [here](https://github.com/mkthe
 
 ### Defensive Design
 
-As I used a 'mobile first' approach to developing this project, I continued to test the responsiveness of the design throughout development process. As I added each new feature to the project, I used Google Chrome's Dev Tools to view the result on different screen sizes. 
-Doing so helped me make minor adjustments to the margins, padding and font sizes of different aspects of the project, as well as checking that new features were compatible on all screens.
-However, as well as checking the design, I also continued to test the functionality of each feature as it was added to the project. Doing so revealed issues as they arose, with the significant ones outlined below in detail in the 'Compatibility Tests' and 'Manual Tests' sections.
+As I used a 'mobile first' approach to developing this project, I continued to test the responsiveness of the design from the onset. As I added each new feature to the project, I used Google Chrome's Dev Tools to view the result on different screen sizes. Doing so helped me make minor adjustments to the margins, padding and font sizes of different aspects of the project, as well as checking that new features were compatible on all screens.
+Similarly, I also continued to test the functionality of each feature as it was added to the project to notice issues as they arose. This process helped me locate where issues where coming from and was a useful way to keep track of the development process as each feature made the project more complex.
 
-There were three significant changes made as a result of testing the project throughout development:
+My approach to debugging often included using print statements to check where an issue was coming from. This helped me determine which part of a function was not working and allowed me to tackle the issue from there.
+
+Below is an example from the early stages of developing the ```edit review``` function in the 'About' app's views.py file:
+
+![Edit review debugging example](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/testing_screenshots/edit_review.png)
+
+Although I came across several smaller issues during this process (including incorrect syntax and missing commas, fullstops or sets of {}s), three significant problems and solutions are outlined below:
+
 1. Originally I had not planned to have a 'Categories' model within my 'Services' app. Instead, I had planned to only have a 'Services' model and that I would distinguish between the service types based on the Boolean value of three fields ('is_stay', 'is_relax' and 'is_eat'). I did so thinking that I would be able to categorise service items based on this. However, I quickly realised that this was not an efficient way of producing this project as I kept repeating the same function in my views for each type. I therefore decided to restructure my database, creating a 'Categories' model that helped determine what each service item was.
-2. The second significant change that came as a resulting of testing my project early on was that I realised that I was repeating myself unneccessarily with my 'Services' templates. I had created three templates, with one for each service type, and each service had it's own set of functions within the views.py file. As with above, I realised I was repeating myself and that this was not complying to maintaining DRY code. I therefore restructured my templates to have one main 'services.html' template and one 'service-detail.html' template, with small includes that would differ depending on the service's category. This drastically improved the structure of my code and saved me time repeating myself.
+2. The second significant change that came as a resulting of testing my project early on was that I realised that I was repeating myself unneccessarily with my 'Services' templates. I had created three templates, with one for each service type, and each service had it's own set of functions within the views.py file. As with above, I realised I was repeating myself and that this was not complying to maintaining DRY code. I therefore restructured my templates to have one main 'services.html' template and one 'service-detail.html' template, with small 'includes' templates that would differ depending on the service's category. This drastically improved the structure of my code and saved me time repeating myself.
 3. As my project began to grow, I made a few important changes to its design to make it more sleek and coherent. I decided to change the color of the footer, I changed the secondary font to a more modern variety and began to use a subtle off-white color for all boxes, modals and forms. This gave the project a much cleaner finish compared with the original design created on Figma. The results can be viewed in the screenshots below.
 
 ### Testing User Stories
@@ -222,6 +228,22 @@ These tests led to the following errors and solutions:
 - All users who have signed in can view the owner's blog posts that are displayed with the newest at the top. However, only the superuser can add, edit and delete previous entries.
 
 #### My Retreat
-- Users who have not 
+- Users who have not yet added any items to their retreat see a message with prompts to the different service pages. These links direct the user to the right pages.
+- Users with items in their retreat can edit the quantity of an item by clicking on the 'edit' modal. However, if they try to go above ten items of the same type they are warned with an error message. 
+- Users can also delete items from their retreat. The confirmation message works as planned to notify the user that it has been done.
+- Clicking on the thumbail image of an item directs the user to that service item's page.
 
+#### Checkout
+- Users have to complete the form to confirm their reservation.
+- Incorrect card details result in an error message at the bottom of the form.
+- Users who have made previous bookings and have saved their details in the past will notice that they are already filled in. Otherwise, users can select the 'save details' checkbox to successfully save their details.
+- When a booking is complete, users are automatically redirected to the confirmation page.
 
+#### Checkout Success 
+- Users can see all of their booking details and the button linking to their profile works as it should.
+
+#### Authorisation pages
+- As these were created with [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html), I tested that they worked as they should. This included that emails were sent if a user registers an account, has forgotten their password or tries to register with a username that already exists. All of these features worked as they should.
+- Trying to access the Sign In/ Sign Up pages when already in session does not work, just as accessing the Sign Out page when not authorised returns the user to the home page.
+
+To return to the overview of the Hotel Eko project, please click [here](https://github.com/mkthewlis/hotel-eko/blob/master/README.md).
