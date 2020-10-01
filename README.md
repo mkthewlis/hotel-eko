@@ -532,8 +532,10 @@ The content of this website is entirely fictional and written by myself.
 
 ### Code
 
-This project was possible thanks to following the mini-project [Boutique Ado]( https://github.com/mkthewlis/boutique-ado), which was part of the course material while studying with *Code Institute*. 
-Although changes have been made to suit this project's aim and scope, the 'checkout', 'retreat','services' and 'profiles' apps were inspired by and draws upon the course material.
+- This project was possible thanks to following the mini-project [Boutique Ado]( https://github.com/mkthewlis/boutique-ado), which was part of the course material while studying with *Code Institute*. Although changes have been made to suit this project's aim and scope, the 'checkout', 'retreat', 'services' and 'profiles' apps were inspired by and draws upon the course material.
+- The loading spinner overlay was possible by combining this tutorial https://smallenvelop.com/display-loading-icon-page-loads-completely/ with the JavaScript onload function: https://www.w3schools.com/jsref/event_onload.asp.
+- Responsive thumbnail images were possible thanks to Hussain Akram's answer on this Stack Overflow post: https://stackoverflow.com/questions/27460065/how-to-make-same-sized-thumbnails/27460341
+- The owner blog functionality was inspired by this Django tutorial: https://djangocentral.com/building-a-blog-application-with-django/
 
 ### Images
 
