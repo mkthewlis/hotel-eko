@@ -33,6 +33,11 @@ As I used a 'mobile first' approach to developing this project, I continued to t
 Doing so helped me make minor adjustments to the margins, padding and font sizes of different aspects of the project, as well as checking that new features were compatible on all screens.
 However, as well as checking the design, I also continued to test the functionality of each feature as it was added to the project. Doing so revealed issues as they arose, with the significant ones outlined below in detail in the 'Compatibility Tests' and 'Manual Tests' sections.
 
+There were three significant changes made as a result of testing the project throughout development:
+1. Originally I had not planned to have a 'Categories' model within my 'Services' app. Instead, I had planned to only have a 'Services' model and that I would distinguish between the service types based on the Boolean value of three fields ('is_stay', 'is_relax' and 'is_eat'). I did so thinking that I would be able to categorise service items based on this. However, I quickly realised that this was not an efficient way of producing this project as I kept repeating the same function in my views for each type. I therefore decided to restructure my database, creating a 'Categories' model that helped determine what each service item was.
+2. The second significant change that came as a resulting of testing my project early on was that I realised that I was repeating myself unneccessarily with my 'Services' templates. I had created three templates, with one for each service type, and each service had it's own set of functions within the views.py file. As with above, I realised I was repeating myself and that this was not complying to maintaining DRY code. I therefore restructured my templates to have one main 'services.html' template and one 'service-detail.html' template, with small includes that would differ depending on the service's category. This drastically improved the structure of my code and saved me time repeating myself.
+3. As my project began to grow, I made a few important changes to its design to make it more sleek and coherent. I decided to change the color of the footer, I changed the secondary font to a more modern variety and began to use a subtle off-white color for all boxes, modals and forms. This gave the project a much cleaner finish compared with the original design created on Figma. The results can be viewed in the screenshots below.
+
 ### Testing User Stories
 
 The following tests were conducted to test the experience of each user outlined earlier in the 'User Stories' section.
@@ -123,10 +128,10 @@ The screenshots below highlight a selection of testing different aspects of the 
 #### HTML
 My HTML code was passed through the [W3C Markup Validation Service](https://validator.w3.org/).
 Doing so brought up a few errors throughout the project related to using Django templates. These included:
-1. An issue in using '{}' brackets as part of the source for <a> elements and <img> elements. However, this syntax is necessary to access static files and urls and was therefore ignored.
+1. An issue in using '{}' brackets as part of the source for ```<a>``` elements and ```<img>``` elements. However, this syntax is necessary to access static files and urls and was therefore ignored.
 2. All html templates led to errors that the doctype and language were not declared. As the templates were based on the base.html template where these were addressed, this issue was also ignored.
 3. Some Bootstrap Modals on the site returned errors with their 'aria-labelledby' attribute. This error was related to using templating language to specify the item the modal was related to, so this error was also ultimately ignored.
-4. Further regarding Bootstrap Modals, the validator showed that some buttons had been listed as <a> elements with no 'href' attribute. This issue was rectified by changing the element to a <button> element as it should be. Doing so led to no further errors.
+4. Further regarding Bootstrap Modals, the validator showed that some buttons had been listed as ```<a>``` elements with no 'href' attribute. This issue was rectified by changing the element to a ```<button>``` element as it should be. Doing so led to no further errors.
 5. The base.html template returned a few errors shown on the screenshot below. However, these errors are related to using templating language in the html document and were therefore ignored as the validator was raising incorrect errors.
 
 ![base.html validator errors](https://github.com/mkthewlis/hotel-eko/blob/master/documentation/testing_screenshots/base_template_validator.png)
@@ -173,6 +178,13 @@ These tests led to the following errors and solutions:
 
 ### Manual tests
 
+#### Features consistent throughout the project
+- The spinner overlay works on each template and covers the entire screen except the menu bar. It does not interfere with credit cards that require additional authentication.
+- The return to top arrow scrolls smoothly to the top of the page regardless of which screensize the user has.
+- Users who have not signed in are unable to access pages for authenticated users, and manually changing the url does not lead to any internal pages.
+- Typing in the wrong url leads to a 'Page not found' error, where a user is met with a message explaining what has happened, the hotel email address for contact and a button to return to the Home page.
+- Internal server errors lead to the 500.html message with a button to return home.
+
 #### Menu bar
 - *Logo* - clicking on the logo takes a user back to the home page.
 - *Home* - as above, clicking on this link returns the user to the home page.
@@ -186,7 +198,6 @@ These tests led to the following errors and solutions:
 #### Footer
 - Clicking on the TripAdvisor or Instagram icons directs the user to the respective websites on new tabs.
 - The 'About', ' Stay', 'Relax' and 'Eat' links take the user to the correct service pages.
-- The return to top arrow scrolls smoothly to the top of the page.
 
 #### Home
 - The 'Learn More' button takes users to the 'About' page.
@@ -194,8 +205,23 @@ These tests led to the following errors and solutions:
 
 #### About
 - Users not in session can follow the prompts to 'Sign In' or 'Sign Up' to add a review, with the links working correctly to direct the users on. 
-- Users who have added a review can add reviews through the the 'Add a Review' form. The form returns errors if the fields are blank or if there is not enough content.
-- Users can only access the 'edit' and 'delete' modal buttons for the reviews that they have added (except the superuser, who can access all user reviews).
+- Users who have signed in can add reviews through the the 'Add a Review' form. The form returns errors if the fields are blank or if there is not enough content.
+- Users can only access the 'edit' and 'delete' modal buttons for the reviews that they have added (except the superuser, who can access all interactions with every user review).
+- The links to the 'Stay', 'Relax' and 'Eat' direct users to the correct pages.
 
+#### Service pages (Stay, Relax & Eat respectively)
+- Each service page only shows items related to the relevant category. 
+- The 'Learn More' button within each item card directly users to the correct service details page.
+- Users not in session are prompted to Sign In or Sign Up to add items to their retreat.
+- Users who have signed in can add the item directly from the service card, with a toast message that confirms this action. The toast box also features two buttons that link the user to their retreat or the checkout page respectively. However, users are limited to adding ten items of each to their retreat, with an error message explaining this.
+
+#### My Details
+- Different messages appear at the top of the page depending on if the user has no reservation history, if they have items in their retreat and if they are a returning user with previous bookings.
+- The 'Account details' form updates when a user submits it.
+- If a user has previous reservations, a table appears with a button that links back to the order overview. If they have not yet made a booking, they are again prompted to do so here.
+- All users who have signed in can view the owner's blog posts that are displayed with the newest at the top. However, only the superuser can add, edit and delete previous entries.
+
+#### My Retreat
+- Users who have not 
 
 

@@ -545,7 +545,7 @@ Although changes have been made to suit this project's aim and scope, the 'check
 Thank you to the following people who helped with support and inspiration:
 
 - My mentor [Seun Owonikoko](https://github.com/seunkoko). As with my earlier three projects, Seun was a great help and support throughout the development process of this project. I've learnt a huge amount working with her and she's now become a great friend! 
-- The fantastic support from the *Code Institute* tutors, always keen to drop hints when trying to debug code.
+- The fantastic support from the *Code Institute* tutors, always willing to drop hints when trying to debug code.
 - My classmate [James Gregory](https://github.com/asdfractal/) for his advice when restructuring my database and being great at answering general questions.
 - And as always, a big thank you to my family and friends for striking the perfect balance between giving me space and offering their support through long coding sessions.
 
