@@ -18,14 +18,17 @@ To return to the previous document, please click [here](https://github.com/mkthe
     - [Using different browsers](#Using-different-browsers)
     - [Using different devices](#Using-different-devices)
 - [**Manual tests**](#Manual-tests)
-    - [Menu bar](#Menu-bar)
+    - [Features consistent throughout the project](#Features-consistent-throughout-the-project)
+    - [Menu](#Menu)
     - [Footer](#Footer)
     - [Home](#Home)
-    - [Reviews](#Reviews)
-    - [Retreat](#Retreat)
-    - [Owner Blog](#Owner-blog)
-    - [Payment](#Payment)
-    - [404 page](#404-page)
+    - [About](#About)
+    - [Service Pages](#Service-pages)
+    - [My Details](#My-details)
+    - [My Retreat](#My-retreat)
+    - [Checkout](#Checkout)
+    - [Checkout success](#Checkout-success)
+    - [Authorisation pages](#Authorisation-pages)
 
 ### Defensive Design
 
@@ -191,7 +194,7 @@ These tests led to the following errors and solutions:
 - Typing in the wrong url leads to a 'Page not found' error, where a user is met with a message explaining what has happened, the hotel email address for contact and a button to return to the Home page.
 - Internal server errors lead to the 500.html message with a button to return home.
 
-#### Menu bar
+#### Menu
 - *Logo* - clicking on the logo takes a user back to the home page.
 - *Home* - as above, clicking on this link returns the user to the home page.
 - *About* - directs a user to the About page.
@@ -215,7 +218,7 @@ These tests led to the following errors and solutions:
 - Users can only access the 'edit' and 'delete' modal buttons for the reviews that they have added (except the superuser, who can access all interactions with every user review).
 - The links to the 'Stay', 'Relax' and 'Eat' direct users to the correct pages.
 
-#### Service pages (Stay, Relax & Eat respectively)
+#### Service pages
 - Each service page only shows items related to the relevant category. 
 - The 'Learn More' button within each item card directly users to the correct service details page.
 - Users not in session are prompted to Sign In or Sign Up to add items to their retreat.
