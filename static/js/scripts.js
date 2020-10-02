@@ -3,7 +3,7 @@ $('.toast').toast('show');
 
 // Adds spinner overlay when page loads
 function customSpinner() {
-    $('.spinner-overlay').fadeOut(2000);
+    $('.spinner-overlay').fadeOut(1500);
 }
 
 $(document).ready(function(){

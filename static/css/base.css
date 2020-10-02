@@ -35,7 +35,7 @@
     text-align: center;
     border-radius: 0px;
     position: fixed;
-    bottom: 30px;
+    bottom: 220px;
     right: 30px;
     transition: background-color .3s;
     opacity: 0;
@@ -429,6 +429,9 @@
     }
     .form-box {
         padding: 0 10px 0 10px;
+    }
+    #scroll-top-button {
+        bottom: 30px;
     }
 }
 
